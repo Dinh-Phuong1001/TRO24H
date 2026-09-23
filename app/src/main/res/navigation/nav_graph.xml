@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.unistay.android.presentation.home.HomeFragment"
+        android:label="Trang chủ" />
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.unistay.android.presentation.search.SearchFragment"
+        android:label="Tìm phòng" />
+
+    <fragment
+        android:id="@+id/nav_create"
+        android:name="com.unistay.android.presentation.create.CreateRoomFragment"
+        android:label="Đăng tin" />
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.unistay.android.presentation.chat.ChatListFragment"
+        android:label="Tin nhắn" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.unistay.android.presentation.profile.ProfileFragment"
+        android:label="Tài khoản" />
+
+</navigation>

@@ -1,0 +1,189 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Tài liệu đặc tả Tro24H</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 13pt; line-height: 1.5; }
+        h1 { text-align: center; color: #0000FF; }
+        h2 { color: #000080; border-bottom: 1px solid #000; padding-bottom: 2px; }
+        h3 { color: #333333; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        th, td { border: 1px solid #000000; padding: 8px; text-align: left; }
+        th { background-color: #E6E6E6; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>TÀI LIỆU ĐẶC TẢ DỰ ÁN TRO24H</h1>
+    
+    <h2>1. GIỚI THIỆU TỔNG QUAN</h2>
+    <ul>
+        <li><b>Tên dự án:</b> Tro24H (Ứng dụng tìm kiếm và quản lý phòng trọ).</li>
+        <li><b>Mục tiêu:</b> Xây dựng nền tảng kết nối trực tiếp giữa sinh viên có nhu cầu thuê trọ và các chủ nhà trọ, giảm thiểu rủi ro qua trung gian.</li>
+        <li><b>Nền tảng:</b> Android (Client) và C# ASP.NET Core (Backend Server).</li>
+    </ul>
+
+    <h2>2. PHÂN QUYỀN NGƯỜI DÙNG</h2>
+    <table>
+        <tr>
+            <th width="30%">Vai trò (Role)</th>
+            <th width="70%">Mô tả quyền hạn</th>
+        </tr>
+        <tr>
+            <td><b>Sinh viên (Student)</b></td>
+            <td>Tìm kiếm phòng, xem chi tiết, lưu phòng yêu thích, xem lịch sử, nhắn tin với chủ trọ, quản lý hồ sơ cá nhân.</td>
+        </tr>
+        <tr>
+            <td><b>Chủ trọ (Landlord)</b></td>
+            <td>Có mọi quyền của Sinh viên. Có quyền đăng tải phòng trọ mới, chỉnh sửa thông tin phòng, quản lý danh sách phòng của mình, phản hồi tin nhắn từ người thuê.</td>
+        </tr>
+    </table>
+
+    <h2>3. DANH SÁCH CHỨC NĂNG (FUNCTIONAL REQUIREMENTS)</h2>
+    <table>
+        <tr>
+            <th>Module</th>
+            <th>Tên chức năng</th>
+            <th>Mô tả chi tiết</th>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Xác thực (Auth)</b></td>
+            <td>Đăng ký tài khoản</td>
+            <td>Nhập thông tin (Tên, Email, SĐT, Mật khẩu, Vai trò). Xác thực Email qua OTP (có đếm ngược 60s chống spam).</td>
+        </tr>
+        <tr>
+            <td>Đăng nhập</td>
+            <td>Xác thực bằng Email và Mật khẩu. Trả về Token để giữ phiên đăng nhập.</td>
+        </tr>
+        <tr>
+            <td>Quản lý tài khoản</td>
+            <td>Chỉnh sửa thông tin cá nhân (Tên, SĐT, Đổi mật khẩu), Đăng xuất.</td>
+        </tr>
+        <tr>
+            <td rowspan="4"><b>Quản lý Phòng trọ</b></td>
+            <td>Đăng phòng mới</td>
+            <td>(Chủ trọ) Nhập Tên phòng, Giá, Diện tích, Địa chỉ, Gần trường ĐH, Tiện ích, Mô tả và Tải ảnh lên.</td>
+        </tr>
+        <tr>
+            <td>Danh sách phòng</td>
+            <td>Hiển thị danh sách phòng trọ ngoài trang chủ, phân trang, ưu tiên phòng mới.</td>
+        </tr>
+        <tr>
+            <td>Tìm kiếm & Lọc</td>
+            <td>Tìm theo từ khóa (địa chỉ, trường học). Lọc theo khoảng giá (Min-Max) và khu vực.</td>
+        </tr>
+        <tr>
+            <td>Chi tiết phòng</td>
+            <td>Hiển thị toàn bộ thông tin phòng, thông tin liên hệ chủ nhà, khoảng cách đến trường.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Tương tác</b></td>
+            <td>Lưu phòng (Saved)</td>
+            <td>Sinh viên có thể đánh dấu trái tim để lưu phòng vào danh sách yêu thích.</td>
+        </tr>
+        <tr>
+            <td>Lịch sử xem</td>
+            <td>Tự động lưu lại các phòng đã bấm vào xem gần nhất.</td>
+        </tr>
+        <tr>
+            <td>Nhắn tin (Chat)</td>
+            <td>Nhắn tin trực tiếp giữa người thuê và chủ nhà (Real-time). Hiển thị số lượng tin chưa đọc.</td>
+        </tr>
+    </table>
+
+    <h2>4. YÊU CẦU PHI CHỨC NĂNG</h2>
+    <table>
+        <tr>
+            <th width="30%">Tiêu chí</th>
+            <th width="70%">Yêu cầu</th>
+        </tr>
+        <tr>
+            <td><b>Bảo mật (Security)</b></td>
+            <td>Mật khẩu băm SHA-256. Xác thực OTP email để chống tài khoản ảo.</td>
+        </tr>
+        <tr>
+            <td><b>Hiệu năng (Performance)</b></td>
+            <td>API phản hồi dưới 500ms. Hình ảnh được nén và tải bất đồng bộ để tránh giật lag UI (Sử dụng thư viện Coil).</td>
+        </tr>
+        <tr>
+            <td><b>Giao diện (UI/UX)</b></td>
+            <td>Tông màu chủ đạo Xanh dương (Blue). Thiết kế Material Design, tương thích nhiều kích thước màn hình Android.</td>
+        </tr>
+    </table>
+
+    <h2>5. THIẾT KẾ CƠ SỞ DỮ LIỆU (DATABASE SCHEMA)</h2>
+    
+    <h3>Bảng: Users (Người dùng)</h3>
+    <table>
+        <tr>
+            <th>Tên trường (Field)</th>
+            <th>Kiểu dữ liệu (Type)</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr><td>UserId</td><td>String (GUID)</td><td>Khóa chính (PK)</td></tr>
+        <tr><td>FullName</td><td>String</td><td>Họ và tên</td></tr>
+        <tr><td>Email</td><td>String</td><td>Email đăng nhập (Unique)</td></tr>
+        <tr><td>PasswordHash</td><td>String</td><td>Mật khẩu đã mã hóa</td></tr>
+        <tr><td>PhoneNumber</td><td>String</td><td>Số điện thoại liên hệ</td></tr>
+        <tr><td>Role</td><td>String</td><td>"student" hoặc "landlord"</td></tr>
+    </table>
+
+    <h3>Bảng: Rooms (Phòng trọ)</h3>
+    <table>
+        <tr>
+            <th>Tên trường (Field)</th>
+            <th>Kiểu dữ liệu (Type)</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr><td>RoomId</td><td>String (GUID)</td><td>Khóa chính (PK)</td></tr>
+        <tr><td>Title</td><td>String</td><td>Tiêu đề bài đăng</td></tr>
+        <tr><td>Address</td><td>String</td><td>Địa chỉ phòng trọ</td></tr>
+        <tr><td>BasePrice</td><td>Decimal</td><td>Giá thuê (VNĐ)</td></tr>
+        <tr><td>TargetUniversity</td><td>String</td><td>Gần trường Đại học nào</td></tr>
+        <tr><td>DistanceToCampusKm</td><td>Decimal</td><td>Khoảng cách đến trường (Km)</td></tr>
+        <tr><td>Status</td><td>String</td><td>Trạng thái (Còn phòng/Đã thuê)</td></tr>
+        <tr><td>UserId</td><td>String</td><td>Khóa ngoại (FK) -> Users (Chủ trọ)</td></tr>
+    </table>
+
+    <h3>Bảng: SavedRooms & ViewHistory</h3>
+    <table>
+        <tr>
+            <th>Tên trường (Field)</th>
+            <th>Kiểu dữ liệu (Type)</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr><td>Id</td><td>Int</td><td>Khóa chính (PK), Tự tăng</td></tr>
+        <tr><td>UserId</td><td>String</td><td>Khóa ngoại (FK) -> Users</td></tr>
+        <tr><td>RoomId</td><td>String</td><td>Khóa ngoại (FK) -> Rooms</td></tr>
+        <tr><td>Timestamp</td><td>Long</td><td>Thời gian lưu / xem</td></tr>
+    </table>
+
+    <h3>Bảng: ChatSessions (Phiên nhắn tin)</h3>
+    <table>
+        <tr>
+            <th>Tên trường (Field)</th>
+            <th>Kiểu dữ liệu (Type)</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr><td>SessionId</td><td>String</td><td>Khóa chính (PK)</td></tr>
+        <tr><td>StudentId</td><td>String</td><td>Người thuê (FK -> Users)</td></tr>
+        <tr><td>LandlordId</td><td>String</td><td>Chủ nhà (FK -> Users)</td></tr>
+        <tr><td>LastMessage</td><td>String</td><td>Tin nhắn cuối cùng</td></tr>
+        <tr><td>LastUpdated</td><td>Long</td><td>Thời gian cập nhật</td></tr>
+    </table>
+
+    <h3>Bảng: Messages (Tin nhắn chi tiết)</h3>
+    <table>
+        <tr>
+            <th>Tên trường (Field)</th>
+            <th>Kiểu dữ liệu (Type)</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr><td>MessageId</td><td>String</td><td>Khóa chính (PK)</td></tr>
+        <tr><td>SessionId</td><td>String</td><td>Thuộc phiên chat nào (FK -> ChatSessions)</td></tr>
+        <tr><td>SenderId</td><td>String</td><td>Người gửi (FK -> Users)</td></tr>
+        <tr><td>Content</td><td>String</td><td>Nội dung tin nhắn</td></tr>
+        <tr><td>Timestamp</td><td>Long</td><td>Thời gian gửi</td></tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,754 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Đặc Tả Cơ Sở Dữ Liệu Dự Án Tro24H</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13pt;
+            line-height: 1.5;
+            color: #000000;
+            margin: 2cm;
+        }
+        h1 {
+            text-align: center;
+            font-size: 20pt;
+            font-weight: bold;
+            color: #1A365D;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 14pt;
+            font-style: italic;
+            color: #4A5568;
+            margin-bottom: 25px;
+        }
+        h2 {
+            font-size: 15pt;
+            font-weight: bold;
+            color: #2B6CB0;
+            border-bottom: 2px solid #2B6CB0;
+            padding-bottom: 4px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 13.5pt;
+            font-weight: bold;
+            color: #2D3748;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p, li {
+            text-align: justify;
+            margin-bottom: 6px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #EDF2F7;
+            color: #1A202C;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #718096;
+            padding: 8px 6px;
+            font-size: 12pt;
+        }
+        td {
+            border: 1px solid #CBD5E0;
+            padding: 7px 8px;
+            font-size: 12pt;
+            vertical-align: middle;
+        }
+        .text-center { text-align: center; }
+        .text-bold { font-weight: bold; }
+        .pk { color: #C53030; font-weight: bold; }
+        .fk { color: #2B6CB0; font-weight: bold; }
+        .note-box {
+            background-color: #EBF8FF;
+            border-left: 4px solid #3182CE;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-size: 12pt;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BÁO CÁO THIẾT KẾ CƠ SỞ DỮ LIỆU</h1>
+    <div class="subtitle">Hệ Thống Ứng Dụng Tìm Kiếm & Quản Lý Phòng Trọ - TRO24H</div>
+
+    <div class="note-box">
+        <b>THÔNG TIN HỆ QUẢN TRỊ CƠ SỞ DỮ LIỆU:</b><br/>
+        • <b>Hệ quản trị CSDL:</b> Microsoft SQL Server 2019/2022.<br/>
+        • <b>Tên Database:</b> <code>UniStayDB_New</code><br/>
+        • <b>Công nghệ Backend:</b> ASP.NET Core 8 Web API, Entity Framework Core (Code-First).<br/>
+        • <b>Ứng dụng Client:</b> Android Native (Kotlin), kết nối RESTful API.
+    </div>
+
+    <h2>1. DANH SÁCH CÁC BẢNG TRONG HỆ THỐNG</h2>
+    <p>Cơ sở dữ liệu của hệ thống Tro24H bao gồm <b>6 bảng dữ liệu nghiệp vụ chính</b> và <b>1 bảng hệ thống</b>, được liệt kê trong bảng dưới đây:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="8%">STT</th>
+                <th width="22%">Tên Bảng (Table)</th>
+                <th width="35%">Ý Nghĩa Nghiệp Vụ</th>
+                <th width="15%">Khóa Chính (PK)</th>
+                <th width="20%">Bảng Tham Chiếu (FK)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b class="text-bold">Users</b></td>
+                <td>Lưu thông tin tài khoản người dùng (Sinh viên, Chủ nhà trọ).</td>
+                <td class="text-center pk">UserId</td>
+                <td class="text-center">-</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b class="text-bold">Rooms</b></td>
+                <td>Lưu danh sách bài đăng thông tin phòng trọ.</td>
+                <td class="text-center pk">RoomId</td>
+                <td class="text-center fk">Users</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b class="text-bold">SavedRooms</b></td>
+                <td>Lưu danh sách các phòng trọ yêu thích của sinh viên.</td>
+                <td class="text-center pk">SaveId</td>
+                <td class="text-center fk">Users, Rooms</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b class="text-bold">ViewHistories</b></td>
+                <td>Lưu lịch sử các phòng trọ mà người dùng đã bấm xem.</td>
+                <td class="text-center pk">HistoryId</td>
+                <td class="text-center fk">Users, Rooms</td>
+            </tr>
+            <tr>
+                <td class="text-center">5</td>
+                <td><b class="text-bold">ChatSessions</b></td>
+                <td>Lưu phiên hội thoại chat trực tuyến giữa sinh viên và chủ trọ.</td>
+                <td class="text-center pk">SessionId</td>
+                <td class="text-center fk">Users, Rooms</td>
+            </tr>
+            <tr>
+                <td class="text-center">6</td>
+                <td><b class="text-bold">Messages</b></td>
+                <td>Lưu chi tiết từng tin nhắn văn bản trong mỗi cuộc trò chuyện.</td>
+                <td class="text-center pk">MessageId</td>
+                <td class="text-center fk">ChatSessions, Users</td>
+            </tr>
+            <tr>
+                <td class="text-center">7</td>
+                <td><b class="text-bold">__EFMigrationsHistory</b></td>
+                <td>Bảng hệ thống do Entity Framework Core tự động quản lý lịch sử migration.</td>
+                <td class="text-center pk">MigrationId</td>
+                <td class="text-center">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. BẢNG MỐI QUAN HỆ KHÓA NGOẠI (FOREIGN KEYS)</h2>
+    <p>Các mối quan hệ liên kết và toàn vẹn dữ liệu được thiết lập chặt chẽ giữa các bảng:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Bảng Nguồn (Bên Nhiều)</th>
+                <th width="20%">Cột Khóa Ngoại (FK)</th>
+                <th width="25%">Bảng Đích (Bên 1)</th>
+                <th width="15%">Cột Tham Chiếu (PK)</th>
+                <th width="15%">Quan Hệ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rooms</td>
+                <td><code>UserId</code></td>
+                <td>Users</td>
+                <td><code>UserId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>SavedRooms</td>
+                <td><code>UserId</code></td>
+                <td>Users</td>
+                <td><code>UserId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>SavedRooms</td>
+                <td><code>RoomId</code></td>
+                <td>Rooms</td>
+                <td><code>RoomId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>ViewHistories</td>
+                <td><code>UserId</code></td>
+                <td>Users</td>
+                <td><code>UserId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>ViewHistories</td>
+                <td><code>RoomId</code></td>
+                <td>Rooms</td>
+                <td><code>RoomId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>ChatSessions</td>
+                <td><code>StudentId</code></td>
+                <td>Users</td>
+                <td><code>UserId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>ChatSessions</td>
+                <td><code>LandlordId</code></td>
+                <td>Users</td>
+                <td><code>UserId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>ChatSessions</td>
+                <td><code>RoomId</code></td>
+                <td>Rooms</td>
+                <td><code>RoomId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>Messages</td>
+                <td><code>SessionId</code></td>
+                <td>ChatSessions</td>
+                <td><code>SessionId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+            <tr>
+                <td>Messages</td>
+                <td><code>SenderId</code></td>
+                <td>Users</td>
+                <td><code>UserId</code></td>
+                <td class="text-center">1 - N</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. ĐẶC TẢ CHI TIẾT TỪNG BẢNG DỮ LIỆU</h2>
+
+    <h3>3.1. Bảng <code>Users</code> (Tài khoản người dùng)</h3>
+    <p>Lưu trữ tài khoản cá nhân, mật khẩu mã hóa BCrypt, thông tin liên hệ và vai trò người dùng trong hệ thống.</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="6%">STT</th>
+                <th width="20%">Tên Thuộc Tính</th>
+                <th width="20%">Kiểu Dữ Liệu</th>
+                <th width="14%">Khóa / Ràng Buộc</th>
+                <th width="12%">Cho Phép Null</th>
+                <th width="28%">Mô Tả Ý Nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b>UserId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center pk">PK</td>
+                <td class="text-center">NO</td>
+                <td>Mã định danh duy nhất của người dùng (GUID hoặc User Code).</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b>FullName</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Họ và tên đầy đủ của người dùng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b>Email</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Địa chỉ Email dùng để đăng nhập và khôi phục mật khẩu.</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b>PasswordHash</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Chuỗi mật khẩu đã được mã hóa bảo mật BCrypt.</td>
+            </tr>
+            <tr>
+                <td class="text-center">5</td>
+                <td><b>PhoneNumber</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">YES</td>
+                <td>Số điện thoại liên hệ của người dùng / chủ trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">6</td>
+                <td><b>AvatarUrl</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">YES</td>
+                <td>Đường dẫn URL ảnh đại diện trên máy chủ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">7</td>
+                <td><b>Role</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Vai trò: <code>student</code> (sinh viên) hoặc <code>landlord</code> (chủ trọ).</td>
+            </tr>
+            <tr>
+                <td class="text-center">8</td>
+                <td><b>CreatedAt</b></td>
+                <td>bigint</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Thời điểm tạo tài khoản (dạng Unix Epoch Timestamp mili-giây).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.2. Bảng <code>Rooms</code> (Thông tin bài đăng phòng trọ)</h3>
+    <p>Lưu trữ đầy đủ các thông tin phòng trọ, mức giá thuê, khoảng cách đến trường, loại phòng, số lượng người ở và liên kết với chủ trọ.</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="5%">STT</th>
+                <th width="22%">Tên Thuộc Tính</th>
+                <th width="18%">Kiểu Dữ Liệu</th>
+                <th width="14%">Khóa / Ràng Buộc</th>
+                <th width="11%">Cho Phép Null</th>
+                <th width="30%">Mô Tả Ý Nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b>RoomId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center pk">PK</td>
+                <td class="text-center">NO</td>
+                <td>Mã định danh duy nhất của bài đăng phòng trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b>RoomCode</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Mã hiển thị của phòng (ví dụ: PH-001, PH-002...).</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b>Title</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Tiêu đề bài đăng phòng trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b>Address</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Địa chỉ chi tiết (số nhà, ngõ ngách, tên đường, quận huyện).</td>
+            </tr>
+            <tr>
+                <td class="text-center">5</td>
+                <td><b>BasePrice</b></td>
+                <td>decimal(18,2)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Giá thuê phòng niêm yết (VNĐ/tháng).</td>
+            </tr>
+            <tr>
+                <td class="text-center">6</td>
+                <td><b>TargetUniversity</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Trường đại học trọng điểm gần phòng trọ (ĐHBK, ĐHQG, ĐHTL...).</td>
+            </tr>
+            <tr>
+                <td class="text-center">7</td>
+                <td><b>DistanceToCampusKm</b></td>
+                <td>decimal(18,2)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Khoảng cách từ phòng đến cổng trường đại học (km).</td>
+            </tr>
+            <tr>
+                <td class="text-center">8</td>
+                <td><b>Status</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Trạng thái phòng: <code>Còn phòng</code> hoặc <code>Đã thuê</code>.</td>
+            </tr>
+            <tr>
+                <td class="text-center">9</td>
+                <td><b>MaxOccupancy</b></td>
+                <td>int</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Số lượng người ở tối đa cho phép.</td>
+            </tr>
+            <tr>
+                <td class="text-center">10</td>
+                <td><b>CurrentOccupancy</b></td>
+                <td>int</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Số lượng người hiện tại đang ở trong phòng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">11</td>
+                <td><b>ImageUrl</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">YES</td>
+                <td>Đường dẫn hình ảnh thực tế của phòng trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">12</td>
+                <td><b>Amenities</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">YES</td>
+                <td>Danh sách tiện ích (Wifi, Điều hòa, Nóng lạnh, Máy giặt, Khép kín...).</td>
+            </tr>
+            <tr>
+                <td class="text-center">13</td>
+                <td><b>ContactPhone</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">YES</td>
+                <td>Số điện thoại liên hệ trực tiếp của chủ phòng trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">14</td>
+                <td><b>UserId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Users)</td>
+                <td class="text-center">NO</td>
+                <td>Mã chủ trọ (User) người đã đăng bài viết này.</td>
+            </tr>
+            <tr>
+                <td class="text-center">15</td>
+                <td><b>Description</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">YES</td>
+                <td>Mô tả chi tiết về phòng, nội quy, giờ giấc, tiền điện nước.</td>
+            </tr>
+            <tr>
+                <td class="text-center">16</td>
+                <td><b>RoomType</b></td>
+                <td>nvarchar(100)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Loại phòng (Phòng trọ khép kín, Chung cư mini, Ký túc xá...).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.3. Bảng <code>SavedRooms</code> (Lưu phòng trọ yêu thích)</h3>
+    <p>Lưu danh sách liên kết các phòng mà người dùng đánh dấu quan tâm / lưu lại để xem sau.</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="6%">STT</th>
+                <th width="20%">Tên Thuộc Tính</th>
+                <th width="20%">Kiểu Dữ Liệu</th>
+                <th width="15%">Khóa / Ràng Buộc</th>
+                <th width="12%">Cho Phép Null</th>
+                <th width="27%">Mô Tả Ý Nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b>SaveId</b></td>
+                <td>int</td>
+                <td class="text-center pk">PK (Identity)</td>
+                <td class="text-center">NO</td>
+                <td>Mã khóa tự tăng của bản ghi lưu phòng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b>UserId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Users)</td>
+                <td class="text-center">NO</td>
+                <td>Mã người dùng bấm lưu phòng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b>RoomId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Rooms)</td>
+                <td class="text-center">NO</td>
+                <td>Mã phòng trọ được người dùng lưu lại.</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b>SavedAt</b></td>
+                <td>bigint</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Thời điểm lưu phòng (Unix Timestamp).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.4. Bảng <code>ViewHistories</code> (Lịch sử xem phòng)</h3>
+    <p>Theo dõi hành vi xem phòng của người dùng để phục vụ tính năng "Phòng đã xem gần đây".</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="6%">STT</th>
+                <th width="20%">Tên Thuộc Tính</th>
+                <th width="20%">Kiểu Dữ Liệu</th>
+                <th width="15%">Khóa / Ràng Buộc</th>
+                <th width="12%">Cho Phép Null</th>
+                <th width="27%">Mô Tả Ý Nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b>HistoryId</b></td>
+                <td>int</td>
+                <td class="text-center pk">PK (Identity)</td>
+                <td class="text-center">NO</td>
+                <td>Mã khóa tự tăng của bản ghi lịch sử xem phòng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b>UserId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Users)</td>
+                <td class="text-center">NO</td>
+                <td>Mã người dùng đã click xem chi tiết phòng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b>RoomId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Rooms)</td>
+                <td class="text-center">NO</td>
+                <td>Mã phòng trọ được bấm vào xem.</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b>ViewedAt</b></td>
+                <td>bigint</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Thời điểm xem phòng gần nhất (Unix Timestamp).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.5. Bảng <code>ChatSessions</code> (Cuộc trò chuyện / Hội thoại)</h3>
+    <p>Quản lý một phiên nhắn tin trao đổi giữa một Sinh viên và một Chủ trọ về một căn phòng cụ thể.</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="6%">STT</th>
+                <th width="22%">Tên Thuộc Tính</th>
+                <th width="18%">Kiểu Dữ Liệu</th>
+                <th width="15%">Khóa / Ràng Buộc</th>
+                <th width="11%">Cho Phép Null</th>
+                <th width="28%">Mô Tả Ý Nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b>SessionId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center pk">PK</td>
+                <td class="text-center">NO</td>
+                <td>Mã định danh duy nhất của cuộc hội thoại.</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b>StudentId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Users)</td>
+                <td class="text-center">NO</td>
+                <td>Mã sinh viên / người thuê phòng.</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b>LandlordId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Users)</td>
+                <td class="text-center">NO</td>
+                <td>Mã chủ trọ tiếp nhận trao đổi.</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b>RoomId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Rooms)</td>
+                <td class="text-center">NO</td>
+                <td>Mã căn phòng trọ đang được trao đổi.</td>
+            </tr>
+            <tr>
+                <td class="text-center">5</td>
+                <td><b>RoomTitle</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Tiêu đề phòng trọ (cache nhanh cho UI).</td>
+            </tr>
+            <tr>
+                <td class="text-center">6</td>
+                <td><b>LandlordName</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Họ tên chủ trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">7</td>
+                <td><b>LandlordPhone</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Số điện thoại của chủ trọ.</td>
+            </tr>
+            <tr>
+                <td class="text-center">8</td>
+                <td><b>LastMessage</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Nội dung tin nhắn gửi gần đây nhất.</td>
+            </tr>
+            <tr>
+                <td class="text-center">9</td>
+                <td><b>LastUpdated</b></td>
+                <td>bigint</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Thời điểm cập nhật tin nhắn gần nhất.</td>
+            </tr>
+            <tr>
+                <td class="text-center">10</td>
+                <td><b>StudentUnreadCount</b></td>
+                <td>int</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Số lượng tin nhắn sinh viên chưa đọc.</td>
+            </tr>
+            <tr>
+                <td class="text-center">11</td>
+                <td><b>LandlordUnreadCount</b></td>
+                <td>int</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Số lượng tin nhắn chủ trọ chưa đọc.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.6. Bảng <code>Messages</code> (Tin nhắn chi tiết)</h3>
+    <p>Lưu trữ nội dung và mốc thời gian của từng tin nhắn thuộc về một cuộc trò chuyện.</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="6%">STT</th>
+                <th width="20%">Tên Thuộc Tính</th>
+                <th width="20%">Kiểu Dữ Liệu</th>
+                <th width="15%">Khóa / Ràng Buộc</th>
+                <th width="12%">Cho Phép Null</th>
+                <th width="27%">Mô Tả Ý Nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td><b>MessageId</b></td>
+                <td>int</td>
+                <td class="text-center pk">PK (Identity)</td>
+                <td class="text-center">NO</td>
+                <td>Mã tự tăng của từng tin nhắn.</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td><b>SessionId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (ChatSessions)</td>
+                <td class="text-center">NO</td>
+                <td>Mã cuộc hội thoại chứa tin nhắn này.</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td><b>SenderId</b></td>
+                <td>nvarchar(450)</td>
+                <td class="text-center fk">FK (Users)</td>
+                <td class="text-center">NO</td>
+                <td>Mã người dùng gửi tin nhắn (Sinh viên hoặc Chủ trọ).</td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td><b>Content</b></td>
+                <td>nvarchar(MAX)</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Nội dung văn bản của tin nhắn trao đổi.</td>
+            </tr>
+            <tr>
+                <td class="text-center">5</td>
+                <td><b>Timestamp</b></td>
+                <td>bigint</td>
+                <td class="text-center">-</td>
+                <td class="text-center">NO</td>
+                <td>Thời điểm tin nhắn được gửi (Unix Timestamp).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. KẾT LUẬN & ĐÁNH GIÁ THIẾT KẾ CSDL</h2>
+    <ul>
+        <li><b>Chuẩn hóa cơ sở dữ liệu (Database Normalization):</b> Hệ thống đạt chuẩn 3NF (Third Normal Form), tách biệt rõ ràng giữa thực thể Người dùng (Users), Phòng trọ (Rooms) và Hội thoại (Chat), giúp hạn chế tối đa trùng lặp dữ liệu và dị thường khi thêm, xóa, sửa.</li>
+        <li><b>Toàn vẹn tham chiếu (Referential Integrity):</b> Tất cả các mối quan hệ giữa các bảng đều được bảo vệ bởi ràng buộc Khóa chính (PK) và Khóa ngoại (FK) trực tiếp trên Microsoft SQL Server.</li>
+        <li><b>Khả năng mở rộng (Scalability):</b> Dễ dàng mở rộng thêm các tính năng như Đánh giá/Bình luận (Reviews), Hợp đồng thuê phòng (Contracts), hoặc Thanh toán trực tuyến (Payments) trong các giai đoạn phát triển tiếp theo.</li>
+    </ul>
+
+</body>
+</html>

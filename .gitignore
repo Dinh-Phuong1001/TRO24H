@@ -1,0 +1,35 @@
+# Android Studio & Gradle
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.aab
+
+# .NET & Visual Studio
+bin/
+obj/
+/UniStay.Api/bin/
+/UniStay.Api/obj/
+/publish/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Temporary & Archive files
+deploy.zip
+*.log
+~$*.docx
+~$*.doc
+~$*.pptx
+*.tmp
+
+# System
+Thumbs.db

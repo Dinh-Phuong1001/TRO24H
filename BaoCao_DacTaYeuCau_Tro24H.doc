@@ -1,0 +1,603 @@
+﻿<html xmlns:o='urn:schemas-microsoft-com:office:office'
+      xmlns:w='urn:schemas-microsoft-com:office:word'
+      xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>TÃ€I LIá»†U Äáº¶C Táº¢ YÃŠU Cáº¦U PHáº¦N Má»€M - Dá»° ÃN TRO24H</title>
+<style>
+    body {
+        font-family: 'Times New Roman', serif;
+        font-size: 13pt;
+        line-height: 1.35;
+        color: #000;
+        margin: 20mm 20mm 20mm 25mm;
+    }
+    h1 {
+        font-size: 17pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #003366;
+        text-align: center;
+        margin-top: 18pt;
+        margin-bottom: 8pt;
+    }
+    h2 {
+        font-size: 14pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #004080;
+        margin-top: 14pt;
+        margin-bottom: 6pt;
+        border-bottom: 1.5pt solid #004080;
+        padding-bottom: 3pt;
+    }
+    h3 {
+        font-size: 13pt;
+        font-weight: bold;
+        color: #1a5276;
+        margin-top: 10pt;
+        margin-bottom: 4pt;
+    }
+    h4 {
+        font-size: 12pt;
+        font-weight: bold;
+        font-style: italic;
+        color: #2c3e50;
+        margin-top: 8pt;
+        margin-bottom: 3pt;
+    }
+    p {
+        margin-top: 3pt;
+        margin-bottom: 3pt;
+        text-align: justify;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 8pt;
+        margin-bottom: 10pt;
+    }
+    th, td {
+        border: 1pt solid #000;
+        padding: 5pt 7pt;
+        vertical-align: top;
+        font-size: 11pt;
+    }
+    th {
+        background-color: #eaf2f8;
+        font-weight: bold;
+        text-align: center;
+        color: #003366;
+    }
+    .text-center { text-align: center; }
+    .text-bold { font-weight: bold; }
+    .table-subhead {
+        background-color: #f2f4f4;
+        font-weight: bold;
+    }
+    .cover-title {
+        font-size: 22pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #002b49;
+        text-align: center;
+        margin-top: 40pt;
+        margin-bottom: 15pt;
+    }
+    .cover-subtitle {
+        font-size: 15pt;
+        text-transform: uppercase;
+        color: #4a6572;
+        text-align: center;
+        margin-bottom: 35pt;
+        letter-spacing: 1pt;
+    }
+    .toc-item {
+        margin: 3pt 0;
+        font-size: 11.5pt;
+    }
+</style>
+</head>
+<body>
+
+<div style="text-align: center;">
+    <p style="font-size: 12pt; font-weight: bold; margin: 0;">Bá»˜ GIÃO Dá»¤C VÃ€ ÄÃ€O Táº O</p>
+    <p style="font-size: 12pt; font-weight: bold; margin: 0;">TRÆ¯á»œNG Äáº I Há»ŒC GIAO THÃ”NG Váº¬N Táº¢I</p>
+    <p style="font-size: 11pt; margin: 0;">KHOA CÃ”NG NGHá»† THÃ”NG TIN</p>
+    <hr style="width: 30%; border: 0.5pt solid #000; margin: 5pt auto 30pt auto;">
+    
+    <div style="height: 40pt;"></div>
+    <div class="cover-title">TÃ€I LIá»†U Äáº¶C Táº¢ YÃŠU Cáº¦U PHáº¦N Má»€M</div>
+    <div class="cover-subtitle">Dá»° ÃN: Há»† THá»NG QUáº¢N LÃ VÃ€ TÃŒM KIáº¾M PHÃ’NG TRá»Œ SINH VIÃŠN (TRO24H / UNISTAY)</div>
+    <div style="height: 60pt;"></div>
+
+    <table style="width: 75%; margin: 0 auto; border: none;">
+        <tr style="border: none;"><td style="border: none; font-size: 12pt; font-weight: bold; width: 45%;">Há»c pháº§n:</td><td style="border: none; font-size: 12pt;">Triá»ƒn khai dá»± Ã¡n pháº§n má»m</td></tr>
+        <tr style="border: none;"><td style="border: none; font-size: 12pt; font-weight: bold;">Há»‡ thá»‘ng pháº§n má»m:</td><td style="border: none; font-size: 12pt;">á»¨ng dá»¥ng di Ä‘á»™ng TRO24H (Android Native) & Backend Cloud</td></tr>
+        <tr style="border: none;"><td style="border: none; font-size: 12pt; font-weight: bold;">Sinh viÃªn thá»±c hiá»‡n:</td><td style="border: none; font-size: 12pt;">NhÃ³m phÃ¡t triá»ƒn dá»± Ã¡n TRO24H</td></tr>
+        <tr style="border: none;"><td style="border: none; font-size: 12pt; font-weight: bold;">Giáº£ng viÃªn hÆ°á»›ng dáº«n:</td><td style="border: none; font-size: 12pt;">Bá»™ mÃ´n CÃ´ng nghá»‡ pháº§n má»m</td></tr>
+        <tr style="border: none;"><td style="border: none; font-size: 12pt; font-weight: bold;">PhiÃªn báº£n tÃ i liá»‡u:</td><td style="border: none; font-size: 12pt;">1.0 (ChÃ­nh thá»©c)</td></tr>
+    </table>
+
+    <div style="height: 80pt;"></div>
+    <p style="font-size: 12pt; font-style: italic;">HÃ  Ná»™i, NÄƒm 2026</p>
+</div>
+
+<br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+<h1>Má»¤C Lá»¤C</h1>
+<div class="toc-item"><b>I. THÃ”NG TIN CHUNG</b></div>
+<div class="toc-item" style="padding-left: 20pt;">1. CÄƒn cá»© xÃ¢y dá»±ng tÃ i liá»‡u</div>
+<div class="toc-item" style="padding-left: 20pt;">2. TÃªn dá»± Ã¡n / pháº§n má»m</div>
+<div class="toc-item" style="padding-left: 20pt;">3. ÄÆ¡n vá»‹ chá»§ trÃ¬ vÃ  Ä‘á»‘i tÆ°á»£ng hÆ°á»Ÿng lá»£i</div>
+<div class="toc-item" style="padding-left: 20pt;">4. Pháº¡m vi vÃ  Ä‘á»‹a bÃ n triá»ƒn khai</div>
+<div class="toc-item" style="padding-left: 20pt;">5. Thá»i gian thá»±c hiá»‡n vÃ  lá»™ trÃ¬nh</div>
+<div class="toc-item"><b>II. Sá»° Cáº¦N THIáº¾T Äáº¦U TÆ¯ & Má»¤C TIÃŠU</b></div>
+<div class="toc-item" style="padding-left: 20pt;">1. Thá»±c tráº¡ng vÃ  khÃ³ khÄƒn trong tÃ¬m kiáº¿m phÃ²ng trá» sinh viÃªn</div>
+<div class="toc-item" style="padding-left: 20pt;">2. Má»¥c tiÃªu tá»•ng quÃ¡t vÃ  má»¥c tiÃªu cá»¥ thá»ƒ cá»§a há»‡ thá»‘ng TRO24H</div>
+<div class="toc-item"><b>III. NGUYÃŠN Táº®C THIáº¾T Káº¾ & TIÃŠU CHUáº¨N CÃ”NG NGHá»†</b></div>
+<div class="toc-item" style="padding-left: 20pt;">1. CÃ¡c nguyÃªn táº¯c thiáº¿t káº¿ cá»‘t lÃµi</div>
+<div class="toc-item" style="padding-left: 20pt;">2. TiÃªu chuáº©n á»©ng dá»¥ng CÃ´ng nghá»‡ ThÃ´ng tin</div>
+<div class="toc-item" style="padding-left: 20pt;">3. Kiáº¿n trÃºc há»‡ thá»‘ng tá»•ng thá»ƒ (Clean Architecture & Multi-Tier)</div>
+<div class="toc-item"><b>IV. QUY TRÃŒNH NGHIá»†P Vá»¤ (DIá»„N Táº¢ Báº°NG Lá»œI)</b></div>
+<div class="toc-item" style="padding-left: 20pt;">1. Quy trÃ¬nh XÃ¡c thá»±c & Quáº£n lÃ½ phiÃªn ngÆ°á»i dÃ¹ng</div>
+<div class="toc-item" style="padding-left: 20pt;">2. Quy trÃ¬nh TÃ¬m kiáº¿m, KhÃ¡m phÃ¡ & Lá»c phÃ²ng trá»</div>
+<div class="toc-item" style="padding-left: 20pt;">3. Quy trÃ¬nh ÄÄƒng tin & Quáº£n lÃ½ phÃ²ng trá» cá»§a Chá»§ trá»</div>
+<div class="toc-item" style="padding-left: 20pt;">4. Quy trÃ¬nh Trao Ä‘á»•i trá»±c tiáº¿p (Nháº¯n tin / Chat giá»¯a KhÃ¡ch vÃ  Chá»§ trá»)</div>
+<div class="toc-item" style="padding-left: 20pt;">5. Quy trÃ¬nh Quáº£n lÃ½ phÃ²ng yÃªu thÃ­ch & Lá»‹ch sá»­ xem phÃ²ng</div>
+<div class="toc-item"><b>V. CHI TIáº¾T YÃŠU Cáº¦U CHá»¨C NÄ‚NG & PHI CHá»¨C NÄ‚NG</b></div>
+<div class="toc-item" style="padding-left: 20pt;">1. Báº£ng thá»© tá»± Æ°u tiÃªn cÃ¡c chá»©c nÄƒng pháº§n má»m</div>
+<div class="toc-item" style="padding-left: 20pt;">2. Danh sÃ¡ch tÃ¡c nhÃ¢n (Actor) tham gia há»‡ thá»‘ng</div>
+<div class="toc-item" style="padding-left: 20pt;">3. Báº£ng chuyá»ƒn Ä‘á»•i chá»©c nÄƒng sang TrÆ°á»ng há»£p sá»­ dá»¥ng (Use Cases)</div>
+<div class="toc-item" style="padding-left: 20pt;">4. Báº£ng diá»…n táº£ chi tiáº¿t ká»‹ch báº£n cÃ¡c Use Case</div>
+<div class="toc-item" style="padding-left: 20pt;">5. CÃ¡c yÃªu cáº§u phi chá»©c nÄƒng (Hiá»‡u nÄƒng, CÆ¡ sá»Ÿ dá»¯ liá»‡u, Báº£o máº­t, Giao diá»‡n)</div>
+<div class="toc-item"><b>VI. Káº¾ HOáº CH TRIá»‚N KHAI, BÃ€N GIAO & Váº¬N HÃ€NH Báº¢O TRÃŒ</b></div>
+<div class="toc-item" style="padding-left: 20pt;">1. MÃ´i trÆ°á»ng triá»ƒn khai pháº§n má»m (Dev, Test, Production Cloud)</div>
+<div class="toc-item" style="padding-left: 20pt;">2. Káº¿ hoáº¡ch triá»ƒn khai mÃ£ nguá»“n theo Sprint (Scrum Framework)</div>
+<div class="toc-item" style="padding-left: 20pt;">3. Káº¿ hoáº¡ch nghiá»‡m thu, bÃ n giao vÃ  báº£o trÃ¬ pháº§n má»m</div>
+<div class="toc-item"><b>VII. BIá»†N PHÃP AN TOÃ€N Váº¬N HÃ€NH & Báº¢O Máº¬T THÃ”NG TIN</b></div>
+
+<br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+<h2>I. THÃ”NG TIN CHUNG</h2>
+
+<h3>1. CÄƒn cá»© xÃ¢y dá»±ng tÃ i liá»‡u</h3>
+<p>TÃ i liá»‡u Ä‘áº·c táº£ yÃªu cáº§u pháº§n má»m Ä‘Æ°á»£c xÃ¢y dá»±ng cÄƒn cá»© vÃ o:</p>
+<p>- Äá» cÆ°Æ¡ng mÃ´n há»c <i>Triá»ƒn khai dá»± Ã¡n pháº§n má»m</i> thuá»™c chÆ°Æ¡ng trÃ¬nh Ä‘Ã o táº¡o Ká»¹ sÆ° CÃ´ng nghá»‡ thÃ´ng tin.</p>
+<p>- TÃ i liá»‡u hÆ°á»›ng dáº«n quy trÃ¬nh triá»ƒn khai pháº§n má»m (MÃ£ bÃ i giáº£ng: <i>ST-01. Quy trÃ¬nh triá»ƒn khai dá»± Ã¡n pháº§n má»m</i>) vÃ  cÃ¡c biá»ƒu máº«u chuáº©n (Template - TÃ i liá»‡u Ä‘áº·c táº£ yÃªu cáº§u-01.docx).</p>
+<p>- Nhu cáº§u thá»±c táº¿ cá»§a sinh viÃªn cÃ¡c trÆ°á»ng Ä‘áº¡i há»c táº¡i khu vá»±c HÃ  Ná»™i (UTC, FTU, BKHN, VNU,...) vá» viá»‡c tÃ¬m kiáº¿m phÃ²ng trá» minh báº¡ch, tiá»‡n lá»£i, khÃ´ng qua mÃ´i giá»›i lá»«a Ä‘áº£o.</p>
+<p>- Nhu cáº§u cá»§a cÃ¡c chá»§ nhÃ  trá», ban quáº£n lÃ½ chung cÆ° mini trong viá»‡c sá»‘ hÃ³a bÃ i Ä‘Äƒng, cáº­p nháº­t nhanh chÃ³ng tÃ¬nh tráº¡ng chá»— trá»‘ng vÃ  tÆ°Æ¡ng tÃ¡c vá»›i khÃ¡ch thuÃª.</p>
+
+<h3>2. TÃªn dá»± Ã¡n / pháº§n má»m</h3>
+<p>- <b>TÃªn chÃ­nh thá»©c:</b> Há»‡ thá»‘ng á»©ng dá»¥ng di Ä‘á»™ng tÃ¬m kiáº¿m vÃ  quáº£n lÃ½ phÃ²ng trá» sinh viÃªn TRO24H (UniStay).</p>
+<p>- <b>TÃªn viáº¿t táº¯t / MÃ£ dá»± Ã¡n:</b> TRO24H.</p>
+<p>- <b>Loáº¡i hÃ¬nh sáº£n pháº©m:</b> á»¨ng dá»¥ng di Ä‘á»™ng Native Android káº¿t há»£p mÃ¡y chá»§ RESTful Web API vÃ  CÆ¡ sá»Ÿ dá»¯ liá»‡u Ä‘Ã¡m mÃ¢y (Cloud Database).</p>
+
+<h3>3. ÄÆ¡n vá»‹ chá»§ trÃ¬ vÃ  Ä‘á»‘i tÆ°á»£ng hÆ°á»Ÿng lá»£i</h3>
+<p>- <b>ÄÆ¡n vá»‹ thá»±c hiá»‡n:</b> NhÃ³m phÃ¡t triá»ƒn pháº§n má»m dá»± Ã¡n TRO24H - Khoa CNTT, TrÆ°á»ng Äáº¡i há»c Giao thÃ´ng Váº­n táº£i.</p>
+<p>- <b>Äá»‘i tÆ°á»£ng hÆ°á»Ÿng lá»£i:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ <i>Sinh viÃªn cÃ¡c trÆ°á»ng Ä‘áº¡i há»c:</i> Tiáº¿p cáº­n nguá»“n tin phÃ²ng trá» Ä‘Ã¡ng tin cáº­y, xem Ä‘áº§y Ä‘á»§ chi tiáº¿t áº£nh, giÃ¡, sá»‘ chá»— trá»‘ng thá»±c táº¿, vá»‹ trÃ­ gáº§n trÆ°á»ng Ä‘áº¡i há»c.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ <i>Chá»§ nhÃ  trá»:</i> CÃ³ kÃªnh Ä‘Äƒng tin miá»…n phÃ­, chuyÃªn biá»‡t cho sinh viÃªn, chá»§ Ä‘á»™ng cáº­p nháº­t phÃ²ng trá»‘ng vÃ  quáº£n lÃ½ tin nháº¯n khÃ¡ch hÃ ng táº­p trung.</p>
+
+<h3>4. Pháº¡m vi vÃ  Ä‘á»‹a bÃ n triá»ƒn khai</h3>
+<p>- <b>Pháº¡m vi nghiá»‡p vá»¥:</b> ToÃ n bá»™ quy trÃ¬nh tá»« Ä‘Äƒng kÃ½, Ä‘Äƒng nháº­p tÃ i khoáº£n; Ä‘Äƒng tin vÃ  quáº£n lÃ½ phÃ²ng trá»; tÃ¬m kiáº¿m, lá»c phÃ²ng nÃ¢ng cao; trao Ä‘á»•i trá»±c tiáº¿p (chat 1-1); quáº£n lÃ½ lÆ°u phÃ²ng vÃ  lá»‹ch sá»­ xem phÃ²ng.</p>
+<p>- <b>Äá»‹a bÃ n triá»ƒn khai:</b> Táº­p trung vÃ o Ä‘á»‹a bÃ n thÃ nh phá»‘ HÃ  Ná»™i, Ä‘áº·c biá»‡t lÃ  cÃ¡c quáº­n táº­p trung Ä‘Ã´ng trÆ°á»ng Ä‘áº¡i há»c (Äá»‘ng Äa, Cáº§u Giáº¥y, Hai BÃ  TrÆ°ng, Thanh XuÃ¢n) vÃ  cÃ³ thá»ƒ má»Ÿ rá»™ng toÃ n quá»‘c.</p>
+
+<h3>5. Thá»i gian thá»±c hiá»‡n vÃ  lá»™ trÃ¬nh</h3>
+<p>- <b>Tá»•ng thá»i gian thá»±c hiá»‡n:</b> 8 tuáº§n lÃ m viá»‡c (phÃ¢n chia thÃ nh cÃ¡c Sprint theo phÆ°Æ¡ng phÃ¡p luáº­n Scrum/Agile).</p>
+<p>- <b>Tráº¡ng thÃ¡i hiá»‡n táº¡i:</b> ÄÃ£ hoÃ n thÃ nh toÃ n bá»™ há»‡ thá»‘ng cÆ¡ sá»Ÿ dá»¯ liá»‡u trÃªn Ä‘Ã¡m mÃ¢y, mÃ¡y chá»§ Web API Ä‘Ã£ triá»ƒn khai online 24/7 vÃ  á»©ng dá»¥ng Android Ä‘Ã£ káº¿t ná»‘i máº¡ng hoÃ n chá»‰nh.</p>
+
+<h2>II. Sá»° Cáº¦N THIáº¾T Äáº¦U TÆ¯ & Má»¤C TIÃŠU</h2>
+
+<h3>1. Thá»±c tráº¡ng vÃ  khÃ³ khÄƒn trong tÃ¬m kiáº¿m phÃ²ng trá» sinh viÃªn</h3>
+<p>Hiá»‡n nay, nhu cáº§u tÃ¬m kiáº¿m phÃ²ng trá» cá»§a sinh viÃªn Ä‘áº§u nÄƒm há»c vÃ  chuyá»ƒn ká»³ lÃ  ráº¥t lá»›n. Tuy nhiÃªn, cÃ¡c phÆ°Æ¡ng thá»©c truyá»n thá»‘ng gáº·p pháº£i nhiá»u báº¥t cáº­p:</p>
+<p>- <b>ThÃ´ng tin thiáº¿u minh báº¡ch vÃ  sai lá»‡ch:</b> Nhiá»u bÃ i Ä‘Äƒng trÃªn cÃ¡c há»™i nhÃ³m máº¡ng xÃ£ há»™i (Facebook, Zalo) Ä‘Äƒng áº£nh minh há»a sai thá»±c táº¿, bÃ¡o giÃ¡ áº£o (giÃ¡ phÃ²ng ráº» nhÆ°ng tÃ­nh thÃªm phÃ­ dá»‹ch vá»¥ cao ngáº¥t ngÆ°á»Ÿng).</p>
+<p>- <b>TÃ¬nh tráº¡ng mÃ´i giá»›i vÃ  lá»«a Ä‘áº£o cá»c:</b> Sinh viÃªn, Ä‘áº·c biá»‡t lÃ  tÃ¢n sinh viÃªn, thÆ°á»ng xuyÃªn gáº·p tÃ¬nh tráº¡ng bá»‹ cÃ² má»“i lá»«a tiá»n Ä‘áº·t cá»c giá»¯ chá»—, phÃ²ng khÃ´ng Ä‘Ãºng cam káº¿t.</p>
+<p>- <b>KhÃ´ng biáº¿t chÃ­nh xÃ¡c tÃ¬nh tráº¡ng chá»— trá»‘ng:</b> NgÆ°á»i thuÃª gá»i Ä‘iá»‡n há»i phÃ²ng thÃ¬ Ä‘a sá»‘ Ä‘Ã£ háº¿t chá»— (do tin Ä‘Äƒng cÅ© khÃ´ng Ä‘Æ°á»£c cáº­p nháº­t tráº¡ng thÃ¡i Ä‘Ã£ cho thuÃª).</p>
+<p>- <b>Chá»§ trá» quáº£n lÃ½ thá»§ cÃ´ng:</b> KhÃ³ tiáº¿p cáº­n Ä‘Ãºng Ä‘á»‘i tÆ°á»£ng sinh viÃªn vÄƒn minh, pháº£i tráº£ lá»i trÃ¹ng láº·p nhiá»u cÃ¢u há»i cÆ¡ báº£n (giÃ¡ Ä‘iá»‡n, nÆ°á»›c, tiá»‡n Ã­ch, vá»‹ trÃ­).</p>
+
+<h3>2. Má»¥c tiÃªu tá»•ng quÃ¡t vÃ  má»¥c tiÃªu cá»¥ thá»ƒ cá»§a há»‡ thá»‘ng TRO24H</h3>
+<p>- <b>Má»¥c tiÃªu tá»•ng quÃ¡t:</b> XÃ¢y dá»±ng má»™t á»©ng dá»¥ng di Ä‘á»™ng Android chuyÃªn biá»‡t, hiá»‡n Ä‘áº¡i vÃ  tin cáº­y, sá»‘ hÃ³a toÃ n diá»‡n quy trÃ¬nh tÃ¬m kiáº¿m vÃ  káº¿t ná»‘i thuÃª phÃ²ng trá» giá»¯a sinh viÃªn vÃ  chá»§ trá».</p>
+<p>- <b>Má»¥c tiÃªu cá»¥ thá»ƒ:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ <i>Äá»‘i vá»›i Sinh viÃªn:</i> GiÃºp tÃ¬m kiáº¿m phÃ²ng trá» phÃ¹ há»£p chá»‰ trong vÃ²ng 3 phÃºt thÃ´ng qua bá»™ lá»c thÃ´ng minh (khoáº£ng cÃ¡ch tá»›i trÆ°á»ng, má»©c giÃ¡, tiá»‡n Ã­ch); xem tráº¡ng thÃ¡i chá»— trá»‘ng thá»±c táº¿ (vÃ­ dá»¥: Trá»‘ng 2/3); nháº¯n tin trao Ä‘á»•i trá»±c tiáº¿p vá»›i chá»§ trá».</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ <i>Äá»‘i vá»›i Chá»§ trá»:</i> ÄÄƒng tin nhanh chÃ³ng chá»‰ qua 1 biá»ƒu máº«u Ä‘Æ¡n giáº£n, dá»… dÃ ng sá»­a Ä‘á»•i thÃ´ng tin vÃ  sá»‘ lÆ°á»£ng ngÆ°á»i Ä‘ang á»Ÿ Ä‘á»ƒ cáº­p nháº­t tráº¡ng thÃ¡i phÃ²ng cÃ²n/háº¿t.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ <i>Vá» máº·t Ká»¹ thuáº­t:</i> XÃ¢y dá»±ng kiáº¿n trÃºc phÃ¢n táº§ng Clean Architecture + MVVM Ä‘áº¡t chuáº©n cÃ´ng nghiá»‡p, váº­n hÃ nh á»•n Ä‘á»‹nh trÃªn ná»n táº£ng Ä‘Ã¡m mÃ¢y 24/7 vá»›i thá»i gian pháº£n há»“i API dÆ°á»›i 500ms.</p>
+
+<h2>III. NGUYÃŠN Táº®C THIáº¾T Káº¾ & TIÃŠU CHUáº¨N CÃ”NG NGHá»†</h2>
+
+<h3>1. CÃ¡c nguyÃªn táº¯c thiáº¿t káº¿ cá»‘t lÃµi</h3>
+<p>- <b>TÃ­nh kháº£ dá»¥ng & Tráº£i nghiá»‡m ngÆ°á»i dÃ¹ng (Usability & UX):</b> Giao diá»‡n Ä‘Æ°á»£c thiáº¿t káº¿ trá»±c quan theo chuáº©n Material Design 3, mÃ u sáº¯c hiá»‡n Ä‘áº¡i, cá»¡ chá»¯ rÃµ rÃ ng, thao tÃ¡c vuá»‘t cháº¡m mÆ°á»£t mÃ .</p>
+<p>- <b>TÃ­nh má»Ÿ vÃ  kháº£ nÄƒng má»Ÿ rá»™ng (Scalability):</b> Ãp dá»¥ng Clean Architecture tÃ¡ch biá»‡t Domain, Data vÃ  Presentation Layer giÃºp há»‡ thá»‘ng dá»… dÃ ng bá»• sung tÃ­nh nÄƒng má»›i (nhÆ° thanh toÃ¡n Ä‘iá»‡n tá»­, kÃ½ há»£p Ä‘á»“ng online) mÃ  khÃ´ng phÃ¡ vá»¡ logic cÅ©.</p>
+<p>- <b>TÃ­nh toÃ n váº¹n vÃ  nháº¥t quÃ¡n dá»¯ liá»‡u (Data Consistency):</b> Sá»­ dá»¥ng cÆ¡ sá»Ÿ dá»¯ liá»‡u quan há»‡ MS SQL Server vá»›i há»‡ thá»‘ng rÃ ng buá»™c khÃ³a ngoáº¡i (Foreign Keys), Unique Keys cháº·t cháº½ giá»¯a ngÆ°á»i dÃ¹ng, bÃ i Ä‘Äƒng phÃ²ng vÃ  tin nháº¯n.</p>
+<p>- <b>TÃ­nh sáºµn sÃ ng cao (High Availability):</b> Triá»ƒn khai mÃ¡y chá»§ vÃ  cÆ¡ sá»Ÿ dá»¯ liá»‡u trÃªn háº¡ táº§ng Ä‘Ã¡m mÃ¢y chuyÃªn dá»¥ng, Ä‘áº£m báº£o truy cáº­p má»i lÃºc, má»i nÆ¡i tá»« máº¡ng 4G/5G hoáº·c Wi-Fi báº¥t ká»³.</p>
+
+<h3>2. TiÃªu chuáº©n á»©ng dá»¥ng CÃ´ng nghá»‡ ThÃ´ng tin</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">Háº¡ng má»¥c</th>
+        <th style="width: 40%;">CÃ´ng nghá»‡ / TiÃªu chuáº©n Ã¡p dá»¥ng</th>
+        <th style="width: 35%;">Má»¥c Ä‘Ã­ch & Ghi chÃº</th>
+    </tr>
+    <tr>
+        <td><b>Ná»n táº£ng Client</b></td>
+        <td>Android Native (NgÃ´n ngá»¯ Kotlin, Min SDK 24, Target SDK 34)</td>
+        <td>Táº­n dá»¥ng tá»‘i Ä‘a hiá»‡u nÄƒng pháº§n cá»©ng thiáº¿t bá»‹, hoáº¡t Ä‘á»™ng á»•n Ä‘á»‹nh trÃªn 95% Ä‘iá»‡n thoáº¡i Android hiá»‡n nay.</td>
+    </tr>
+    <tr>
+        <td><b>Kiáº¿n trÃºc Client</b></td>
+        <td>Clean Architecture + MVVM, ViewBinding, StateFlow / Coroutines</td>
+        <td>Quáº£n lÃ½ vÃ²ng Ä‘á»i á»©ng dá»¥ng mÆ°á»£t mÃ , trÃ¡nh rÃ² rá»‰ bá»™ nhá»›, xá»­ lÃ½ báº¥t Ä‘á»“ng bá»™ Ä‘a luá»“ng.</td>
+    </tr>
+    <tr>
+        <td><b>Giao tiáº¿p Máº¡ng</b></td>
+        <td>RESTful Web API, giao thá»©c HTTP/HTTPS, Ä‘á»‹nh dáº¡ng JSON</td>
+        <td>Chuáº©n giao tiáº¿p má»Ÿ, tÆ°Æ¡ng thÃ­ch cao, tá»‘c Ä‘á»™ truyá»n táº£i nhanh vÃ  nháº¹.</td>
+    </tr>
+    <tr>
+        <td><b>ThÆ° viá»‡n Network</b></td>
+        <td>Square Retrofit 2, OkHttp 3, Gson Converter</td>
+        <td>Tá»± Ä‘á»™ng Ã¡nh xáº¡ JSON sang Data Model, quáº£n lÃ½ Connection Pooling vÃ  Interceptors.</td>
+    </tr>
+    <tr>
+        <td><b>Táº£i & Cache áº¢nh</b></td>
+        <td>Coil Image Loader (Kotlin First)</td>
+        <td>Táº£i áº£nh báº¥t Ä‘á»“ng bá»™, bá»™ nhá»› Ä‘á»‡m Ä‘a táº§ng (Memory & Disk Cache), tá»± Ä‘á»™ng bo trÃ²n avatar.</td>
+    </tr>
+    <tr>
+        <td><b>Ná»n táº£ng Backend</b></td>
+        <td>Microsoft .NET 8.0 (ASP.NET Core Web API), C#</td>
+        <td>Hiá»‡u nÄƒng xá»­ lÃ½ song song vÆ°á»£t trá»™i, báº£o máº­t doanh nghiá»‡p, há»— trá»£ Swagger OpenAPI 3.0.</td>
+    </tr>
+    <tr>
+        <td><b>Há»‡ quáº£n trá»‹ CSDL</b></td>
+        <td>Microsoft SQL Server 2022 (Cloud Hosted)</td>
+        <td>Quáº£n trá»‹ dá»¯ liá»‡u quan há»‡, há»— trá»£ chá»‰ má»¥c tá»‘i Æ°u tÃ¬m kiáº¿m, tÃ­nh toÃ n váº¹n tham chiáº¿u ACID.</td>
+    </tr>
+    <tr>
+        <td><b>Truy cáº­p dá»¯ liá»‡u</b></td>
+        <td>Entity Framework Core 8.0 (Code First / DbContext)</td>
+        <td>Ãnh xáº¡ ORM máº¡nh máº½, tá»‘i Æ°u hÃ³a cÃ¢u lá»‡nh T-SQL, báº£o vá»‡ chá»‘ng táº¥n cÃ´ng SQL Injection.</td>
+    </tr>
+</table>
+
+<h2>IV. QUY TRÃŒNH NGHIá»†P Vá»¤ (DIá»„N Táº¢ Báº°NG Lá»œI)</h2>
+<p><i>(Theo yÃªu cáº§u ká»¹ thuáº­t, toÃ n bá»™ cÃ¡c quy trÃ¬nh nghiá»‡p vá»¥ Ä‘Æ°á»£c mÃ´ táº£ chi tiáº¿t, tÆ°á»ng minh báº±ng lá»i vÄƒn báº£n quy chuáº©n, loáº¡i bá» cÃ¡c sÆ¡ Ä‘á»“ hÃ¬nh váº½).</i></p>
+
+<h3>1. Quy trÃ¬nh XÃ¡c thá»±c & Quáº£n lÃ½ phiÃªn ngÆ°á»i dÃ¹ng</h3>
+<p>- <b>BÆ°á»›c 1: Khá»Ÿi Ä‘á»™ng & Kiá»ƒm tra phiÃªn:</b> Khi ngÆ°á»i dÃ¹ng má»Ÿ á»©ng dá»¥ng, mÃ n hÃ¬nh khá»Ÿi Ä‘á»™ng (Splash) kÃ­ch hoáº¡t UserSessionManager Ä‘á»ƒ kiá»ƒm tra thÃ´ng tin Ä‘á»‹nh danh ngÆ°á»i dÃ¹ng Ä‘Ã£ lÆ°u trong DataStore cá»¥c bá»™.</p>
+<p>- <b>BÆ°á»›c 2: PhÃ¢n luá»“ng Ä‘iá»u hÆ°á»›ng:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u thÃ´ng tin phiÃªn há»£p lá»‡: Há»‡ thá»‘ng tá»± Ä‘á»™ng chuyá»ƒn tháº³ng vÃ o mÃ n hÃ¬nh chÃ­nh MainActivity tÆ°Æ¡ng á»©ng vá»›i vai trÃ² (Sinh viÃªn hoáº·c Chá»§ trá») mÃ  khÃ´ng báº¯t Ä‘Äƒng nháº­p láº¡i.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u chÆ°a cÃ³ phiÃªn hoáº·c ngÆ°á»i dÃ¹ng Ä‘Ã£ Ä‘Äƒng xuáº¥t: Há»‡ thá»‘ng chuyá»ƒn hÆ°á»›ng ngÆ°á»i dÃ¹ng Ä‘áº¿n mÃ n hÃ¬nh ÄÄƒng nháº­p (LoginActivity).</p>
+<p>- <b>BÆ°á»›c 3: ÄÄƒng nháº­p:</b> NgÆ°á»i dÃ¹ng nháº­p Sá»‘ Ä‘iá»‡n thoáº¡i vÃ  Máº­t kháº©u. á»¨ng dá»¥ng gá»­i yÃªu cáº§u POST /api/auth/login tá»›i mÃ¡y chá»§ API. MÃ¡y chá»§ kiá»ƒm tra sá»‘ Ä‘iá»‡n thoáº¡i, bÄƒm vÃ  Ä‘á»‘i chiáº¿u máº­t kháº©u:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u sai thÃ´ng tin: MÃ¡y chá»§ tráº£ vá» lá»—i HTTP 401 Unauthorized, á»©ng dá»¥ng hiá»ƒn thá»‹ thÃ´ng bÃ¡o lá»—i trÃªn giao diá»‡n.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u Ä‘Ãºng: MÃ¡y chá»§ tráº£ vá» HTTP 200 OK kÃ¨m thÃ´ng tin ngÆ°á»i dÃ¹ng (userId, ullName, phone, ole, vatarUrl). á»¨ng dá»¥ng lÆ°u vÃ o DataStore vÃ  má»Ÿ mÃ n hÃ¬nh chÃ­nh.</p>
+<p>- <b>BÆ°á»›c 4: ÄÄƒng kÃ½:</b> NgÆ°á»i dÃ¹ng chÆ°a cÃ³ tÃ i khoáº£n nháº¥n nÃºt ÄÄƒng kÃ½, Ä‘iá»n Há» tÃªn, Sá»‘ Ä‘iá»‡n thoáº¡i, Máº­t kháº©u vÃ  chá»n Vai trÃ² (Student hoáº·c Landlord). á»¨ng dá»¥ng gá»i POST /api/auth/register. Sau khi táº¡o tÃ i khoáº£n thÃ nh cÃ´ng, há»‡ thá»‘ng thÃ´ng bÃ¡o vÃ  chuyá»ƒn sang mÃ n hÃ¬nh ÄÄƒng nháº­p.</p>
+
+<h3>2. Quy trÃ¬nh TÃ¬m kiáº¿m, KhÃ¡m phÃ¡ & Lá»c phÃ²ng trá»</h3>
+<p>- <b>BÆ°á»›c 1: Hiá»ƒn thá»‹ danh sÃ¡ch ban Ä‘áº§u (Feed):</b> Táº¡i mÃ n hÃ¬nh chÃ­nh, há»‡ thá»‘ng tá»± Ä‘á»™ng gá»i API GET /api/rooms Ä‘á»ƒ láº¥y danh sÃ¡ch cÃ¡c phÃ²ng trá» Ä‘ang hoáº¡t Ä‘á»™ng, hiá»ƒn thá»‹ dáº¡ng danh sÃ¡ch tháº» (CardView) gá»“m áº£nh Ä‘áº¡i diá»‡n, tiÃªu Ä‘á», Ä‘á»‹a chá»‰, loáº¡i phÃ²ng, giÃ¡ thuÃª vÃ  sá»‘ chá»— trá»‘ng.</p>
+<p>- <b>BÆ°á»›c 2: TÃ¬m kiáº¿m theo tá»« khÃ³a:</b> NgÆ°á»i dÃ¹ng gÃµ tá»« khÃ³a vÃ o thanh Search (vÃ­ dá»¥: "Äá»‘ng Äa", "Studio", "ChÃ¹a LÃ¡ng", mÃ£ phÃ²ng "HN-4649"). á»¨ng dá»¥ng lá»c danh sÃ¡ch theo thá»i gian thá»±c (Real-time filtering) vÃ  hiá»ƒn thá»‹ cÃ¡c phÃ²ng thá»a mÃ£n.</p>
+<p>- <b>BÆ°á»›c 3: Lá»c Ä‘a tiÃªu chÃ­ nÃ¢ng cao:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ NgÆ°á»i dÃ¹ng chá»n má»¥c tiÃªu trÆ°á»ng Ä‘áº¡i há»c: UTC (Giao thÃ´ng Váº­n táº£i), FTU (Ngoáº¡i thÆ°Æ¡ng), BKHN (BÃ¡ch khoa), VNU (Äáº¡i há»c Quá»‘c gia),...</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ NgÆ°á»i dÃ¹ng kÃ©o thanh trÆ°á»£t khoáº£ng giÃ¡ (vÃ­ dá»¥: DÆ°á»›i 3 triá»‡u, 3 - 5 triá»‡u) vÃ  chá»n cÃ¡c tiá»‡n Ã­ch mong muá»‘n (Äiá»u hÃ²a, NÃ³ng láº¡nh, MÃ¡y giáº·t, Ban cÃ´ng, Thang mÃ¡y, Giá» tá»± do,...).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Há»‡ thá»‘ng tÃ­nh toÃ¡n vÃ  chá»‰ tráº£ vá» danh sÃ¡ch cÃ¡c phÃ²ng thá»a mÃ£n Ä‘á»“ng thá»i cÃ¡c Ä‘iá»u kiá»‡n trÃªn.</p>
+<p>- <b>BÆ°á»›c 4: Xem chi tiáº¿t phÃ²ng:</b> NgÆ°á»i dÃ¹ng nháº¥n vÃ o má»™t tháº» phÃ²ng báº¥t ká»³, há»‡ thá»‘ng má»Ÿ mÃ n hÃ¬nh RoomDetailActivity. Táº¡i Ä‘Ã¢y, ngÆ°á»i dÃ¹ng xem toÃ n bá»™ mÃ´ táº£ chi tiáº¿t, hÃ¬nh áº£nh kÃ­ch thÆ°á»›c lá»›n, tiá»‡n Ã­ch Ä‘áº§y Ä‘á»§, sá»‘ Ä‘iá»‡n thoáº¡i liÃªn há»‡ vÃ  sá»‘ chá»— cÃ²n trá»‘ng.</p>
+
+<h3>3. Quy trÃ¬nh ÄÄƒng tin & Quáº£n lÃ½ phÃ²ng trá» cá»§a Chá»§ trá»</h3>
+<p>- <b>BÆ°á»›c 1: Má»Ÿ form Ä‘Äƒng tin:</b> Chá»§ trá» Ä‘Äƒng nháº­p vÃ o tÃ i khoáº£n, truy cáº­p má»¥c Quáº£n lÃ½ phÃ²ng vÃ  nháº¥n nÃºt Táº¡o bÃ i Ä‘Äƒng má»›i.</p>
+<p>- <b>BÆ°á»›c 2: Nháº­p liá»‡u thÃ´ng tin phÃ²ng:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ TiÃªu Ä‘á» bÃ i Ä‘Äƒng, loáº¡i phÃ²ng (PhÃ²ng trá» khÃ©p kÃ­n, Chung cÆ° mini, CÄƒn há»™ dá»‹ch vá»¥, Homestay).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Äá»‹a chá»‰ chi tiáº¿t (Sá»‘ nhÃ , ngÃµ, Ä‘Æ°á»ng, phÆ°á»ng, quáº­n).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ GiÃ¡ thuÃª hÃ ng thÃ¡ng (VNÄ), trÆ°á»ng Ä‘áº¡i há»c gáº§n nháº¥t vÃ  khoáº£ng cÃ¡ch Æ°á»›c tÃ­nh (km).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Sá»©c chá»©a tá»‘i Ä‘a (MaxOccupancy) vÃ  sá»‘ ngÆ°á»i Ä‘ang á»Ÿ hiá»‡n táº¡i (CurrentOccupancy).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Danh sÃ¡ch tiá»‡n Ã­ch (chá»n qua cÃ¡c nÃºt toggle / checkbox) vÃ  link áº£nh phÃ²ng.</p>
+<p>- <b>BÆ°á»›c 3: XÃ¡c thá»±c vÃ  lÆ°u trá»¯:</b> á»¨ng dá»¥ng kiá»ƒm tra tÃ­nh há»£p lá»‡ dá»¯ liá»‡u (giÃ¡ > 0, Ä‘á»‹a chá»‰ khÃ´ng rá»—ng) vÃ  gá»­i yÃªu cáº§u POST /api/rooms. MÃ¡y chá»§ tá»± Ä‘á»™ng sinh mÃ£ phÃ²ng ngáº«u nhiÃªn (vÃ­ dá»¥ HN-4649), thiáº¿t láº­p tráº¡ng thÃ¡i ban Ä‘áº§u lÃ  Available vÃ  lÆ°u vÃ o cÆ¡ sá»Ÿ dá»¯ liá»‡u.</p>
+<p>- <b>BÆ°á»›c 4: Cáº­p nháº­t tÃ¬nh tráº¡ng phÃ²ng:</b> Khi cÃ³ ngÆ°á»i thuÃª thÃªm hoáº·c dá»n Ä‘i, chá»§ trá» chá»‰ cáº§n vÃ o phÃ²ng cá»§a mÃ¬nh, tÄƒng/giáº£m CurrentOccupancy. Há»‡ thá»‘ng tá»± Ä‘á»™ng tÃ­nh láº¡i sá»‘ chá»— trá»‘ng (Available = Max - Current). Náº¿u Ä‘Ã£ á»Ÿ Ä‘á»§ sá»‘ ngÆ°á»i, tráº¡ng thÃ¡i tá»± Ä‘á»™ng chuyá»ƒn thÃ nh Full Ä‘á»ƒ ngÆ°á»i thuÃª khÃ¡c khÃ´ng lÃ m phiá»n.</p>
+
+<h3>4. Quy trÃ¬nh Trao Ä‘á»•i trá»±c tiáº¿p (Nháº¯n tin / Chat giá»¯a KhÃ¡ch vÃ  Chá»§ trá»)</h3>
+<p>- <b>BÆ°á»›c 1: Báº¯t Ä‘áº§u cuá»™c trÃ² chuyá»‡n:</b> Tá»« mÃ n hÃ¬nh Chi tiáº¿t phÃ²ng cá»§a phÃ²ng trá» báº¥t ká»³, Sinh viÃªn nháº¥n nÃºt <i>"Nháº¯n tin ngay"</i>.</p>
+<p>- <b>BÆ°á»›c 2: Khá»Ÿi táº¡o phiÃªn chat (Chat Session):</b> á»¨ng dá»¥ng gá»­i yÃªu cáº§u tá»›i mÃ¡y chá»§ API vá»›i thÃ´ng tin: StudentId, LandlordId vÃ  RoomId. MÃ¡y chá»§ kiá»ƒm tra:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u Ä‘Ã£ tá»«ng cÃ³ cuá»™c trÃ² chuyá»‡n vá» phÃ²ng nÃ y giá»¯a 2 ngÆ°á»i: Tráº£ vá» mÃ£ phiÃªn (sessionId) hiá»‡n cÃ³.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u chÆ°a cÃ³: Táº¡o má»›i má»™t báº£n ghi trong báº£ng ChatSessions vÃ  tráº£ vá» mÃ£ phiÃªn má»›i.</p>
+<p>- <b>BÆ°á»›c 3: Táº£i lá»‹ch sá»­ tin nháº¯n:</b> á»¨ng dá»¥ng má»Ÿ giao diá»‡n ChatActivity, gá»i API GET /api/chat/messages?sessionId=... Ä‘á»ƒ náº¡p toÃ n bá»™ cÃ¡c tin nháº¯n vÄƒn báº£n trÆ°á»›c Ä‘Ã¢y theo thá»© tá»± thá»i gian tÄƒng dáº§n.</p>
+<p>- <b>BÆ°á»›c 4: Gá»­i tin nháº¯n má»›i:</b> NgÆ°á»i dÃ¹ng soáº¡n ná»™i dung vÃ o Ã´ nháº­p liá»‡u vÃ  nháº¥n nÃºt Gá»­i. á»¨ng dá»¥ng gá»i POST /api/chat/send vá»›i ná»™i dung tin nháº¯n. Tin nháº¯n Ä‘Æ°á»£c lÆ°u vÃ o báº£ng Messages, Ä‘á»“ng thá»i cáº­p nháº­t trÆ°á»ng LastMessage vÃ  LastUpdated cá»§a báº£ng ChatSessions Ä‘á»ƒ danh sÃ¡ch há»™p thÆ° Ä‘áº¿n luÃ´n hiá»ƒn thá»‹ cuá»™c há»™i thoáº¡i má»›i nháº¥t lÃªn Ä‘áº§u trang.</p>
+
+<h3>5. Quy trÃ¬nh Quáº£n lÃ½ phÃ²ng yÃªu thÃ­ch & Lá»‹ch sá»­ xem phÃ²ng</h3>
+<p>- <b>LÆ°u phÃ²ng yÃªu thÃ­ch:</b> Khi Ä‘ang xem chi tiáº¿t phÃ²ng, sinh viÃªn báº¥m vÃ o biá»ƒu tÆ°á»£ng TrÃ¡i tim. Há»‡ thá»‘ng gá»i POST /api/rooms/save. PhÃ²ng Ä‘Æ°á»£c lÆ°u vÃ o danh sÃ¡ch cÃ¡ nhÃ¢n trong báº£ng SavedRooms Ä‘á»ƒ sinh viÃªn cÃ³ thá»ƒ xem láº¡i báº¥t ká»³ lÃºc nÃ o táº¡i tab CÃ¡ nhÃ¢n.</p>
+<p>- <b>Ghi nháº­n lá»‹ch sá»­ xem phÃ²ng:</b> Má»—i khi ngÆ°á»i dÃ¹ng báº¥m vÃ o xem chi tiáº¿t má»™t cÄƒn phÃ²ng, há»‡ thá»‘ng tá»± Ä‘á»™ng ghi nháº­n má»™t báº£n ghi vÃ o báº£ng ViewHistories kÃ¨m dáº¥u thá»i gian (Timestamp). Danh sÃ¡ch nÃ y hiá»ƒn thá»‹ á»Ÿ má»¥c <i>"PhÃ²ng Ä‘Ã£ xem gáº§n Ä‘Ã¢y"</i> giÃºp ngÆ°á»i dÃ¹ng khÃ´ng bá»‹ máº¥t dáº¥u nhá»¯ng cÄƒn phÃ²ng mÃ¬nh tá»«ng quan tÃ¢m.</p>
+
+<h2>V. CHI TIáº¾T YÃŠU Cáº¦U CHá»¨C NÄ‚NG & PHI CHá»¨C NÄ‚NG</h2>
+
+<h3>1. Báº£ng thá»© tá»± Æ°u tiÃªn cÃ¡c chá»©c nÄƒng pháº§n má»m (MoSCoW Matrix)</h3>
+<table>
+    <tr>
+        <th style="width: 12%;">MÃ£ sá»‘</th>
+        <th style="width: 25%;">TÃªn chá»©c nÄƒng</th>
+        <th style="width: 38%;">MÃ´ táº£ chi tiáº¿t chá»©c nÄƒng</th>
+        <th style="width: 15%;">Má»©c Ä‘á»™ Æ°u tiÃªn</th>
+        <th style="width: 10%;">Ghi chÃº</th>
+    </tr>
+    <tr>
+        <td><b>FN-01</b></td>
+        <td>ÄÄƒng kÃ½ & ÄÄƒng nháº­p</td>
+        <td>XÃ¡c thá»±c sá»‘ Ä‘iá»‡n thoáº¡i vÃ  máº­t kháº©u, phÃ¢n chia vai trÃ² Sinh viÃªn / Chá»§ trá» rÃµ rÃ ng.</td>
+        <td class="text-center text-bold" style="color: #c0392b;">Must Have (Báº¯t buá»™c)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-02</b></td>
+        <td>Xem danh sÃ¡ch phÃ²ng trá»</td>
+        <td>Táº£i vÃ  hiá»ƒn thá»‹ danh sÃ¡ch phÃ²ng trá» tá»« Ä‘Ã¡m mÃ¢y, tÃ­nh toÃ¡n sá»‘ chá»— trá»‘ng hiá»ƒn thá»‹ trá»±c quan.</td>
+        <td class="text-center text-bold" style="color: #c0392b;">Must Have (Báº¯t buá»™c)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-03</b></td>
+        <td>TÃ¬m kiáº¿m & Lá»c phÃ²ng</td>
+        <td>Lá»c theo trÆ°á»ng Ä‘áº¡i há»c, theo khoáº£ng giÃ¡, lá»c theo tiá»‡n Ã­ch (Ä‘iá»u hÃ²a, mÃ¡y giáº·t,...).</td>
+        <td class="text-center text-bold" style="color: #c0392b;">Must Have (Báº¯t buá»™c)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-04</b></td>
+        <td>Xem chi tiáº¿t phÃ²ng trá»</td>
+        <td>Xem thÃ´ng tin Ä‘áº§y Ä‘á»§, danh sÃ¡ch tiá»‡n Ã­ch, liÃªn há»‡ chá»§ trá», Ä‘á»‹a chá»‰ rÃµ rÃ ng.</td>
+        <td class="text-center text-bold" style="color: #c0392b;">Must Have (Báº¯t buá»™c)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-05</b></td>
+        <td>Nháº¯n tin trao Ä‘á»•i 1-1</td>
+        <td>Khá»Ÿi táº¡o phiÃªn chat theo tá»«ng phÃ²ng cá»¥ thá»ƒ, lÆ°u trá»¯ lá»‹ch sá»­ tin nháº¯n hai chiá»u.</td>
+        <td class="text-center text-bold" style="color: #c0392b;">Must Have (Báº¯t buá»™c)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-06</b></td>
+        <td>ÄÄƒng tin & Cáº­p nháº­t phÃ²ng</td>
+        <td>Chá»§ trá» táº¡o bÃ i Ä‘Äƒng má»›i, chá»‰nh sá»­a thÃ´ng tin, tÄƒng giáº£m sá»‘ ngÆ°á»i á»Ÿ Ä‘á»ƒ tá»± cáº­p nháº­t trá»‘ng/háº¿t.</td>
+        <td class="text-center text-bold" style="color: #c0392b;">Must Have (Báº¯t buá»™c)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-07</b></td>
+        <td>LÆ°u phÃ²ng & Lá»‹ch sá»­ xem</td>
+        <td>LÆ°u phÃ²ng yÃªu thÃ­ch vÃ  ghi nháº­n danh sÃ¡ch cÃ¡c phÃ²ng sinh viÃªn Ä‘Ã£ xem gáº§n Ä‘Ã¢y.</td>
+        <td class="text-center text-bold" style="color: #27ae60;">Should Have (NÃªn cÃ³)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+    <tr>
+        <td><b>FN-08</b></td>
+        <td>Quáº£n lÃ½ há»“ sÆ¡ cÃ¡ nhÃ¢n</td>
+        <td>Xem thÃ´ng tin cÃ¡ nhÃ¢n, sá»­a sá»‘ Ä‘iá»‡n thoáº¡i, Ä‘á»•i máº­t kháº©u vÃ  Ä‘á»•i áº£nh Ä‘áº¡i diá»‡n.</td>
+        <td class="text-center text-bold" style="color: #27ae60;">Should Have (NÃªn cÃ³)</td>
+        <td>HoÃ n thÃ nh</td>
+    </tr>
+</table>
+
+<h3>2. Danh sÃ¡ch tÃ¡c nhÃ¢n (Actor) tham gia há»‡ thá»‘ng</h3>
+<table>
+    <tr>
+        <th style="width: 20%;">TÃ¡c nhÃ¢n (Actor)</th>
+        <th style="width: 50%;">MÃ´ táº£ vai trÃ² & TrÃ¡ch nhiá»‡m</th>
+        <th style="width: 30%;">Quyá»n háº¡n chÃ­nh trÃªn há»‡ thá»‘ng</th>
+    </tr>
+    <tr>
+        <td><b>KhÃ¡ch vÃ£ng lai (Guest)</b></td>
+        <td>NgÆ°á»i dÃ¹ng vá»«a cÃ i Ä‘áº·t á»©ng dá»¥ng nhÆ°ng chÆ°a Ä‘Äƒng nháº­p tÃ i khoáº£n.</td>
+        <td>Xem danh sÃ¡ch phÃ²ng cÃ´ng khai, xem chi tiáº¿t phÃ²ng; bá»‹ giá»›i háº¡n nháº¯n tin vÃ  lÆ°u phÃ²ng.</td>
+    </tr>
+    <tr>
+        <td><b>Sinh viÃªn (Student)</b></td>
+        <td>NgÆ°á»i dÃ¹ng Ä‘Ã£ Ä‘Äƒng nháº­p vá»›i vai trÃ² Sinh viÃªn, cÃ³ nhu cáº§u tÃ¬m thuÃª phÃ²ng.</td>
+        <td>TÃ¬m kiáº¿m nÃ¢ng cao, lá»c phÃ²ng theo trÆ°á»ng Ä‘áº¡i há»c, lÆ°u phÃ²ng yÃªu thÃ­ch, chat 1-1 vá»›i chá»§ trá», quáº£n lÃ½ lá»‹ch sá»­ xem.</td>
+    </tr>
+    <tr>
+        <td><b>Chá»§ trá» (Landlord)</b></td>
+        <td>NgÆ°á»i cho thuÃª phÃ²ng trá» hoáº·c ban quáº£n lÃ½ tÃ²a nhÃ  chung cÆ° mini.</td>
+        <td>ÄÄƒng bÃ i phÃ²ng má»›i, chá»‰nh sá»­a bÃ i Ä‘Äƒng cá»§a mÃ¬nh, cáº­p nháº­t sá»‘ ngÆ°á»i á»Ÿ, quáº£n lÃ½ há»™p thÆ° vÃ  pháº£n há»“i tin nháº¯n cá»§a sinh viÃªn.</td>
+    </tr>
+    <tr>
+        <td><b>Há»‡ thá»‘ng (System)</b></td>
+        <td>MÃ¡y chá»§ Backend API vÃ  CÆ¡ sá»Ÿ dá»¯ liá»‡u Ä‘Ã¡m mÃ¢y.</td>
+        <td>Tá»± Ä‘á»™ng sinh mÃ£ phÃ²ng, tÃ­nh toÃ¡n sá»‘ chá»— trá»‘ng, lÆ°u trá»¯ tin nháº¯n, Ä‘á»“ng bá»™ hÃ³a dá»¯ liá»‡u thá»i gian thá»±c.</td>
+    </tr>
+</table>
+
+<h3>3. Báº£ng chuyá»ƒn Ä‘á»•i chá»©c nÄƒng sang TrÆ°á»ng há»£p sá»­ dá»¥ng (Use Cases)</h3>
+<table>
+    <tr>
+        <th style="width: 15%;">MÃ£ Use Case</th>
+        <th style="width: 25%;">TÃªn Use Case</th>
+        <th style="width: 20%;">TÃ¡c nhÃ¢n chÃ­nh</th>
+        <th style="width: 40%;">Má»¥c tiÃªu thá»±c hiá»‡n</th>
+    </tr>
+    <tr>
+        <td><b>UC-01</b></td>
+        <td>ÄÄƒng kÃ½ tÃ i khoáº£n</td>
+        <td>KhÃ¡ch vÃ£ng lai</td>
+        <td>Táº¡o tÃ i khoáº£n má»›i vá»›i sá»‘ Ä‘iá»‡n thoáº¡i vÃ  vai trÃ² mong muá»‘n.</td>
+    </tr>
+    <tr>
+        <td><b>UC-02</b></td>
+        <td>ÄÄƒng nháº­p há»‡ thá»‘ng</td>
+        <td>Sinh viÃªn, Chá»§ trá»</td>
+        <td>XÃ¡c thá»±c thÃ´ng tin vÃ  táº¡o phiÃªn lÃ m viá»‡c báº£o máº­t trÃªn thiáº¿t bá»‹.</td>
+    </tr>
+    <tr>
+        <td><b>UC-03</b></td>
+        <td>Xem danh sÃ¡ch phÃ²ng</td>
+        <td>Táº¥t cáº£ ngÆ°á»i dÃ¹ng</td>
+        <td>Xem danh sÃ¡ch phÃ²ng trá» má»›i nháº¥t vÃ  tÃ¬nh tráº¡ng phÃ²ng trá»‘ng.</td>
+    </tr>
+    <tr>
+        <td><b>UC-04</b></td>
+        <td>TÃ¬m kiáº¿m & Lá»c phÃ²ng</td>
+        <td>Sinh viÃªn, KhÃ¡ch</td>
+        <td>Lá»c phÃ²ng theo tÃªn trÆ°á»ng Ä‘áº¡i há»c, khoáº£ng giÃ¡ vÃ  cÃ¡c tiá»‡n Ã­ch.</td>
+    </tr>
+    <tr>
+        <td><b>UC-05</b></td>
+        <td>Xem chi tiáº¿t phÃ²ng</td>
+        <td>Táº¥t cáº£ ngÆ°á»i dÃ¹ng</td>
+        <td>Xem toÃ n bá»™ hÃ¬nh áº£nh, giÃ¡, mÃ´ táº£, tiá»‡n Ã­ch vÃ  thÃ´ng tin liÃªn há»‡.</td>
+    </tr>
+    <tr>
+        <td><b>UC-06</b></td>
+        <td>Gá»­i tin nháº¯n (Chat 1-1)</td>
+        <td>Sinh viÃªn, Chá»§ trá»</td>
+        <td>Trao Ä‘á»•i tin nháº¯n vÄƒn báº£n liÃªn quan Ä‘áº¿n má»™t cÄƒn phÃ²ng cá»¥ thá»ƒ.</td>
+    </tr>
+    <tr>
+        <td><b>UC-07</b></td>
+        <td>ÄÄƒng bÃ i phÃ²ng trá» má»›i</td>
+        <td>Chá»§ trá»</td>
+        <td>ÄÆ°a thÃ´ng tin cÄƒn phÃ²ng má»›i lÃªn sÃ n giao dá»‹ch á»©ng dá»¥ng.</td>
+    </tr>
+    <tr>
+        <td><b>UC-08</b></td>
+        <td>Cáº­p nháº­t phÃ²ng & Chá»— trá»‘ng</td>
+        <td>Chá»§ trá»</td>
+        <td>Chá»‰nh sá»­a thÃ´ng tin phÃ²ng vÃ  tÄƒng/giáº£m sá»‘ ngÆ°á»i Ä‘ang á»Ÿ.</td>
+    </tr>
+    <tr>
+        <td><b>UC-09</b></td>
+        <td>LÆ°u phÃ²ng yÃªu thÃ­ch</td>
+        <td>Sinh viÃªn</td>
+        <td>ÄÃ¡nh dáº¥u cÃ¡c phÃ²ng trá» Æ°ng Ã½ Ä‘á»ƒ theo dÃµi lÃ¢u dÃ i.</td>
+    </tr>
+    <tr>
+        <td><b>UC-10</b></td>
+        <td>ÄÄƒng xuáº¥t há»‡ thá»‘ng</td>
+        <td>Sinh viÃªn, Chá»§ trá»</td>
+        <td>XÃ³a phiÃªn lÃ m viá»‡c trÃªn mÃ¡y Ä‘á»ƒ báº£o máº­t tÃ i khoáº£n.</td>
+    </tr>
+</table>
+
+<h3>4. Báº£ng diá»…n táº£ chi tiáº¿t ká»‹ch báº£n cÃ¡c Use Case chÃ­nh</h3>
+
+<h4>4.1. Äáº·c táº£ Use Case UC-04: TÃ¬m kiáº¿m & Lá»c phÃ²ng trá»</h4>
+<p>- <b>TÃªn Use Case:</b> TÃ¬m kiáº¿m vÃ  Lá»c phÃ²ng trá» nÃ¢ng cao.</p>
+<p>- <b>TÃ¡c nhÃ¢n:</b> Sinh viÃªn, KhÃ¡ch vÃ£ng lai.</p>
+<p>- <b>MÃ´ táº£:</b> Cho phÃ©p ngÆ°á»i dÃ¹ng lá»c danh má»¥c phÃ²ng trá» theo trÆ°á»ng Ä‘áº¡i há»c gáº§n nháº¥t, má»©c giÃ¡ thuÃª vÃ  cÃ¡c tiá»‡n Ã­ch Ä‘i kÃ¨m.</p>
+<p>- <b>Äiá»u kiá»‡n tiÃªn quyáº¿t:</b> á»¨ng dá»¥ng Ä‘Ã£ káº¿t ná»‘i máº¡ng internet vÃ  táº£i Ä‘Æ°á»£c danh sÃ¡ch phÃ²ng ban Ä‘áº§u tá»« mÃ¡y chá»§.</p>
+<p>- <b>Luá»“ng sá»± kiá»‡n chÃ­nh:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;1. NgÆ°á»i dÃ¹ng má»Ÿ tab TÃ¬m kiáº¿m hoáº·c báº¥m vÃ o bá»™ lá»c trÃªn mÃ n hÃ¬nh chÃ­nh.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;2. NgÆ°á»i dÃ¹ng chá»n trÆ°á»ng Ä‘áº¡i há»c má»¥c tiÃªu (vÃ­ dá»¥: UTC - ÄH Giao thÃ´ng Váº­n táº£i).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;3. NgÆ°á»i dÃ¹ng chá»n má»©c giÃ¡ (vÃ­ dá»¥: DÆ°á»›i 3.5 triá»‡u) vÃ  tÃ­ch chá»n cÃ¡c tiá»‡n Ã­ch (CÃ³ Ä‘iá»u hÃ²a, CÃ³ mÃ¡y giáº·t, Giá» tá»± do).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;4. NgÆ°á»i dÃ¹ng báº¥m nÃºt <i>"Ãp dá»¥ng bá»™ lá»c"</i>.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;5. á»¨ng dá»¥ng lá»c danh sÃ¡ch phÃ²ng vÃ  hiá»ƒn thá»‹ cÃ¡c cÄƒn phÃ²ng thá»a mÃ£n Ä‘á»“ng thá»i cÃ¡c Ä‘iá»u kiá»‡n trÃªn.</p>
+<p>- <b>Luá»“ng ngoáº¡i lá»‡:</b> Náº¿u khÃ´ng cÃ³ phÃ²ng nÃ o thá»a mÃ£n, á»©ng dá»¥ng hiá»ƒn thá»‹ thÃ´ng bÃ¡o: <i>"KhÃ´ng tÃ¬m tháº¥y phÃ²ng trá» phÃ¹ há»£p vá»›i tiÃªu chÃ­ lá»c, vui lÃ²ng thá»­ láº¡i vá»›i khoáº£ng giÃ¡ rá»™ng hÆ¡n"</i>.</p>
+<p>- <b>Káº¿t quáº£:</b> Danh sÃ¡ch phÃ²ng Ä‘Æ°á»£c thu háº¹p chÃ­nh xÃ¡c theo nhu cáº§u thá»±c táº¿ cá»§a sinh viÃªn.</p>
+
+<h4>4.2. Äáº·c táº£ Use Case UC-06: Nháº¯n tin trao Ä‘á»•i 1-1</h4>
+<p>- <b>TÃªn Use Case:</b> Nháº¯n tin trá»±c tiáº¿p giá»¯a KhÃ¡ch thuÃª vÃ  Chá»§ trá».</p>
+<p>- <b>TÃ¡c nhÃ¢n:</b> Sinh viÃªn, Chá»§ trá».</p>
+<p>- <b>MÃ´ táº£:</b> Khá»Ÿi táº¡o cuá»™c há»™i thoáº¡i theo tá»«ng phÃ²ng trá» cá»¥ thá»ƒ, cho phÃ©p hai bÃªn trao Ä‘á»•i tin nháº¯n vÄƒn báº£n.</p>
+<p>- <b>Äiá»u kiá»‡n tiÃªn quyáº¿t:</b> Sinh viÃªn Ä‘Ã£ Ä‘Äƒng nháº­p tÃ i khoáº£n vÃ o á»©ng dá»¥ng.</p>
+<p>- <b>Luá»“ng sá»± kiá»‡n chÃ­nh:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;1. Sinh viÃªn báº¥m nÃºt <i>"Nháº¯n tin ngay"</i> trÃªn mÃ n hÃ¬nh chi tiáº¿t cá»§a má»™t cÄƒn phÃ²ng.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;2. Há»‡ thá»‘ng kiá»ƒm tra hoáº·c táº¡o phiÃªn chat má»›i liÃªn káº¿t giá»¯a Sinh viÃªn, Chá»§ trá» vÃ  PhÃ²ng trá» Ä‘Ã³.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;3. Giao diá»‡n tin nháº¯n má»Ÿ ra, táº£i toÃ n bá»™ lá»‹ch sá»­ trÃ² chuyá»‡n trÆ°á»›c Ä‘Ã³.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;4. Sinh viÃªn nháº­p tin nháº¯n (vÃ­ dá»¥: "PhÃ²ng nÃ y cÃ²n trá»‘ng khÃ´ng anh chá»‹? Em muá»‘n qua xem phÃ²ng lÃºc 5h chiá»u nay") vÃ  nháº¥n Gá»­i.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;5. MÃ¡y chá»§ lÆ°u tin nháº¯n vÃ o CSDL, cáº­p nháº­t giao diá»‡n hiá»ƒn thá»‹ bong bÃ³ng tin nháº¯n cá»§a ngÆ°á»i gá»­i á»Ÿ gÃ³c pháº£i.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;6. Khi Chá»§ trá» má»Ÿ á»©ng dá»¥ng vÃ o má»¥c Tin nháº¯n, phiÃªn chat xuáº¥t hiá»‡n á»Ÿ Ä‘áº§u danh sÃ¡ch vá»›i tin nháº¯n má»›i nháº¥t hiá»ƒn thá»‹ rÃµ rÃ ng.</p>
+<p>- <b>Luá»“ng ngoáº¡i lá»‡:</b> Náº¿u máº¥t káº¿t ná»‘i internet khi Ä‘ang gá»­i, á»©ng dá»¥ng hiá»ƒn thá»‹ biá»ƒu tÆ°á»£ng cáº£nh bÃ¡o vÃ  cho phÃ©p ngÆ°á»i dÃ¹ng báº¥m gá»­i láº¡i.</p>
+<p>- <b>Káº¿t quáº£:</b> Cuá»™c há»™i thoáº¡i Ä‘Æ°á»£c lÆ°u trá»¯ vÄ©nh viá»…n vÃ  Ä‘á»“ng bá»™ trÃªn mÃ¡y chá»§ Ä‘Ã¡m mÃ¢y.</p>
+
+<h4>4.3. Äáº·c táº£ Use Case UC-08: Cáº­p nháº­t thÃ´ng tin phÃ²ng vÃ  Chá»— trá»‘ng</h4>
+<p>- <b>TÃªn Use Case:</b> Quáº£n lÃ½ vÃ  Cáº­p nháº­t tráº¡ng thÃ¡i phÃ²ng trá».</p>
+<p>- <b>TÃ¡c nhÃ¢n:</b> Chá»§ trá».</p>
+<p>- <b>MÃ´ táº£:</b> GiÃºp chá»§ trá» thay Ä‘á»•i giÃ¡, mÃ´ táº£ vÃ  sá»‘ ngÆ°á»i Ä‘ang á»Ÿ Ä‘á»ƒ cáº­p nháº­t tráº¡ng thÃ¡i phÃ²ng cÃ²n trá»‘ng hay Ä‘Ã£ háº¿t.</p>
+<p>- <b>Äiá»u kiá»‡n tiÃªn quyáº¿t:</b> NgÆ°á»i dÃ¹ng Ä‘Ã£ Ä‘Äƒng nháº­p vá»›i tÃ i khoáº£n Chá»§ trá» vÃ  lÃ  ngÆ°á»i táº¡o bÃ i Ä‘Äƒng Ä‘Ã³.</p>
+<p>- <b>Luá»“ng sá»± kiá»‡n chÃ­nh:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;1. Chá»§ trá» vÃ o má»¥c <i>"PhÃ²ng cá»§a tÃ´i"</i>, chá»n cÄƒn phÃ²ng cáº§n cáº­p nháº­t.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;2. Nháº¥n nÃºt <i>"Chá»‰nh sá»­a"</i>.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;3. Chá»§ trá» thay Ä‘á»•i giÃ¡ tiá»n hoáº·c thay Ä‘á»•i sá»‘ ngÆ°á»i Ä‘ang á»Ÿ (CurrentOccupancy).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;4. Nháº¥n <i>"LÆ°u thay Ä‘á»•i"</i>.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;5. Há»‡ thá»‘ng gá»­i yÃªu cáº§u cáº­p nháº­t lÃªn mÃ¡y chá»§. MÃ¡y chá»§ tÃ­nh láº¡i AvailableSpots = MaxOccupancy - CurrentOccupancy:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u AvailableSpots > 0: Tráº¡ng thÃ¡i ghi nháº­n lÃ  Available (VÃ­ dá»¥: Trá»‘ng 1/3).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ Náº¿u AvailableSpots = 0: Tráº¡ng thÃ¡i tá»± Ä‘á»™ng chuyá»ƒn thÃ nh Full (Háº¿t chá»—).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;6. MÃ¡y chá»§ tráº£ vá» thÃ´ng bÃ¡o cáº­p nháº­t thÃ nh cÃ´ng, giao diá»‡n hiá»ƒn thá»‹ sá»‘ chá»— trá»‘ng má»›i.</p>
+
+<h3>5. CÃ¡c yÃªu cáº§u phi chá»©c nÄƒng (Non-Functional Requirements)</h3>
+<p>- <b>YÃªu cáº§u vá» CÆ¡ sá»Ÿ dá»¯ liá»‡u:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Äáº£m báº£o tÃ­nh toÃ n váº¹n tham chiáº¿u 100% thÃ´ng qua cÃ¡c rÃ ng buá»™c khÃ³a ngoáº¡i (Foreign Keys) giá»¯a báº£ng Rooms, Users, ChatSessions vÃ  Messages.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ ÄÃ¡nh chá»‰ má»¥c (Clustered & Non-Clustered Indexes) trÃªn cÃ¡c cá»™t thÆ°á»ng xuyÃªn tÃ¬m kiáº¿m nhÆ° TargetUniversity, BasePrice, Status Ä‘á»ƒ Ä‘áº£m báº£o thá»i gian truy váº¥n dÆ°á»›i 50ms ngay cáº£ khi dá»¯ liá»‡u tÄƒng lÃªn hÃ ng chá»¥c ngÃ n dÃ²ng.</p>
+<p>- <b>YÃªu cáº§u vá» Báº£o máº­t (Security):</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Máº­t kháº©u ngÆ°á»i dÃ¹ng Ä‘Æ°á»£c mÃ£ hÃ³a má»™t chiá»u trÆ°á»›c khi lÆ°u trá»¯, khÃ´ng lÆ°u vÄƒn báº£n thuáº§n (plain text).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Chá»‘ng cÃ¡c cuá»™c táº¥n cÃ´ng phá»• biáº¿n nhÆ° SQL Injection thÃ´ng qua viá»‡c dÃ¹ng Entity Framework Core vá»›i tham sá»‘ hÃ³a truy váº¥n (Parameterized Queries).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Kiá»ƒm soÃ¡t quyá»n háº¡n cháº·t cháº½: Chá»‰ chá»§ nhÃ¢n cá»§a bÃ i Ä‘Äƒng phÃ²ng má»›i cÃ³ quyá»n sá»­a/xÃ³a bÃ i Ä‘Äƒng Ä‘Ã³.</p>
+<p>- <b>YÃªu cáº§u vá» Hiá»‡u nÄƒng vÃ  Äá»™ tin cáº­y (Performance & Reliability):</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Thá»i gian pháº£n há»“i API trung bÃ¬nh Ä‘áº¡t dÆ°á»›i 500ms.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ á»¨ng dá»¥ng di Ä‘á»™ng khá»Ÿi Ä‘á»™ng dÆ°á»›i 2 giÃ¢y, thao tÃ¡c cuá»™n danh sÃ¡ch phÃ²ng Ä‘áº¡t tá»‘c Ä‘á»™ khung hÃ¬nh 60fps mÆ°á»£t mÃ  nhá» cÆ¡ cháº¿ ViewHolder vÃ  thÆ° viá»‡n táº£i áº£nh Coil.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Há»‡ thá»‘ng hoáº¡t Ä‘á»™ng liÃªn tá»¥c 24/7 vá»›i Ä‘á»™ sáºµn sÃ ng Ä‘áº¡t trÃªn 99.5% trÃªn háº¡ táº§ng hosting Ä‘Ã¡m mÃ¢y.</p>
+<p>- <b>YÃªu cáº§u vá» Giao diá»‡n & TÃ­nh tÆ°Æ¡ng thÃ­ch (UI/UX Compatibility):</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Há»— trá»£ cÃ¡c kÃ­ch thÆ°á»›c mÃ n hÃ¬nh Ä‘iá»‡n thoáº¡i tá»« 5.0 inch Ä‘áº¿n 6.9 inch, há»— trá»£ cháº¿ Ä‘á»™ xoay dá»c tiÃªu chuáº©n.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ TÆ°Æ¡ng thÃ­ch vá»›i cÃ¡c phiÃªn báº£n há»‡ Ä‘iá»u hÃ nh Android tá»« Android 7.0 (API Level 24) Ä‘áº¿n Android 14 má»›i nháº¥t.</p>
+
+<h2>VI. Káº¾ HOáº CH TRIá»‚N KHAI, BÃ€N GIAO & Váº¬N HÃ€NH Báº¢O TRÃŒ</h2>
+
+<h3>1. MÃ´i trÆ°á»ng triá»ƒn khai pháº§n má»m</h3>
+<table>
+    <tr>
+        <th style="width: 20%;">MÃ´i trÆ°á»ng</th>
+        <th style="width: 45%;">Háº¡ táº§ng & Cáº¥u hÃ¬nh</th>
+        <th style="width: 35%;">Má»¥c Ä‘Ã­ch sá»­ dá»¥ng</th>
+    </tr>
+    <tr>
+        <td><b>MÃ´i trÆ°á»ng PhÃ¡t triá»ƒn (DEV)</b></td>
+        <td>â€¢ Android Studio 2024+, Kotlin SDK, JDK 17.<br>â€¢ Visual Studio / VS Code, .NET 8.0 SDK.<br>â€¢ Quáº£n lÃ½ mÃ£ nguá»“n táº­p trung qua Git.</td>
+        <td>Láº­p trÃ¬nh viÃªn viáº¿t mÃ£, cháº¡y thá»­ mÃ¡y áº£o, gá»¡ lá»—i (debug) vÃ  tá»‘i Æ°u hÃ³a tÃ­nh nÄƒng.</td>
+    </tr>
+    <tr>
+        <td><b>MÃ´i trÆ°á»ng Kiá»ƒm thá»­ (TEST)</b></td>
+        <td>â€¢ Postman Collection kiá»ƒm thá»­ toÃ n bá»™ 15 API.<br>â€¢ Swagger OpenAPI UI trá»±c quan.<br>â€¢ Thiáº¿t bá»‹ tháº­t Android Ä‘a dáº¡ng cáº¥u hÃ¬nh.</td>
+        <td>Kiá»ƒm thá»­ chá»©c nÄƒng, kiá»ƒm thá»­ luá»“ng nghiá»‡p vá»¥ vÃ  kiá»ƒm tra kháº£ nÄƒng báº¯t lá»—i ngoáº¡i lá»‡.</td>
+    </tr>
+    <tr>
+        <td><b>MÃ´i trÆ°á»ng Váº­n hÃ nh (Production Cloud)</b></td>
+        <td>â€¢ <b>API Web Server:</b> MonsterASP Cloud Hosting (http://tro24h.runasp.net).<br>â€¢ <b>Database Server:</b> MS SQL Server Cloud (db69654.databaseasp.net).</td>
+        <td>Váº­n hÃ nh chÃ­nh thá»©c trÃªn mÃ´i trÆ°á»ng internet cÃ´ng cá»™ng, phá»¥c vá»¥ ngÆ°á»i dÃ¹ng 24/7.</td>
+    </tr>
+</table>
+
+<h3>2. Káº¿ hoáº¡ch triá»ƒn khai mÃ£ nguá»“n theo Sprint (Scrum Framework)</h3>
+<p>- <b>Sprint 1 (Tuáº§n 1): Thiáº¿t láº­p cÆ¡ sá»Ÿ háº¡ táº§ng & Kiáº¿n trÃºc:</b> Cáº¥u hÃ¬nh dá»± Ã¡n Android vá»›i Clean Architecture + MVVM, tÃ­ch há»£p Retrofit, OkHttp, ViewBinding. Táº¡o cáº¥u trÃºc thÆ° má»¥c chuáº©n.</p>
+<p>- <b>Sprint 2 (Tuáº§n 2 - 3): XÃ¢y dá»±ng CÆ¡ sá»Ÿ dá»¯ liá»‡u & Backend Web API:</b> Thiáº¿t káº¿ CSDL 6 báº£ng, viáº¿t cÃ¡c Controller (Auth, Room, Chat), cáº¥u hÃ¬nh CORS vÃ  triá»ƒn khai Swagger.</p>
+<p>- <b>Sprint 3 (Tuáº§n 4): HoÃ n thiá»‡n Module XÃ¡c thá»±c (Authentication):</b> XÃ¢y dá»±ng giao diá»‡n ÄÄƒng kÃ½, ÄÄƒng nháº­p, lÆ°u trá»¯ phiÃªn ngÆ°á»i dÃ¹ng an toÃ n vÃ o DataStore.</p>
+<p>- <b>Sprint 4 (Tuáº§n 5 - 6): PhÃ¡t triá»ƒn Luá»“ng nghiá»‡p vá»¥ PhÃ²ng trá»:</b> XÃ¢y dá»±ng mÃ n hÃ¬nh Home Feed, bá»™ lá»c Ä‘a tiÃªu chÃ­ theo trÆ°á»ng ÄH vÃ  giÃ¡; phÃ¡t triá»ƒn mÃ n hÃ¬nh Chi tiáº¿t phÃ²ng hiá»ƒn thá»‹ chá»— trá»‘ng.</p>
+<p>- <b>Sprint 5 (Tuáº§n 7): PhÃ¡t triá»ƒn Module Tin nháº¯n 1-1 & Chá»§ trá»:</b> XÃ¢y dá»±ng giao diá»‡n chat hai chiá»u, hiá»ƒn thá»‹ danh sÃ¡ch há»™p thÆ° Ä‘áº¿n; hoÃ n thiá»‡n chá»©c nÄƒng táº¡o vÃ  sá»­a phÃ²ng cá»§a chá»§ trá».</p>
+<p>- <b>Sprint 6 (Tuáº§n 8): Triá»ƒn khai Cloud, Kiá»ƒm thá»­ tá»•ng thá»ƒ & ÄÃ³ng gÃ³i:</b> Triá»ƒn khai Backend vÃ  Database lÃªn Cloud MonsterASP; xuáº¥t báº£n file pp-release.apk vÃ  láº­p tÃ i liá»‡u bÃ n giao.</p>
+
+<h3>3. Káº¿ hoáº¡ch nghiá»‡m thu, bÃ n giao vÃ  báº£o trÃ¬ pháº§n má»m</h3>
+<p>- <b>TiÃªu chÃ­ nghiá»‡m thu (Definition of Done - DOD):</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ ToÃ n bá»™ cÃ¡c API Ä‘á»u tráº£ vá» káº¿t quáº£ chÃ­nh xÃ¡c, mÃ£ lá»—i rÃµ rÃ ng theo chuáº©n HTTP Status Code.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ á»¨ng dá»¥ng di Ä‘á»™ng khÃ´ng bá»‹ crash, giao diá»‡n khÃ´ng bá»‹ trÃ n chá»¯ trÃªn cÃ¡c Ä‘á»™ phÃ¢n giáº£i mÃ n hÃ¬nh khÃ¡c nhau.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ á»¨ng dá»¥ng káº¿t ná»‘i thÃ´ng suá»‘t vá»›i Cloud API mÃ  khÃ´ng cáº§n phá»¥ thuá»™c vÃ o máº¡ng LAN mÃ¡y tÃ­nh.</p>
+<p>- <b>Báº£o trÃ¬ vÃ  Há»— trá»£ ká»¹ thuáº­t:</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Äá»‹nh ká»³ sao lÆ°u dá»¯ liá»‡u (Backup Database) trÃªn Ä‘Ã¡m mÃ¢y.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;+ Theo dÃµi vÃ  pháº£n há»“i ká»‹p thá»i cÃ¡c lá»—i phÃ¡t sinh thÃ´ng qua há»‡ thá»‘ng log IIS vÃ  Logcat.</p>
+
+<h2>VII. BIá»†N PHÃP AN TOÃ€N Váº¬N HÃ€NH & Báº¢O Máº¬T THÃ”NG TIN</h2>
+<p>- <b>Báº£o vá»‡ dá»¯ liá»‡u Ä‘Æ°á»ng truyá»n:</b> ToÃ n bá»™ gÃ³i tin trao Ä‘á»•i giá»¯a á»©ng dá»¥ng di Ä‘á»™ng vÃ  mÃ¡y chá»§ Ä‘á»u tuÃ¢n theo chuáº©n Ä‘á»‹nh dáº¡ng JSON nghiÃªm ngáº·t, lá»c bá» cÃ¡c trÆ°á»ng nháº¡y cáº£m trÆ°á»›c khi gá»­i vá» client.</p>
+<p>- <b>Báº£o vá»‡ cÆ¡ sá»Ÿ dá»¯ liá»‡u:</b> TÃ i khoáº£n káº¿t ná»‘i CSDL Ä‘Ã¡m mÃ¢y Ä‘Æ°á»£c phÃ¢n quyá»n cháº·t cháº½, máº­t kháº©u CSDL phá»©c táº¡p gá»“m chá»¯ hoa, chá»¯ thÆ°á»ng, sá»‘ vÃ  kÃ½ tá»± Ä‘áº·c biá»‡t, háº¡n cháº¿ truy cáº­p trÃ¡i phÃ©p tá»« bÃªn ngoÃ i.</p>
+<p>- <b>Báº£o vá»‡ phiÃªn ngÆ°á»i dÃ¹ng:</b> PhiÃªn lÃ m viá»‡c trÃªn Ä‘iá»‡n thoáº¡i Ä‘Æ°á»£c lÆ°u trá»¯ trong DataStore cá»¥c bá»™ cá»§a á»©ng dá»¥ng, tá»± Ä‘á»™ng bá»‹ xÃ³a sáº¡ch khi ngÆ°á»i dÃ¹ng nháº¥n nÃºt ÄÄƒng xuáº¥t.</p>
+
+<div style="height: 30pt;"></div>
+<table style="width: 100%; border: none;">
+    <tr style="border: none;">
+        <td style="border: none; text-align: center; width: 50%;">
+            <b>NGÆ¯á»œI Láº¬P BÃO CÃO</b><br>
+            <i>(KÃ½ vÃ  ghi rÃµ há» tÃªn)</i><br><br><br><br>
+            <b>NhÃ³m phÃ¡t triá»ƒn TRO24H</b>
+        </td>
+        <td style="border: none; text-align: center; width: 50%;">
+            <b>GIáº¢NG VIÃŠN HÆ¯á»šNG DáºªN / NGHIá»†M THU</b><br>
+            <i>(KÃ½ vÃ  ghi rÃµ há» tÃªn)</i><br><br><br><br>
+            <b>Bá»™ mÃ´n CÃ´ng nghá»‡ pháº§n má»m</b>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Báo cáo Bài tập lớn Tro24H</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 13pt; line-height: 1.5; }
+        .cover-page { text-align: center; padding-top: 40px; page-break-after: always; }
+        .cover-page h2 { font-size: 14pt; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+        .cover-page h3 { font-size: 13pt; font-weight: normal; margin-top: 5px; }
+        .cover-page h1 { font-size: 24pt; font-weight: bold; margin-top: 80px; margin-bottom: 30px; color: #000; text-transform: uppercase;}
+        .cover-page .topic { font-size: 18pt; font-weight: bold; margin-bottom: 80px; }
+        .cover-page .info { text-align: left; width: 60%; margin: 0 auto; font-size: 14pt; line-height: 1.8; margin-bottom: 100px;}
+        .cover-page .year { font-size: 14pt; font-weight: bold; margin-top: 50px; }
+        
+        h1.chapter { font-size: 16pt; font-weight: bold; text-transform: uppercase; margin-top: 30px; text-align: center; }
+        h2.section { font-size: 14pt; font-weight: bold; margin-top: 20px; }
+        h3.subsection { font-size: 13pt; font-weight: bold; font-style: italic; margin-top: 15px; }
+        
+        table { border-collapse: collapse; width: 100%; margin-top: 15px; margin-bottom: 25px; }
+        th, td { border: 1px solid #000000; padding: 10px; text-align: left; vertical-align: top; }
+        th { background-color: #F2F2F2; font-weight: bold; text-align: center; }
+        
+        .page-break { page-break-before: always; }
+        p { text-align: justify; margin-top: 10px; margin-bottom: 10px; }
+        ul { margin-top: 5px; margin-bottom: 15px; }
+        li { margin-bottom: 5px; text-align: justify; }
+    </style>
+</head>
+<body>
+
+    <!-- TRANG BÌA -->
+    <div class="cover-page">
+        <h2>BÁO CÁO BÀI TẬP LỚN</h2>
+        <h3>Môn: Lập trình Thiết bị Di động</h3>
+        <br/><br/>
+        <h1>ĐỀ TÀI</h1>
+        <div class="topic">XÂY DỰNG ỨNG DỤNG TÌM KIẾM VÀ QUẢN LÝ PHÒNG TRỌ SINH VIÊN (TRO24H)</div>
+        
+        <div class="info">
+            <p><b>Giảng viên hướng dẫn:</b> .........................................</p>
+            <p><b>Nhóm thực hiện:</b> .........................................</p>
+            <p><b>Sinh viên thực hiện:</b></p>
+            <ul>
+                <li>Lê Đình Phương - MSSV: ...........</li>
+                <li>Trà My - MSSV: ...........</li>
+                <li>(Thêm tên thành viên khác nếu có)</li>
+            </ul>
+        </div>
+        
+        <div class="year">Năm 2024</div>
+    </div>
+
+    <!-- MỤC LỤC (Giả lập) -->
+    <div class="page-break">
+        <h1 class="chapter">MỤC LỤC</h1>
+        <p><b>CHƯƠNG 1: TỔNG QUAN DỰ ÁN</b></p>
+        <p><b>CHƯƠNG 2: ĐẶC TẢ YÊU CẦU HỆ THỐNG</b></p>
+        <p><b>CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ</b></p>
+        <p><b>CHƯƠNG 4: CÔNG NGHỆ VÀ TRIỂN KHAI</b></p>
+        <p><b>CHƯƠNG 5: KẾT LUẬN</b></p>
+    </div>
+
+    <!-- NỘI DUNG -->
+    <div class="page-break">
+        <h1 class="chapter">CHƯƠNG 1: TỔNG QUAN DỰ ÁN</h1>
+        
+        <h2 class="section">1.1 Lý do chọn đề tài</h2>
+        <p>Hiện nay, nhu cầu tìm kiếm phòng trọ của sinh viên tại các thành phố lớn ngày càng cao. Tuy nhiên, việc tìm kiếm thông tin qua mạng xã hội thường gặp nhiều rủi ro về lừa đảo, thông tin không chính xác hoặc thiếu hình ảnh thực tế. Để giải quyết vấn đề này, nhóm quyết định phát triển ứng dụng <b>Tro24H</b>, một nền tảng chuyên biệt giúp kết nối trực tiếp giữa chủ trọ và sinh viên, minh bạch hóa thông tin, đồng thời cung cấp công cụ trao đổi trực tiếp an toàn.</p>
+        
+        <h2 class="section">1.2 Mục tiêu dự án</h2>
+        <ul>
+            <li>Xây dựng ứng dụng di động Android trực quan, dễ sử dụng cho cả sinh viên và chủ trọ.</li>
+            <li>Cung cấp đầy đủ các tính năng cơ bản như: Đăng tin, tìm kiếm có bộ lọc nâng cao, lưu tin, chat trực tiếp.</li>
+            <li>Đảm bảo hệ thống hoạt động mượt mà, bảo mật thông tin người dùng với xác thực OTP qua email.</li>
+        </ul>
+        
+        <h2 class="section">1.3 Phạm vi hệ thống</h2>
+        <p>Hệ thống bao gồm 2 thành phần chính:</p>
+        <ul>
+            <li><b>Ứng dụng Mobile App (Android):</b> Dành cho 2 đối tượng là Sinh viên (Người đi thuê) và Chủ trọ (Người cho thuê).</li>
+            <li><b>Hệ thống Backend (Web API):</b> Xử lý logic, lưu trữ dữ liệu tập trung và quản lý tài nguyên.</li>
+        </ul>
+    </div>
+
+    <div class="page-break">
+        <h1 class="chapter">CHƯƠNG 2: ĐẶC TẢ YÊU CẦU HỆ THỐNG</h1>
+        
+        <h2 class="section">2.1 Phân quyền người dùng (Actors)</h2>
+        <table>
+            <tr>
+                <th style="width: 20%;">Đối tượng</th>
+                <th>Mô tả quyền hạn</th>
+            </tr>
+            <tr>
+                <td><b>Chủ trọ (Landlord)</b></td>
+                <td>Người cho thuê phòng. Có toàn quyền quản lý tài khoản, được phép Đăng tin phòng trọ, chỉnh sửa tin, nhận tin nhắn từ người thuê.</td>
+            </tr>
+            <tr>
+                <td><b>Sinh viên (Student)</b></td>
+                <td>Người tìm phòng. Chỉ có thể tìm kiếm, xem chi tiết phòng, lưu phòng và nhắn tin cho chủ trọ. <b>Không</b> có quyền đăng tin.</td>
+            </tr>
+            <tr>
+                <td><b>Khách (Guest)</b></td>
+                <td>Người dùng chưa đăng nhập. Chỉ có thể xem danh sách phòng cơ bản, không thể nhắn tin, đăng tin hay lưu phòng.</td>
+            </tr>
+        </table>
+        
+        <h2 class="section">2.2 Các yêu cầu chức năng (Functional Requirements)</h2>
+        
+        <h3 class="subsection">A. Nhóm chức năng Tài khoản & Xác thực</h3>
+        <table>
+            <tr>
+                <th style="width: 15%;">Mã CN</th>
+                <th style="width: 25%;">Tên chức năng</th>
+                <th>Mô tả chi tiết</th>
+            </tr>
+            <tr>
+                <td>Auth-01</td>
+                <td>Đăng ký tài khoản</td>
+                <td>Cho phép chọn vai trò (Chủ trọ/Sinh viên). Yêu cầu xác minh địa chỉ Email qua mã OTP (thời hạn 5 phút, cooldown 60 giây).</td>
+            </tr>
+            <tr>
+                <td>Auth-02</td>
+                <td>Đăng nhập / Đăng xuất</td>
+                <td>Đăng nhập bằng Email và mật khẩu. Ứng dụng tự động lưu phiên đăng nhập cục bộ. Đăng xuất để xóa bộ nhớ đệm.</td>
+            </tr>
+            <tr>
+                <td>Auth-03</td>
+                <td>Quản lý hồ sơ</td>
+                <td>Cập nhật ảnh đại diện (avatar), thay đổi thông tin cá nhân.</td>
+            </tr>
+        </table>
+
+        <h3 class="subsection">B. Nhóm chức năng Quản lý Phòng trọ</h3>
+        <table>
+            <tr>
+                <th style="width: 15%;">Mã CN</th>
+                <th style="width: 25%;">Tên chức năng</th>
+                <th>Mô tả chi tiết</th>
+            </tr>
+            <tr>
+                <td>Room-01</td>
+                <td>Xem danh sách phòng</td>
+                <td>Hiển thị danh sách các phòng trọ đang cho thuê kèm ảnh thumbnail, giá, diện tích và địa chỉ.</td>
+            </tr>
+            <tr>
+                <td>Room-02</td>
+                <td>Lọc & Tìm kiếm nâng cao</td>
+                <td>Người dùng có thể lọc phòng theo: Khu vực (Quận/Huyện), Gần trường Đại học, Khoảng giá (Min-Max).</td>
+            </tr>
+            <tr>
+                <td>Room-03</td>
+                <td>Xem chi tiết phòng</td>
+                <td>Hiển thị thông tin chi tiết: hình ảnh, tiện ích (Wifi, Điều hòa,...), thông tin liên hệ của Chủ trọ.</td>
+            </tr>
+            <tr>
+                <td>Room-04</td>
+                <td>Đăng tin phòng trọ</td>
+                <td><b>(Chỉ dành cho Chủ trọ)</b> Điền đầy đủ thông tin, tải lên hình ảnh phòng từ thiết bị, thiết lập giá cả và địa chỉ.</td>
+            </tr>
+            <tr>
+                <td>Room-05</td>
+                <td>Lưu phòng (Yêu thích)</td>
+                <td>Sinh viên có thể đánh dấu lưu lại các phòng trọ ưng ý để xem lại trong tab Quản lý.</td>
+            </tr>
+        </table>
+
+        <h3 class="subsection">C. Nhóm chức năng Nhắn tin (Chat)</h3>
+        <table>
+            <tr>
+                <th style="width: 15%;">Mã CN</th>
+                <th style="width: 25%;">Tên chức năng</th>
+                <th>Mô tả chi tiết</th>
+            </tr>
+            <tr>
+                <td>Chat-01</td>
+                <td>Nhắn tin trực tiếp</td>
+                <td>Sinh viên bấm "Nhắn tin" từ trang chi tiết phòng để chat với chủ trọ. Chủ trọ trả lời từ tab Tin nhắn.</td>
+            </tr>
+            <tr>
+                <td>Chat-02</td>
+                <td>Quản lý hộp thư</td>
+                <td>Hiển thị danh sách các đoạn hội thoại, có hiển thị số lượng tin nhắn chưa đọc (Badge) trên thanh Bottom Navigation.</td>
+            </tr>
+        </table>
+
+        <h2 class="section">2.3 Các yêu cầu phi chức năng (Non-Functional)</h2>
+        <ul>
+            <li><b>Hiệu năng:</b> Phản hồi API dưới 1 giây. Hình ảnh hiển thị mượt mà.</li>
+            <li><b>Giao diện (UI/UX):</b> Giao diện mang phong cách hiện đại (Material Design 3), tông màu chủ đạo Xanh dương (Blue #3B82F6). Bố cục dạng the (CardView), tối ưu cho trải nghiệm vuốt (swipe).</li>
+            <li><b>Bảo mật:</b> Mật khẩu phải được mã hóa SHA-256 ở Backend. Hệ thống gửi OTP thật qua giao thức SMTP.</li>
+        </ul>
+    </div>
+
+    <div class="page-break">
+        <h1 class="chapter">CHƯƠNG 3: KIẾN TRÚC VÀ CƠ SỞ DỮ LIỆU</h1>
+        
+        <h2 class="section">3.1 Kiến trúc hệ thống</h2>
+        <p>Hệ thống được thiết kế theo mô hình <b>Client - Server</b>:</p>
+        <ul>
+            <li><b>Client:</b> Ứng dụng Android viết bằng ngôn ngữ Kotlin, áp dụng kiến trúc MVVM (Model - View - ViewModel), sử dụng Hilt để tiêm phụ thuộc (Dependency Injection), Retrofit để gọi mạng và Coroutines/Flow để xử lý bất đồng bộ.</li>
+            <li><b>Server:</b> Web API phát triển bằng nền tảng ASP.NET Core 8.0 (C#), triển khai Entity Framework Core.</li>
+            <li><b>Database:</b> Hệ quản trị cơ sở dữ liệu SQL Server.</li>
+        </ul>
+        
+        <h2 class="section">3.2 Thiết kế Cơ sở dữ liệu (Database Schema)</h2>
+        <p>Các bảng chính trong hệ thống:</p>
+        <ul>
+            <li><b>Bảng Users:</b> Lưu trữ thông tin người dùng (UserId, FullName, Email, PasswordHash, Role, PhoneNumber, AvatarUrl).</li>
+            <li><b>Bảng Rooms:</b> Lưu thông tin phòng trọ (RoomId, LandlordId, Title, Description, Price, Area, Address, Utilities, ImageUrls).</li>
+            <li><b>Bảng SavedRooms / ViewHistory:</b> Lưu thông tin quan hệ N-N giữa User và Room (phục vụ chức năng yêu thích và lịch sử xem).</li>
+            <li><b>Bảng ChatSessions / Messages:</b> Quản lý hộp thoại và chi tiết tin nhắn giữa các người dùng.</li>
+        </ul>
+    </div>
+
+    <div class="page-break">
+        <h1 class="chapter">CHƯƠNG 4: THIẾT KẾ GIAO DIỆN CHÍNH</h1>
+        <p>Dưới đây là mô tả chi tiết các màn hình (Screen) trong ứng dụng:</p>
+        <ul>
+            <li><b>Màn hình Đăng nhập (Login):</b> Nền trắng kết hợp header bo cong dải màu gradient xanh. Form nhập liệu được đặt trong thẻ CardView nổi bật với viền xanh. Hỗ trợ đầy đủ tương tác trực quan.</li>
+            <li><b>Màn hình Trang chủ (Home):</b> Chứa thanh tìm kiếm (SearchBar), bộ lọc (Filter) và danh sách phòng (RecyclerView) hiển thị ảnh theo chuẩn tỉ lệ, có hiển thị giá nổi bật.</li>
+            <li><b>Màn hình Tài khoản (Profile):</b> Hiển thị Avatar tròn (CircleCrop), tên, và <b>Chức danh</b> (Sinh viên Tro24H / Chủ trọ Tro24H). Các menu tiện ích (Lịch sử, Đã lưu) được ẩn/hiện logic theo chức danh.</li>
+        </ul>
+    </div>
+
+    <div class="page-break">
+        <h1 class="chapter">CHƯƠNG 5: KẾT LUẬN</h1>
+        <p><b>Kết quả đạt được:</b> Nhóm đã hoàn thành việc xây dựng ứng dụng Tro24H với các tính năng từ cơ bản đến nâng cao. Khắc phục được các bài toán về xác thực OTP, phân quyền sâu sắc giữa Sinh viên - Chủ trọ, và giao tiếp dữ liệu mượt mà giữa Android và C# Web API.</p>
+        <p><b>Hướng phát triển:</b> Trong tương lai, hệ thống có thể tích hợp thêm bản đồ (Google Maps) để tìm phòng quanh vị trí hiện tại, tích hợp cổng thanh toán cọc phòng trực tuyến, và áp dụng AI để gợi ý phòng trọ phù hợp với ngân sách của sinh viên.</p>
+    </div>
+
+</body>
+</html>

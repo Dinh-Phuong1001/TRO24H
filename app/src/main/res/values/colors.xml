@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tông màu chủ đạo là xanh (Blue) -->
+    <color name="primaryColor">#2563EB</color>
+    <color name="primaryDarkColor">#1E40AF</color>
+    <color name="colorAccent">#3B82F6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
