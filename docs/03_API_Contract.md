@@ -1,92 +1,122 @@
-# API Contract & Data Mapping - UniStay System
+# API Contract & Data Mapping - Hệ Thống TRO24H
 
-Tài liệu này xác định các mô hình dữ liệu (Data Models) ở phía Client và các Endpoints API cần thiết. Đồng thời **nêu rõ các thay đổi/chỉnh sửa cần thực hiện ở Backend ASP.NET Core** để đáp ứng được ứng dụng Android.
+Tài liệu này đặc tả chi tiết toàn bộ các mô hình dữ liệu (Data Models) và danh sách Endpoints RESTful API của hệ thống **TRO24H**.
 
-## 1. Yêu cầu chung với Backend (Đọc kỹ phần này)
-Để ứng dụng Android (Mobile Native) hoạt động chuẩn mực với Backend, Backend cần thay đổi các cơ chế sau:
-- **[QUAN TRỌNG] Chuyển đổi Auth từ Cookie sang JWT Token:** Mobile app không thể (và không nên) dùng Cookie như Web truyền thống. Backend cần trả về một chuỗi `JWT Token` ở API Login. Các API yêu cầu xác thực sau đó, Mobile sẽ truyền token này vào HTTP Header: `Authorization: Bearer <token>`.
-- **Trả về JSON, không trả về View (HTML):** Các chức năng như Chat, Xem phòng, nếu hiện tại Backend đang dùng cơ chế render MVC View thì phải viết thêm các Route API trả về định dạng JSON thuần.
-- **Chuẩn hóa Error Response:** Backend nên thống nhất một format lỗi, ví dụ: `{ "status": 400, "message": "Email đã tồn tại", "data": null }`.
+- 🌐 **Cloud Base URL:** `http://tro24h.runasp.net/`
+- 📑 **Swagger OpenAPI UI:** `http://tro24h.runasp.net/swagger/index.html`
 
 ---
 
-## 2. Data Mapping (Domain Models - Kotlin Data Class)
+## 1. Mô hình Dữ liệu (Domain Data Models)
 
-### 2.1. User Model
+### 1.1. User Model (Người dùng)
 ```kotlin
 data class User(
     val userId: String,
     val fullName: String,
     val email: String,
     val phoneNumber: String,
-    val role: String // "Student" hoặc "Landlord"
+    val role: String, // "Student" hoặc "Landlord"
+    val avatarUrl: String? = null
 )
 ```
 
-### 2.2. Room Model
+### 1.2. Room Model (Phòng trọ)
 ```kotlin
 data class Room(
     val roomId: String,
-    val roomCode: String,
     val title: String,
+    val description: String?,
     val address: String,
-    val basePrice: Double,
-    val targetUniversity: String,
-    val distanceToCampusKm: Double,
-    val status: String, // "Available", "Full", "Hidden"
-    val maxOccupancy: Int,
-    val currentOccupancy: Int,
-    val imageUrls: List<String>, // Đổi từ 1 image thành List nếu có thể
-    val amenities: List<String>, // VD: ["Wifi", "Điều hòa", "Nóng lạnh"]
+    val district: String?,
+    val targetUniversity: String?,
+    val price: Double,
+    val area: Double,
+    val roomType: String?, // "Tro", "ChungCuMini", "O_Ghep"
+    val amenities: String?, // Chuỗi tiện ích: "Wifi, DieuHoa, NongLanh, TuDo"
+    val imageUrls: String?, // Danh sách URL ảnh phân cách bởi dấu phẩy
     val contactPhone: String,
     val landlordId: String,
-    val isTransfer: Boolean = false, // Đánh dấu phòng pass
-    val transferByStudentId: String? = null // ID của sinh viên pass phòng (nếu có)
+    val isAvailable: Boolean = true,
+    val createdAt: String? = null
 )
 ```
 
-### 2.3. ChatMessage Model
+### 1.3. Chat & Message Model (Tin nhắn & Phiên trò chuyện)
 ```kotlin
-data class ChatMessage(
-    val messageId: String,
+data class ChatSession(
+    val sessionId: String,
+    val studentId: String,
+    val landlordId: String,
     val roomId: String?,
+    val lastMessage: String?,
+    val lastMessageTime: String?,
+    val unreadCount: Int = 0,
+    val otherUserName: String? = null,
+    val otherUserAvatar: String? = null
+)
+
+data class Message(
+    val messageId: String,
+    val sessionId: String,
     val senderId: String,
     val receiverId: String,
     val content: String,
-    val sentAt: Long // Epoch time để Mobile dễ parse
+    val sentAt: String,
+    val isRead: Boolean = false
 )
 ```
 
 ---
 
-## 3. Danh sách API (API Contract)
+## 2. Danh sách Endpoints RESTful API
 
-Dưới đây là các API mà Android App sẽ sử dụng qua Retrofit. Các đường dẫn có prefix `/api/`.
+### 2.1. Phân hệ Xác thực & Tài khoản (`AuthController`, `UsersController`)
+| Phương thức | Endpoint | Mô tả chức năng | Request Body | Response mong đợi |
+|:---:|---|---|---|---|
+| `POST` | `/api/auth/login` | Đăng nhập tài khoản | `{ "email": "...", "password": "..." }` | `{ "user": User, "token": "..." }` |
+| `POST` | `/api/auth/register` | Đăng ký tài khoản mới | `{ "fullName": "...", "email": "...", "password": "...", "phoneNumber": "...", "role": "Student/Landlord", "otp": "..." }` | `{ "user": User, "token": "..." }` |
+| `POST` | `/api/auth/request-otp` | Gửi mã OTP xác thực email | `{ "email": "..." }` | `{ "message": "OTP đã được gửi" }` |
+| `POST` | `/api/auth/change-password` | Đổi mật khẩu tài khoản | `{ "userId": "...", "oldPassword": "...", "newPassword": "..." }` | `200 OK` |
+| `POST` | `/api/auth/forgot-password-otp`| Yêu cầu OTP quên mật khẩu | `{ "email": "..." }` | `{ "message": "OTP đã được gửi" }` |
+| `POST` | `/api/auth/reset-password` | Đặt lại mật khẩu mới | `{ "email": "...", "otp": "...", "newPassword": "..." }` | `{ "message": "Thành công" }` |
+| `PUT` | `/api/users/{id}` | Cập nhật thông tin cá nhân | `{ "fullName": "...", "phoneNumber": "...", "avatarUrl": "..." }` | `User` |
+| `DELETE`| `/api/users/{id}` | Xóa tài khoản người dùng | - | `200 OK` |
 
-### 3.1. Authentication (Xác thực)
-| HTTP Method | Endpoint | Mô tả | Request Body | Response Body mong đợi | Chú ý (Cần sửa ở BE) |
-|---|---|---|---|---|---|
-| `POST` | `/api/auth/login` | Đăng nhập | `{email, password}` | `{ token: "jwt...", user: { ... } }` | **Cần thêm API này trả về JWT.** |
-| `POST` | `/api/auth/register` | Đăng ký | `{email, password, fullName, phone, role}` | `{ success: true, message: "..." }` | Trả về JSON, không redirect. |
+---
 
-### 3.2. Room (Phòng trọ)
-| HTTP Method | Endpoint | Mô tả | Request Query/Body | Response Body mong đợi | Chú ý (Cần sửa ở BE) |
-|---|---|---|---|---|---|
-| `GET` | `/api/rooms` | Lấy danh sách & Tìm kiếm phòng | `?university=...&isTransfer=...` | `List<Room>` | Hỗ trợ filter theo isTransfer (phòng pass). |
-| `GET` | `/api/rooms/{id}` | Lấy chi tiết phòng | - | `Room` | Trả về chi tiết dạng JSON. |
-| `POST` | `/api/rooms` | (Landlord/Student) Đăng phòng | `RoomDto` | `Room` (trả về phòng vừa tạo) | Yêu cầu Header Auth. Chấp nhận Student nếu isTransfer = true. |
-| `PUT` | `/api/rooms/{id}` | (Landlord/Student) Sửa phòng | `RoomDto` | `Room` | Yêu cầu Header Auth: Bearer Token. |
-| `GET` | `/api/rooms/my-rooms`| (Landlord/Student) Lấy phòng đã đăng | - | `List<Room>` | Lấy danh sách dựa theo Token truyền lên (áp dụng cả phòng pass). |
+### 2.2. Phân hệ Phòng trọ (`RoomsController`)
+| Phương thức | Endpoint | Mô tả chức năng | Tham số / Body | Response |
+|:---:|---|---|---|---|
+| `GET` | `/api/rooms` | Lấy danh sách & Tìm kiếm phòng | `?university=...&district=...&minPrice=...&maxPrice=...&userId=...` | `List<Room>` |
+| `GET` | `/api/rooms/{id}` | Lấy chi tiết phòng theo ID | Path: `{id}` | `Room` |
+| `POST` | `/api/rooms` | Chủ trọ đăng bài cho thuê | `Room` | `Room` (vừa tạo) |
+| `DELETE`| `/api/rooms/{id}` | Chủ trọ xóa bài đăng phòng | Path: `{id}`, Query: `?userId=...` | `200 OK` |
 
-### 3.3. Chat (Nhắn tin)
-*Lưu ý: Nếu làm chat realtime tốt nhất BE nên dùng **SignalR (C#)** kết hợp với API lấy lịch sử cũ.*
-| HTTP Method | Endpoint | Mô tả | Request Query/Body | Response Body mong đợi | Chú ý (Cần sửa ở BE) |
-|---|---|---|---|---|---|
-| `GET` | `/api/chat/conversations`| Lấy ds người đã nhắn tin | - | `List<ConversationDto>` | Group tin nhắn theo người gửi. |
-| `GET` | `/api/chat/history/{userId}`| Lấy lịch sử chat với 1 user | - | `List<ChatMessage>` | - |
-| `POST` | `/api/chat/send` | Gửi tin nhắn (Nên dùng SignalR thay thế) | `{ receiverId, content }` | `ChatMessage` | - |
+---
 
-### 3.4. UniBot (Chatbot)
-| HTTP Method | Endpoint | Mô tả | Request Body | Response Body mong đợi |
-|---|---|---|---|---|
-| `POST` | `/api/unibot/ask` | Gửi câu hỏi cho bot | `{ query: "Tìm phòng rẻ nhất" }` | `{ reply: "Có 3 phòng...", rooms: [List<Room>] }` | Cần trả về cả text và mảng object nếu có gợi ý. |
+### 2.3. Phân hệ Phòng yêu thích & Lịch sử xem (`SavedRooms`, `HistoryController`)
+| Phương thức | Endpoint | Mô tả chức năng | Tham số / Body | Response |
+|:---:|---|---|---|---|
+| `GET` | `/api/saved-rooms` | Lấy danh sách phòng đã lưu | `?userId=...` | `List<Room>` |
+| `POST` | `/api/saved-rooms` | Lưu phòng vào mục yêu thích | `?userId=...&roomId=...` | `SavedRoom` |
+| `DELETE`| `/api/saved-rooms` | Bỏ lưu phòng yêu thích | `?userId=...&roomId=...` | `200 OK` |
+| `GET` | `/api/view-history` | Xem lịch sử các phòng đã duyệt | `?userId=...` | `List<Room>` |
+| `POST` | `/api/view-history` | Ghi nhận 1 lượt xem phòng | `?userId=...&roomId=...` | `200 OK` |
+
+---
+
+### 2.4. Phân hệ Tin nhắn Chat 1-1 (`ChatController`)
+| Phương thức | Endpoint | Mô tả chức năng | Tham số / Body | Response |
+|:---:|---|---|---|---|
+| `GET` | `/api/chat/sessions` | Lấy danh sách các cuộc trò chuyện | `?userId=...` | `List<ChatSession>` |
+| `GET` | `/api/chat/messages` | Lấy lịch sử tin nhắn của 1 phiên | `?sessionId=...` | `List<Message>` |
+| `POST` | `/api/chat/messages` | Gửi tin nhắn mới | `Message` | `Message` |
+| `POST` | `/api/chat/read/{sessionId}` | Đánh dấu đã đọc tin nhắn | Path: `{sessionId}`, Query: `?userId=...` | `200 OK` |
+
+---
+
+### 2.5. Phân hệ Tải lên tệp tin (`UploadController`)
+| Phương thức | Endpoint | Mô tả chức năng | Content-Type | Response |
+|:---:|---|---|---|---|
+| `POST` | `/api/upload` | Tải lên ảnh phòng trọ hoặc avatar | `multipart/form-data` | `{ "imageUrl": "http://tro24h.runasp.net/uploads/..." }` |

@@ -1,4 +1,4 @@
-# 🏠 TRO24H (UniStay) - Ứng Dụng Tìm Kiếm & Quản Lý Phòng Trọ Sinh Viên
+# 🏠 TRO24H - Ứng Dụng Tìm Kiếm & Quản Lý Phòng Trọ Sinh Viên
 
 > **Học phần:** Triển khai dự án phần mềm (Mã chuyên đề: ST-01)  
 > **Mô hình quản lý:** Scrum / Agile (6 Sprints)  

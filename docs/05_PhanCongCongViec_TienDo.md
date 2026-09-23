@@ -1,6 +1,6 @@
 # KẾ HOẠCH PHÂN CÔNG CÔNG VIỆC & TIẾN ĐỘ DỰ ÁN TRO24H
 **Học phần:** Triển khai dự án phần mềm (Mã chuyên đề: ST-01)  
-**Dự án:** Hệ thống ứng dụng di động tìm kiếm và quản lý phòng trọ sinh viên TRO24H (UniStay)  
+**Dự án:** Hệ thống ứng dụng di động tìm kiếm và quản lý phòng trọ sinh viên TRO24H  
 **Mô hình phát triển:** Scrum / Agile (2 tuần / Sprint)
 
 ---
@@ -45,7 +45,7 @@
   - [x] Soạn thảo `01_PRD.md` (Product Requirements Document).
   - [x] Khởi tạo project Android Studio (Kotlin, Min SDK 24, Target SDK 34).
   - [x] Cấu hình Clean Architecture (di, domain, data, presentation).
-  - [x] Khởi tạo dự án `UniStay.Api` (.NET 8.0 C# Web API).
+  - [x] Khởi tạo dự án Backend Web API (`UniStay.Api` - ASP.NET Core 8.0 C#).
 * **Đầu ra (Deliverables):** Mã nguồn khung sườn trên Git, tài liệu PRD.
 
 ### 🟢 Sprint 2: Thiết kế Cơ sở dữ liệu & Xây dựng Core API (Tuần 2 - 3)

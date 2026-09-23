@@ -1,79 +1,85 @@
-# Product Requirements Document (PRD) - UniStay Android App
+# Product Requirements Document (PRD) - Ứng Dụng TRO24H
 
 ## 1. Tổng quan dự án (Project Overview)
-**UniStay** là hệ thống quản lý và tìm kiếm phòng trọ dành cho sinh viên. Ứng dụng Android (Native Client) sẽ đóng vai trò là điểm chạm trực tiếp với người dùng, kết nối Sinh viên có nhu cầu thuê trọ với các Chủ trọ thông qua các tính năng tìm kiếm, gợi ý và trao đổi trực tiếp (Chat).
+**TRO24H** là giải pháp công nghệ toàn diện hỗ trợ sinh viên và người thuê trọ tìm kiếm phòng trọ an toàn, giá cả minh bạch và gần các cụm trường Đại học / Cao đẳng. Đồng thời, ứng dụng cung cấp cho các Chủ nhà trọ một nền tảng quản lý tin đăng, tiếp cận khách hàng tiềm năng và trao đổi trực tiếp qua tính năng Nhắn tin (Chat 1-1).
 
-## 2. Đối tượng người dùng (Target Audience)
-Hệ thống phân chia thành 2 vai trò (Role) cốt lõi:
-1. **Sinh viên (Student):** Người dùng tìm kiếm phòng trọ. Ưu tiên các tính năng tìm kiếm nhanh, lọc theo vị trí (trường đại học) và giá cả, xem hình ảnh phòng và liên hệ chủ trọ nhanh chóng.
-2. **Chủ trọ (Landlord):** Người cung cấp phòng trọ. Ưu tiên sự đơn giản trong việc tạo/quản lý bài đăng phòng, cập nhật tình trạng phòng và tương tác với người có nhu cầu thuê.
-
----
-
-## 3. User Stories & Use Cases
-
-### 3.1. Dành cho Sinh viên (Student)
-| ID | Tính năng | User Story | Use Case (Hành động cụ thể) |
-|---|---|---|---|
-| STU-01 | **Authentication** | Là sinh viên, tôi muốn tạo tài khoản và đăng nhập an toàn vào ứng dụng để trải nghiệm các tính năng cá nhân hóa. | - Đăng ký tài khoản (Role: Student).<br>- Đăng nhập bằng Email/Password.<br>- Đăng xuất. |
-| STU-02 | **Khám phá & Tìm kiếm** | Là sinh viên, tôi muốn xem danh sách các phòng trọ đang trống và lọc chúng theo các tiêu chí cụ thể để tìm được phòng ưng ý. | - Xem danh sách phòng (Home Feed).<br>- Lọc phòng theo: Trường Đại học mục tiêu, Khoảng cách (km), Mức giá, Tiện ích, **Phòng Pass**.<br>- Tìm kiếm phòng theo mã (RoomCode) hoặc khu vực. |
-| STU-03 | **Chi tiết phòng** | Là sinh viên, tôi muốn xem đầy đủ thông tin về một căn phòng trước khi quyết định liên hệ. | - Xem hình ảnh (ImageUrl), giá cả (BasePrice), địa chỉ, tiện ích (Amenities), sức chứa (Occupancy).<br>- Kiểm tra trạng thái phòng (Còn chỗ/Hết chỗ). |
-| STU-04 | **Chat với Chủ trọ** | Là sinh viên, tôi muốn nhắn tin trực tiếp với chủ trọ để hỏi thêm thông tin hoặc hẹn lịch xem phòng. | - Bấm "Liên hệ/Chat" từ màn hình chi tiết phòng.<br>- Gửi/Nhận tin nhắn văn bản.<br>- Xem lại lịch sử các cuộc hội thoại. |
-| STU-05 | **Chatbot (UniBot)** | Là sinh viên, tôi muốn có một trợ lý ảo hỗ trợ gợi ý phòng nhanh dựa trên nhu cầu của tôi mà không cần tự tìm kiếm thủ công. | - Mở giao diện chat với UniBot.<br>- Gửi yêu cầu (VD: "Tìm phòng gần Bách Khoa giá dưới 3 triệu").<br>- Nhận kết quả gợi ý. |
-| STU-06 | **Pass lại phòng** | Là sinh viên, tôi muốn đăng thông tin nhượng lại (pass) phòng trọ mà tôi đang thuê cho người khác. | - Tạo bài đăng pass phòng (điền thông tin cơ bản, hình ảnh).<br>- Xem và quản lý các phòng mình đang pass.<br>- Chat với người có nhu cầu thuê lại. |
-
-### 3.2. Dành cho Chủ trọ (Landlord)
-| ID | Tính năng | User Story | Use Case (Hành động cụ thể) |
-|---|---|---|---|
-| LND-01 | **Authentication** | Là chủ trọ, tôi muốn đăng nhập vào hệ thống để quản lý các bất động sản của mình. | - Đăng ký tài khoản (Role: Landlord).<br>- Đăng nhập / Đăng xuất. |
-| LND-02 | **Quản lý phòng trọ** | Là chủ trọ, tôi muốn đăng thông tin về các phòng trọ của mình lên hệ thống để sinh viên có thể tiếp cận. | - Đăng tin mới (Tạo Room với các thông tin: Address, Price, Images, TargetUniversity, MaxOccupancy, v.v.).<br>- Xem danh sách phòng do chính mình đã đăng. |
-| LND-03 | **Cập nhật trạng thái** | Là chủ trọ, tôi muốn dễ dàng cập nhật thông tin phòng (ví dụ: đã cho thuê hết) để không bị làm phiền. | - Chỉnh sửa thông tin phòng (Update Room).<br>- Cập nhật số người ở hiện tại (CurrentOccupancy).<br>- Đổi trạng thái (Status: Đang trống, Đã đầy, Tạm ẩn). |
-| LND-04 | **Tương tác khách hàng**| Là chủ trọ, tôi muốn nhận và phản hồi tin nhắn của sinh viên quan tâm đến phòng của tôi. | - Nhận thông báo tin nhắn mới.<br>- Phản hồi tin nhắn của sinh viên.<br>- Quản lý danh sách sinh viên đang liên hệ. |
+Hệ thống bao gồm:
+- **Ứng dụng di động (Android Native - Kotlin):** Điểm chạm tương tác trực tiếp của người dùng (Sinh viên và Chủ trọ).
+- **Máy chủ ứng dụng (ASP.NET Core 8.0 Web API):** Xử lý nghiệp vụ, quản lý dữ liệu tập trung và bảo mật.
+- **Cơ sở dữ liệu đám mây (Microsoft SQL Server):** Lưu trữ quan hệ chuẩn hóa 6 bảng dữ liệu.
 
 ---
 
-## 4. Luồng màn hình chính (Screen Flow / User Journey)
+## 2. Đối tượng người dùng (Target Audience & Actors)
+Hệ thống phân chia quyền hạn rõ ràng thành 3 nhóm đối tượng:
 
-### 4.1. Luồng Xác thực (Chung cho 2 Roles)
-- **Splash Screen** -> Kiểm tra JWT Token lưu trong EncryptedSharedPreferences.
-  - *Nếu Token hợp lệ:* Giải mã Token lấy Role -> Chuyển hướng tới **Main Screen** tương ứng.
-  - *Nếu Token hết hạn/Chưa có:* Chuyển tới **Login Screen**.
-- **Login Screen** <-> **Register Screen** (Lựa chọn Role khi đăng ký).
+1. **Sinh viên / Người đi thuê (Student):**
+   - Tìm kiếm phòng trọ nhanh chóng theo khu vực trường học, mức giá và tiện ích.
+   - Xem chi tiết hình ảnh, giá thuê, địa chỉ, thông tin tiện nghi.
+   - Lưu trữ các phòng trọ yêu thích (`SavedRooms`) và xem lại lịch sử các phòng đã duyệt (`ViewHistory`).
+   - Nhắn tin trực tiếp 1-1 với Chủ trọ để giải đáp thắc mắc hoặc hẹn lịch xem phòng.
+   - *Ghi chú:* Sinh viên không có quyền đăng tin cho thuê phòng.
 
-### 4.2. Luồng Sinh viên (Student App Navigation)
-Sử dụng **Bottom Navigation** với 3 Tab chính:
+2. **Chủ nhà trọ (Landlord):**
+   - Đăng tin cho thuê phòng trọ mới với đầy đủ mô tả, giá cả, tiện ích và hình ảnh.
+   - Quản lý danh sách các phòng trọ do mình đăng (`MyRooms`), cập nhật thông tin hoặc trạng thái phòng (Đang trống, Đã cho thuê).
+   - Tiếp nhận và phản hồi tin nhắn của sinh viên quan tâm đến phòng trọ.
 
-1. **Tab "Home" (Tìm kiếm phòng):**
-   - Mặc định hiển thị danh sách các phòng trọ gợi ý / mới nhất (Recycler View).
-   - Thanh Search Bar ở trên cùng + Nút **Filter**.
-   - Bấm Filter -> Mở **Filter BottomSheet** (Chọn Trường, Slider Giá, v.v.).
-   - Bấm vào một Item Phòng -> Chuyển sang **Room Detail Screen**.
-   - Tại **Room Detail Screen** -> Bấm nút [Chat với chủ trọ] -> Chuyển sang màn hình **1-1 Chat Screen**.
+3. **Khách vãng lai (Guest):**
+   - Xem danh sách phòng nổi bật tại trang chủ. Khi cần xem thông tin liên hệ, lưu phòng hoặc nhắn tin, hệ thống sẽ yêu cầu Đăng nhập / Đăng ký.
 
-2. **Tab "Messages" (Tin nhắn):**
-   - Hiển thị danh sách các cuộc hội thoại gần đây (Inbox).
-   - Nút Floating Action Button (FAB) hình Robot -> Bấm vào để chuyển sang màn hình **UniBot Chat Screen**.
-   - Bấm vào một hội thoại bất kỳ -> Chuyển sang màn hình **1-1 Chat Screen**.
+---
 
-3. **Tab "Profile" (Cá nhân):**
-   - Hiển thị thông tin user (Avatar, FullName, Email).
-   - **Quản lý phòng Pass:** Nơi sinh viên đăng bài và quản lý các phòng đang pass.
-   - Lịch sử xem phòng / Phòng đã lưu (Tính năng mở rộng sau này).
-   - Nút Đăng xuất.
+## 3. Danh sách User Stories & Use Cases chi tiết
 
-### 4.3. Luồng Chủ trọ (Landlord App Navigation)
-Sử dụng **Bottom Navigation** với 3 Tab chính:
+### 3.1. Phân hệ Xác thực & Tài khoản (Authentication)
+| Mã US | Tên tính năng | User Story | Mô tả hành động (Use Case) |
+|---|---|---|---|
+| **AUTH-01** | Đăng ký tài khoản | Là người dùng mới, tôi muốn tạo tài khoản với vai trò rõ ràng để sử dụng đúng quyền hạn. | Điền Họ tên, Email, Số điện thoại, Mật khẩu và chọn vai trò: **Sinh viên** hoặc **Chủ trọ**. |
+| **AUTH-02** | Đăng nhập hệ thống | Là người dùng, tôi muốn đăng nhập an toàn bằng Email và Mật khẩu. | Nhập Email/Password -> Xác thực mật khẩu băm -> Lưu thông tin phiên vào DataStore (`UserSessionManager`). |
+| **AUTH-03** | Đăng xuất | Là người dùng, tôi muốn đăng xuất khỏi thiết bị. | Xóa dữ liệu phiên làm việc cục bộ, quay về màn hình Đăng nhập hoặc Khách. |
+| **AUTH-04** | Quản lý thông tin cá nhân | Là người dùng, tôi muốn cập nhật thông tin và đổi mật khẩu. | Cập nhật Họ tên, Số điện thoại, Ảnh đại diện (`EditProfileActivity`), Đổi mật khẩu tài khoản. |
 
-1. **Tab "My Rooms" (Quản lý phòng):**
-   - Hiển thị danh sách các phòng mà chủ trọ đang sở hữu (List/Grid View).
-   - Nút FAB `[+]` -> Chuyển sang màn hình **Create/Add Room Screen** (Form nhập thông tin phòng).
-   - Bấm vào một phòng -> Chuyển sang màn hình **Room Detail (Edit Mode)** để sửa thông tin hoặc cập nhật trạng thái.
+### 3.2. Phân hệ Sinh viên (Student Module)
+| Mã US | Tên tính năng | User Story | Mô tả hành động (Use Case) |
+|---|---|---|---|
+| **STU-01** | Trang chủ & Khám phá | Là sinh viên, tôi muốn xem các phòng trọ mới nhất và phòng nổi bật gần trường đại học. | Xem danh sách phòng (Home Feed), hiển thị ảnh bìa, giá thuê (VNĐ/tháng), địa chỉ, khoảng cách. |
+| **STU-02** | Tìm kiếm & Bộ lọc động | Là sinh viên, tôi muốn tìm phòng theo tên trường, khoảng giá hoặc tiện ích cụ thể. | Nhập từ khóa tìm kiếm; Áp dụng bộ lọc (Trường ĐH, Mức giá từ - đến, tiện ích điều hòa, wifi, nóng lạnh...). |
+| **STU-03** | Xem chi tiết phòng | Là sinh viên, tôi muốn xem đầy đủ thông tin phòng trọ trước khi quyết định liên hệ. | Xem danh sách ảnh phòng, mô tả chi tiết, tiện nghi, thông tin chủ trọ. Các nút hành động: Gọi điện, Nhắn tin, Lưu phòng. |
+| **STU-04** | Quản lý phòng đã lưu | Là sinh viên, tôi muốn lưu lại các phòng ưng ý để so sánh. | Bấm nút Yêu thích (Bookmark); xem lại toàn bộ phòng đã lưu trong mục `SavedRoomsActivity`. |
+| **STU-05** | Lịch sử xem phòng | Là sinh viên, tôi muốn xem lại các phòng mình vừa ghé xem gần đây. | Hệ thống tự động ghi nhận khi vào xem chi tiết; sinh viên có thể xem lại tại `ViewHistoryActivity`. |
+| **STU-06** | Nhắn tin với Chủ trọ | Là sinh viên, tôi muốn nhắn tin trực tiếp với chủ phòng để hỏi thêm thông tin. | Bấm "Nhắn tin" từ trang chi tiết phòng -> Mở màn hình chat 1-1 (`ChatActivity`) trao đổi trực tiếp. |
 
-2. **Tab "Messages" (Tin nhắn):**
-   - Tương tự sinh viên, hiển thị danh sách các sinh viên đang liên hệ hỏi phòng.
-   - Bấm vào để **Chat 1-1** giải đáp thắc mắc.
-   - *(Chủ trọ không cần nút chat với UniBot).*
+### 3.3. Phân hệ Chủ trọ (Landlord Module)
+| Mã US | Tên tính năng | User Story | Mô tả hành động (Use Case) |
+|---|---|---|---|
+| **LND-01** | Đăng tin phòng trọ mới | Là chủ trọ, tôi muốn đăng tin cho thuê phòng để sinh viên có thể tiếp cận. | Mở màn hình `CreateRoomFragment`, nhập: Tiêu đề, Địa chỉ, Trường ĐH mục tiêu, Giá thuê, Diện tích, Tiện ích, Link ảnh. |
+| **LND-02** | Quản lý danh sách phòng | Là chủ trọ, tôi muốn xem lại tất cả các bài đăng của mình. | Xem danh sách phòng đã đăng tại `MyRoomsActivity`; kiểm tra lượt quan tâm và trạng thái phòng. |
+| **LND-03** | Chỉnh sửa & Cập nhật trạng thái | Là chủ trọ, tôi muốn cập nhật tình trạng phòng khi đã có người thuê. | Sửa thông tin giá/mô tả; cập nhật trạng thái: Đang trống (Available) hoặc Đã cho thuê (Full). |
+| **LND-04** | Tiếp nhận tin nhắn khách hàng | Là chủ trọ, tôi muốn xem danh sách khách thuê đang liên hệ và trả lời tin nhắn. | Truy cập Hộp thư (`ChatListFragment`), xem tin nhắn từ các sinh viên, mở `ChatActivity` để phản hồi. |
 
-3. **Tab "Profile" (Cá nhân):**
-   - Hiển thị thông tin liên hệ (ContactPhone, Email, FullName) để sinh viên có thể thấy.
-   - Nút Đăng xuất.
+---
+
+## 4. Luồng điều hướng người dùng (User Navigation Flow)
+
+### 4.1. Điều hướng theo Vai trò (Role-based Navigation)
+Ứng dụng sử dụng thanh điều hướng dưới cùng (**Bottom Navigation Bar**) với các tab được tối ưu hóa:
+
+- **Dành cho Sinh viên:**
+  1. 🏠 **Trang chủ (Home):** Danh sách phòng mới, thanh tìm kiếm nhanh, danh mục phòng theo trường.
+  2. 🔍 **Tìm kiếm (Search):** Tìm kiếm chuyên sâu theo từ khóa và bộ lọc đa tiêu chí.
+  3. 💬 **Tin nhắn (Messages):** Danh sách các cuộc trò chuyện đang có với chủ trọ (kèm huy hiệu tin chưa đọc).
+  4. 👤 **Cá nhân (Profile):** Thông tin tài khoản, Phòng đã lưu, Lịch sử xem phòng, Đổi mật khẩu, Đăng xuất.
+
+- **Dành cho Chủ trọ:**
+  1. 🏠 **Trang chủ (Home):** Xem giao diện hiển thị chung của toàn hệ thống.
+  2. ➕ **Đăng tin (Create Room):** Form đăng bài cho thuê phòng mới.
+  3. 💬 **Tin nhắn (Messages):** Quản lý các tin nhắn hỏi phòng từ sinh viên.
+  4. 👤 **Cá nhân (Profile):** Quản lý danh sách phòng đã đăng (`MyRooms`), Thông tin chủ nhà, Đăng xuất.
+
+---
+
+## 5. Yêu cầu phi chức năng (Non-Functional Requirements)
+1. **Bảo mật (Security):** Mật khẩu người dùng được băm an toàn; phiên người dùng quản lý qua DataStore mã hóa.
+2. **Hiệu năng & Tốc độ (Performance):** Tải danh sách phòng nhanh chóng, ảnh được cache mượt mà qua thư viện Coil, không gây giật lag UI khi cuộn RecyclerView.
+3. **Tính khả dụng (Usability):** Giao diện chuẩn Material 3, màu sắc hiện đại, hỗ trợ tiếng Việt có dấu hoàn chỉnh và thông báo lỗi rõ ràng.
