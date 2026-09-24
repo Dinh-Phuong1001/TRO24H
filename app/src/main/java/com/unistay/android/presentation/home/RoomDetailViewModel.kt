@@ -147,6 +147,9 @@ class RoomDetailViewModel @Inject constructor(
             try {
                 com.unistay.android.data.remote.RetrofitClient.instance.deleteRoom(roomId, userId)
                 onSuccess()
+            } catch (e: retrofit2.HttpException) {
+                val errorMsg = e.response()?.errorBody()?.string() ?: e.message()
+                onError("Không thể xóa phòng: $errorMsg")
             } catch (e: Exception) {
                 onError("Không thể xóa phòng: ${e.message}")
             }

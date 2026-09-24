@@ -164,38 +164,16 @@ namespace UniStay.Api.Controllers
                     return StatusCode(403, "Bạn không có quyền xóa bài đăng phòng này.");
                 }
 
-                // 1. Xóa các saved rooms liên quan đến phòng này để tránh lỗi khóa ngoại
-                var savedRooms = await _context.SavedRooms.Where(s => s.RoomId == id).ToListAsync();
-                if (savedRooms.Any())
-                {
-                    _context.SavedRooms.RemoveRange(savedRooms);
-                }
+                // 1. Xóa các bản ghi phụ thuộc trực tiếp bằng SQL Raw để đảm bảo thứ tự xóa chính xác 100%
+                await _context.Database.ExecuteSqlRawAsync("DELETE FROM SavedRooms WHERE RoomId = {0}", id);
+                await _context.Database.ExecuteSqlRawAsync("DELETE FROM ViewHistories WHERE RoomId = {0}", id);
+                await _context.Database.ExecuteSqlRawAsync(@"
+                    DELETE FROM Messages WHERE SessionId IN (SELECT SessionId FROM ChatSessions WHERE RoomId = {0});
+                    DELETE FROM ChatSessions WHERE RoomId = {0};
+                ", id);
 
-                // 2. Xóa lịch sử xem phòng liên quan đến phòng này
-                var viewHistories = await _context.ViewHistories.Where(v => v.RoomId == id).ToListAsync();
-                if (viewHistories.Any())
-                {
-                    _context.ViewHistories.RemoveRange(viewHistories);
-                }
-
-                // 3. Xóa các tin nhắn và session chat liên quan đến phòng này (nếu có)
-                var chatSessions = await _context.ChatSessions.Where(c => c.RoomId == id).ToListAsync();
-                foreach (var session in chatSessions)
-                {
-                    var messages = await _context.Messages.Where(m => m.SessionId == session.SessionId).ToListAsync();
-                    if (messages.Any())
-                    {
-                        _context.Messages.RemoveRange(messages);
-                    }
-                }
-                if (chatSessions.Any())
-                {
-                    _context.ChatSessions.RemoveRange(chatSessions);
-                }
-
-                // 4. Xóa phòng
-                _context.Rooms.Remove(room);
-                await _context.SaveChangesAsync();
+                // 2. Xóa phòng khỏi bảng Rooms
+                await _context.Database.ExecuteSqlRawAsync("DELETE FROM Rooms WHERE RoomId = {0}", id);
 
                 return Ok(new { success = true, message = "Đã xóa phòng thành công" });
             }
