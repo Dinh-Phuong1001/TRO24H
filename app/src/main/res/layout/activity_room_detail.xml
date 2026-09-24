@@ -209,6 +209,25 @@
                                 android:textSize="13sp" />
                         </LinearLayout>
 
+                        <!-- NÚT CHỈ ĐƯỜNG GOOGLE MAPS HIỆN ĐẠI -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnOpenGoogleMaps"
+                            android:layout_width="match_parent"
+                            android:layout_height="46dp"
+                            android:layout_marginTop="12dp"
+                            android:backgroundTint="#EFF6FF"
+                            android:text="🗺️ Chỉ đường qua Google Maps"
+                            android:textColor="#2563EB"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="12dp"
+                            app:icon="@drawable/ic_map_directions"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp"
+                            app:iconTint="#2563EB"
+                            app:strokeColor="#BFDBFE"
+                            app:strokeWidth="1.2dp" />
+
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 

@@ -183,6 +183,26 @@ class RoomDetailActivity : AppCompatActivity() {
 
             btnBack.setOnClickListener { finish() }
 
+            btnOpenGoogleMaps.setOnClickListener {
+                val fullAddress = if (address.isNotEmpty()) address else "Hà Nội"
+                val encodedAddress = Uri.encode(fullAddress)
+                val gmmIntentUri = Uri.parse("google.navigation:q=$encodedAddress")
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri).apply {
+                    setPackage("com.google.android.apps.maps")
+                }
+                try {
+                    startActivity(mapIntent)
+                } catch (e: Exception) {
+                    val webMapUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$encodedAddress")
+                    val webIntent = Intent(Intent.ACTION_VIEW, webMapUri)
+                    try {
+                        startActivity(webIntent)
+                    } catch (ex: Exception) {
+                        Toast.makeText(this@RoomDetailActivity, "Không thể mở ứng dụng bản đồ", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
             btnCallOwner.setOnClickListener {
                 if (phone.isNotEmpty()) {
                     val intent = Intent(Intent.ACTION_DIAL).apply { data = Uri.parse("tel:$phone") }
