@@ -108,44 +108,98 @@ class HomeFragment : Fragment() {
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
             val edtRoomPrice = dialogView.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.edtRoomPrice)
-            val actvPeopleCount = dialogView.findViewById<android.widget.AutoCompleteTextView>(R.id.actvPeopleCount)
-            val actvAcUsage = dialogView.findViewById<android.widget.AutoCompleteTextView>(R.id.actvAcUsage)
+            val tvPriceFormatted = dialogView.findViewById<android.widget.TextView>(R.id.tvPriceFormatted)
+
+            val btnPreset20 = dialogView.findViewById<android.widget.TextView>(R.id.btnPreset20)
+            val btnPreset35 = dialogView.findViewById<android.widget.TextView>(R.id.btnPreset35)
+            val btnPreset45 = dialogView.findViewById<android.widget.TextView>(R.id.btnPreset45)
+            val btnPreset60 = dialogView.findViewById<android.widget.TextView>(R.id.btnPreset60)
+
+            val chipGroupPeople = dialogView.findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroupPeople)
+            val chipGroupAc = dialogView.findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroupAc)
+
+            val cbWifi = dialogView.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.cbWifi)
+            val cbWater = dialogView.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.cbWater)
+            val cbCleaning = dialogView.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.cbCleaning)
+            val cbMotorbike = dialogView.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.cbMotorbike)
 
             val tvElecCost = dialogView.findViewById<android.widget.TextView>(R.id.tvElecCost)
             val tvServiceCost = dialogView.findViewById<android.widget.TextView>(R.id.tvServiceCost)
+            val tvTotalRoomCost = dialogView.findViewById<android.widget.TextView>(R.id.tvTotalRoomCost)
             val tvTotalPerPerson = dialogView.findViewById<android.widget.TextView>(R.id.tvTotalPerPerson)
 
+            val btnCopyBreakdown = dialogView.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnCopyBreakdown)
             val btnCloseDialog = dialogView.findViewById<android.widget.ImageView>(R.id.btnCloseDialog)
             val btnUnderstood = dialogView.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnUnderstood)
 
-            val peopleArray = arrayOf("1 bạn", "2 bạn", "3 bạn", "4 bạn")
-            val acArray = arrayOf("Ít", "Trung bình", "Nhiều")
-
-            actvPeopleCount.setAdapter(android.widget.ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, peopleArray))
-            actvAcUsage.setAdapter(android.widget.ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, acArray))
-
             val formatter = java.text.DecimalFormat("#,###")
+
             fun calculateCosts() {
-                val priceString = edtRoomPrice.text.toString()
-                val roomPrice = if (priceString.isNotEmpty()) priceString.toDouble() else 0.0
+                val priceString = edtRoomPrice.text.toString().trim()
+                val roomPrice = priceString.toDoubleOrNull() ?: 0.0
 
-                val peopleStr = actvPeopleCount.text.toString()
-                val peopleCount = peopleStr.replace(" bạn", "").toIntOrNull() ?: 3
+                val peopleCount = when (chipGroupPeople.checkedChipId) {
+                    R.id.chipP1 -> 1
+                    R.id.chipP2 -> 2
+                    R.id.chipP4 -> 4
+                    else -> 3
+                }
 
-                val acStr = actvAcUsage.text.toString()
-                val kwh = when (acStr) {
-                    "Ít" -> 50.0
-                    "Nhiều" -> 250.0
+                val acKwh = when (chipGroupAc.checkedChipId) {
+                    R.id.chipAcLow -> 50.0
+                    R.id.chipAcHigh -> 280.0
                     else -> 150.0
                 }
 
-                val elecCost = kwh * 3800.0
-                val serviceCost = peopleCount * 150000.0
-                val totalCostPerPerson = (roomPrice + elecCost + serviceCost) / peopleCount
+                val elecCost = acKwh * 3800.0
 
+                val wifiCost = if (cbWifi.isChecked) 100_000.0 else 0.0
+                val waterCost = if (cbWater.isChecked) peopleCount * 100_000.0 else 0.0
+                val cleaningCost = if (cbCleaning.isChecked) 50_000.0 else 0.0
+                val motorbikeCost = if (cbMotorbike.isChecked) peopleCount * 100_000.0 else 0.0
+                val serviceCost = wifiCost + waterCost + cleaningCost + motorbikeCost
+
+                val totalRoomCost = roomPrice + elecCost + serviceCost
+                val totalCostPerPerson = totalRoomCost / peopleCount
+
+                tvPriceFormatted.text = "${formatter.format(roomPrice).replace(',', '.')} đ"
                 tvElecCost.text = "${formatter.format(elecCost).replace(',', '.')} đ"
                 tvServiceCost.text = "${formatter.format(serviceCost).replace(',', '.')} đ"
+                tvTotalRoomCost.text = "${formatter.format(totalRoomCost).replace(',', '.')} đ"
                 tvTotalPerPerson.text = "${formatter.format(totalCostPerPerson).replace(',', '.')} đ / người"
+            }
+
+            // Quick preset handlers
+            fun updatePresetColors(selectedPreset: android.widget.TextView) {
+                val presets = listOf(btnPreset20, btnPreset35, btnPreset45, btnPreset60)
+                presets.forEach {
+                    if (it == selectedPreset) {
+                        it.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#DBEAFE"))
+                        it.setTextColor(android.graphics.Color.parseColor("#2563EB"))
+                        it.setTypeface(null, android.graphics.Typeface.BOLD)
+                    } else {
+                        it.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#F1F5F9"))
+                        it.setTextColor(android.graphics.Color.parseColor("#475569"))
+                        it.setTypeface(null, android.graphics.Typeface.NORMAL)
+                    }
+                }
+            }
+
+            btnPreset20.setOnClickListener {
+                updatePresetColors(btnPreset20)
+                edtRoomPrice.setText("2500000")
+            }
+            btnPreset35.setOnClickListener {
+                updatePresetColors(btnPreset35)
+                edtRoomPrice.setText("3500000")
+            }
+            btnPreset45.setOnClickListener {
+                updatePresetColors(btnPreset45)
+                edtRoomPrice.setText("4500000")
+            }
+            btnPreset60.setOnClickListener {
+                updatePresetColors(btnPreset60)
+                edtRoomPrice.setText("6000000")
             }
 
             edtRoomPrice.addTextChangedListener(object : android.text.TextWatcher {
@@ -154,8 +208,60 @@ class HomeFragment : Fragment() {
                 override fun afterTextChanged(s: android.text.Editable?) { calculateCosts() }
             })
 
-            actvPeopleCount.setOnItemClickListener { _, _, _, _ -> calculateCosts() }
-            actvAcUsage.setOnItemClickListener { _, _, _, _ -> calculateCosts() }
+            chipGroupPeople.setOnCheckedStateChangeListener { _, _ -> calculateCosts() }
+            chipGroupAc.setOnCheckedStateChangeListener { _, _ -> calculateCosts() }
+
+            cbWifi.setOnCheckedChangeListener { _, _ -> calculateCosts() }
+            cbWater.setOnCheckedChangeListener { _, _ -> calculateCosts() }
+            cbCleaning.setOnCheckedChangeListener { _, _ -> calculateCosts() }
+            cbMotorbike.setOnCheckedChangeListener { _, _ -> calculateCosts() }
+
+            // Nút sao chép gửi Zalo
+            btnCopyBreakdown.setOnClickListener {
+                val priceString = edtRoomPrice.text.toString().trim()
+                val roomPrice = priceString.toDoubleOrNull() ?: 0.0
+                val peopleCount = when (chipGroupPeople.checkedChipId) {
+                    R.id.chipP1 -> 1
+                    R.id.chipP2 -> 2
+                    R.id.chipP4 -> 4
+                    else -> 3
+                }
+                val acKwh = when (chipGroupAc.checkedChipId) {
+                    R.id.chipAcLow -> 50.0
+                    R.id.chipAcHigh -> 280.0
+                    else -> 150.0
+                }
+                val elecCost = acKwh * 3800.0
+                val wifiCost = if (cbWifi.isChecked) 100_000.0 else 0.0
+                val waterCost = if (cbWater.isChecked) peopleCount * 100_000.0 else 0.0
+                val cleaningCost = if (cbCleaning.isChecked) 50_000.0 else 0.0
+                val motorbikeCost = if (cbMotorbike.isChecked) peopleCount * 100_000.0 else 0.0
+                val serviceCost = wifiCost + waterCost + cleaningCost + motorbikeCost
+                val totalRoomCost = roomPrice + elecCost + serviceCost
+                val costPerPerson = totalRoomCost / peopleCount
+
+                val breakdownText = """
+                    🏠 [TRO24H] DỰ TOÁN TIỀN PHÒNG & CHI PHÍ
+                    ---------------------------------------
+                    • Tiền phòng: ${formatter.format(roomPrice).replace(',', '.')} đ
+                    • Tiền điện (${acKwh.toInt()} số @3.8k): ${formatter.format(elecCost).replace(',', '.')} đ
+                    • Nước & dịch vụ: ${formatter.format(serviceCost).replace(',', '.')} đ
+                    ---------------------------------------
+                    👉 TỔNG CẢ PHÒNG: ${formatter.format(totalRoomCost).replace(',', '.')} đ
+                    👥 SỐ BẠN Ở: $peopleCount người
+                    💰 MỖI BẠN ĐÓNG: ${formatter.format(costPerPerson).replace(',', '.')} đ / tháng
+                """.trimIndent()
+
+                val clipboard = requireContext().getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clip = android.content.ClipData.newPlainText("Rent Breakdown", breakdownText)
+                clipboard.setPrimaryClip(clip)
+
+                android.widget.Toast.makeText(
+                    requireContext(),
+                    "Đã sao chép! Hãy dán vào nhóm Zalo phòng trọ nhé 🎉",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
 
             calculateCosts()
 

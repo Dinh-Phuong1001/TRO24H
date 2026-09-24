@@ -4,225 +4,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="12dp"
     app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="0dp">
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp"
+    app:strokeColor="#E2E8F0"
+    app:strokeWidth="1dp">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:fillViewport="true">
 
-        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🧮 "
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Dự Toán Tiền Trọ Sinh Viên"
-                android:textColor="#1E293B"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/btnCloseDialog"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                app:tint="#64748B" />
-        </LinearLayout>
-
-        <!-- INPUT GIÁ THUÊ -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Giá thuê phòng (VNĐ):"
-            android:textColor="#475569"
-            android:textSize="13sp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="4dp"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp"
-            app:boxStrokeColor="#0D9488">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtRoomPrice"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:padding="0dp"
-                android:text="3500000"
-                android:textColor="#0F172A"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- 2 DROPDOWN: SỐ NGƯỜI & ĐIỀU HÒA -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Số người ở ghép:"
-                    android:textColor="#475569"
-                    android:textSize="13sp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="4dp"
-                    app:boxCornerRadiusBottomEnd="8dp"
-                    app:boxCornerRadiusBottomStart="8dp"
-                    app:boxCornerRadiusTopEnd="8dp"
-                    app:boxCornerRadiusTopStart="8dp">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/actvPeopleCount"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="none"
-                        android:padding="0dp"
-                        android:text="3 bạn"
-                        android:textColor="#0F172A"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dùng điều hòa:"
-                    android:textColor="#475569"
-                    android:textSize="13sp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="4dp"
-                    app:boxCornerRadiusBottomEnd="8dp"
-                    app:boxCornerRadiusBottomStart="8dp"
-                    app:boxCornerRadiusTopEnd="8dp"
-                    app:boxCornerRadiusTopStart="8dp">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/actvAcUsage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="none"
-                        android:padding="0dp"
-                        android:text="Trung bình"
-                        android:textColor="#0F172A"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- KẾT QUẢ TÍNH TOÁN -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_search_bar"
-            android:backgroundTint="#F8FAFC"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="20dp">
 
+            <!-- 1. HEADER HIỆN ĐẠI -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_search_bar"
+                    android:backgroundTint="#EFF6FF">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="⚡"
+                        android:textSize="20sp" />
+                </FrameLayout>
+
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
-                    android:text="Điện dự kiến (3.8k/số):"
-                    android:textColor="#64748B"
-                    android:textSize="13sp" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvElecCost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="570.000 đ"
-                    android:textColor="#1E293B"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dự Toán Tiền Trọ &amp; Chia Tiền"
+                        android:textColor="#0F172A"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Ước tính chi phí &amp; chia sòng phẳng"
+                        android:textColor="#64748B"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nước + mạng + dịch vụ:"
-                    android:textColor="#64748B"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/tvServiceCost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="450.000 đ"
-                    android:textColor="#1E293B"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/btnCloseDialog"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="4dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="#94A3B8" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginVertical="12dp"
-                android:background="#E2E8F0" />
+                android:layout_marginTop="14dp"
+                android:background="#F1F5F9" />
 
+            <!-- 2. GIÁ THUÊ PHÒNG & CHIP CHỌN NHANH -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -230,35 +97,449 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Mỗi bạn cần đóng:"
-                    android:textColor="#1E293B"
-                    android:textSize="14sp"
+                    android:text="Giá thuê phòng (VNĐ)"
+                    android:textColor="#334155"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvTotalPerPerson"
+                    android:id="@+id/tvPriceFormatted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.506.667 đ / người"
-                    android:textColor="#0D9488"
-                    android:textSize="17sp"
+                    android:text="3.500.000 đ"
+                    android:textColor="#2563EB"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="#2563EB"
+                app:prefixText="₫ "
+                app:prefixTextColor="#64748B">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRoomPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="3500000"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Quick Preset Chips -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnPreset20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_search_bar"
+                        android:backgroundTint="#F1F5F9"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="2.5 triệu"
+                        android:textColor="#475569"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/btnPreset35"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_search_bar"
+                        android:backgroundTint="#DBEAFE"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="3.5 triệu"
+                        android:textColor="#2563EB"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnPreset45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_search_bar"
+                        android:backgroundTint="#F1F5F9"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="4.5 triệu"
+                        android:textColor="#475569"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/btnPreset60"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_search_bar"
+                        android:backgroundTint="#F1F5F9"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="6.0 triệu"
+                        android:textColor="#475569"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- 3. SỐ NGƯỜI Ở GHÉP -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="👥 Số người ở ghép:"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupPeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:checkedChip="@+id/chipP3"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipP1"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 bạn"
+                    android:textSize="12sp"
+                    app:chipCornerRadius="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipP2"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 bạn"
+                    android:textSize="12sp"
+                    app:chipCornerRadius="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipP3"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 bạn"
+                    android:textSize="12sp"
+                    app:chipCornerRadius="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipP4"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4 bạn"
+                    android:textSize="12sp"
+                    app:chipCornerRadius="10dp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- 4. MỨC ĐỘ DÙNG ĐIỀU HÒA / ĐIỆN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="❄️ Mức dùng điều hòa &amp; điện:"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupAc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:checkedChip="@+id/chipAcMed"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAcLow"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍃 Ít (quạt mát)"
+                    android:textSize="11.5sp"
+                    app:chipCornerRadius="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAcMed"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌙 Đêm (150 số)"
+                    android:textSize="11.5sp"
+                    app:chipCornerRadius="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAcHigh"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="☀️ 24/7 (250 số)"
+                    android:textSize="11.5sp"
+                    app:chipCornerRadius="10dp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- 5. CÁC DỊCH VỤ THÊM (CHỌN NHANH) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="🛠 Dịch vụ tiện ích trọ:"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbWifi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Wifi (100k)"
+                    android:textColor="#475569"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbWater"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Nước (100k/bạn)"
+                    android:textColor="#475569"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbCleaning"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Rác &amp; Vệ sinh (50k)"
+                    android:textColor="#475569"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbMotorbike"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:text="Gửi xe (100k/xe)"
+                    android:textColor="#475569"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 6. BẢNG TỔNG KẾT CHI PHÍ ĐẬM CHẤT CÔNG NGHỆ -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_calculator_summary"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tiền điện dự kiến (3.8k/số):"
+                            android:textColor="#94A3B8"
+                            android:textSize="12.5sp" />
+
+                        <TextView
+                            android:id="@+id/tvElecCost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="570.000 đ"
+                            android:textColor="#F8FAFC"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tổng tiền nước + dịch vụ:"
+                            android:textColor="#94A3B8"
+                            android:textSize="12.5sp" />
+
+                        <TextView
+                            android:id="@+id/tvServiceCost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="450.000 đ"
+                            android:textColor="#F8FAFC"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tổng chi phí cả phòng:"
+                            android:textColor="#94A3B8"
+                            android:textSize="12.5sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalRoomCost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.520.000 đ"
+                            android:textColor="#F8FAFC"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="12dp"
+                        android:background="#334155" />
+
+                    <!-- KẾT QUẢ MỖI BẠN CẦN ĐÓNG -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MỖI BẠN CẦN ĐÓNG"
+                                android:textColor="#38BDF8"
+                                android:textSize="11.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(Đã bao gồm tất cả)"
+                                android:textColor="#64748B"
+                                android:textSize="10.5sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTotalPerPerson"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1.506.667 đ / người"
+                            android:textColor="#34D399"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- 7. NÚT HÀNH ĐỘNG TIỆN ÍCH -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <!-- Nút sao chép gửi nhóm Zalo -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCopyBreakdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:backgroundTint="#2563EB"
+                    android:text="📋 Sao chép bảng tính gửi Zalo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+
+                <!-- Nút Đóng -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUnderstood"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Đóng bảng tính"
+                    android:textColor="#64748B"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <!-- NÚT ĐÃ HIỂU -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnUnderstood"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#0D9488"
-            android:text="Đã hiểu"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:cornerRadius="24dp" />
-
-    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
