@@ -4,421 +4,582 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#F8FAFC">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- THANH TIÊU ĐỀ: LỌC TÌM PHÒNG & ĐẶT LẠI -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#0284C7"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="14dp">
-
-            <!-- Đảm bảo ID là btnBack -->
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Back"
-                android:src="@drawable/ic_back_custom"
-                app:tint="#FFFFFF" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="LỌC TÌM PHÒNG"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvResetFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="4dp"
-                android:text="Đặt lại"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- THANH THU GỌN BỘ LỌC & SỐ LƯỢNG PHÒNG -->
+        <!-- 1. TOP HEADER HIỆN ĐẠI SANG TRỌNG -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="10dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnToggleFilter"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="⏏ Thu gọn bộ lọc"
-                android:textColor="#0284C7"
-                android:textSize="12sp"
-                app:cornerRadius="18dp"
-                app:strokeColor="#0284C7" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/tvRoomCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#475569"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <!-- VÙNG CUỘN CHỨA FORM BỘ LỌC -->
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fillViewport="true">
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
 
             <LinearLayout
-                android:id="@+id/layoutFilterForm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_search_bar"
+                    android:backgroundTint="#F1F5F9"
+                    android:contentDescription="Back"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_back_custom"
+                    app:tint="#1E293B" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lọc Tìm Phòng Trọ ⚡"
+                        android:textColor="#0F172A"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Tìm kiếm nhanh chuẩn gu sinh viên"
+                        android:textColor="#64748B"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Nút Đặt lại bo tròn phong cách Pill -->
+                <TextView
+                    android:id="@+id/tvResetFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_search_bar"
+                    android:backgroundTint="#EFF6FF"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="7dp"
+                    android:text="🔄 Đặt lại"
+                    android:textColor="#2563EB"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- THANH THU GỌN BỘ LỌC -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToggleFilter"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingHorizontal="12dp"
+                    android:text="⏏ Thu gọn bộ lọc"
+                    android:textColor="#0284C7"
+                    android:textSize="11.5sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="17dp"
+                    app:strokeColor="#BAE6FD" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvRoomCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#64748B"
+                    android:textSize="12.5sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2. VÙNG CUỘN CHỨA NỘI DUNG BỘ LỌC (DẠNG CARDS) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:id="@+id/layoutFilterForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="90dp">
+
+                    <!-- CARD 1: KHU VỰC & TRƯỜNG ĐẠI HỌC -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="1dp"
+                        app:strokeColor="#E2E8F0"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="📍 Khu Vực &amp; Trường Học"
+                                    android:textColor="#0F172A"
+                                    android:textSize="14.5sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Tỉnh / Thành phố -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:hint="Tỉnh / Thành phố"
+                                app:boxCornerRadiusBottomEnd="12dp"
+                                app:boxCornerRadiusBottomStart="12dp"
+                                app:boxCornerRadiusTopEnd="12dp"
+                                app:boxCornerRadiusTopStart="12dp"
+                                app:boxStrokeColor="#2563EB"
+                                app:startIconDrawable="@android:drawable/ic_dialog_map">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/actvCity"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"
+                                    android:text="Hà Nội"
+                                    android:textColor="#0F172A"
+                                    android:textSize="13.5sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Trường đại học -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:hint="Trường Đại Học Mục Tiêu"
+                                app:boxCornerRadiusBottomEnd="12dp"
+                                app:boxCornerRadiusBottomStart="12dp"
+                                app:boxCornerRadiusTopEnd="12dp"
+                                app:boxCornerRadiusTopStart="12dp"
+                                app:boxStrokeColor="#2563EB">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/actvUniversity"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"
+                                    android:text="Tất cả các trường quanh Hà Nội"
+                                    android:textColor="#0F172A"
+                                    android:textSize="13.5sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Quận / huyện -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:hint="Quận / Huyện"
+                                app:boxCornerRadiusBottomEnd="12dp"
+                                app:boxCornerRadiusBottomStart="12dp"
+                                app:boxCornerRadiusTopEnd="12dp"
+                                app:boxCornerRadiusTopStart="12dp"
+                                app:boxStrokeColor="#2563EB">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/actvDistrict"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"
+                                    android:text="Tất cả quận/huyện"
+                                    android:textColor="#0F172A"
+                                    android:textSize="13.5sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Loại phòng -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:hint="Loại hình phòng trọ"
+                                app:boxCornerRadiusBottomEnd="12dp"
+                                app:boxCornerRadiusBottomStart="12dp"
+                                app:boxCornerRadiusTopEnd="12dp"
+                                app:boxCornerRadiusTopStart="12dp"
+                                app:boxStrokeColor="#2563EB">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/actvRoomType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"
+                                    android:text="Chọn loại phòng"
+                                    android:textColor="#0F172A"
+                                    android:textSize="13.5sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- CARD 2: MỨC GIÁ THUÊ / THÁNG -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="1dp"
+                        app:strokeColor="#E2E8F0"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="💰 Khoảng Giá Thuê (VNĐ)"
+                                    android:textColor="#0F172A"
+                                    android:textSize="14.5sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Chọn 1 mức"
+                                    android:textColor="#64748B"
+                                    android:textSize="11.5sp" />
+                            </LinearLayout>
+
+                            <com.google.android.material.chip.ChipGroup
+                                android:id="@+id/chipGroupPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:singleSelection="true">
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPriceUnder2"
+                                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="&lt;= 2 triệu"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPrice2to3"
+                                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2 - 3 triệu"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPrice3to4"
+                                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3 - 4 triệu"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPrice4to5"
+                                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="4 - 5 triệu"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPrice5to6"
+                                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="5 - 6 triệu"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPrice6to8"
+                                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="6 - 8 triệu"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+                            </com.google.android.material.chip.ChipGroup>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- CARD 3: TIỆN ÍCH PHÒNG TRỌ -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="1dp"
+                        app:strokeColor="#E2E8F0"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="✨ Tiện Ích Phòng Trọ"
+                                    android:textColor="#0F172A"
+                                    android:textSize="14.5sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Chọn nhiều"
+                                    android:textColor="#2563EB"
+                                    android:textSize="11.5sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <com.google.android.material.chip.ChipGroup
+                                android:id="@+id/chipGroupAmenities"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:singleSelection="false">
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipAc"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Có điều hòa"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipHotWater"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Nóng lạnh"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipWashing"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Máy giặt"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipMezzanine"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Có gác xép"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipBalcony"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Có ban công"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipFridge"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Tủ lạnh"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipElevator"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Thang máy"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipFreeHours"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Giờ tự do"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipNoOwner"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Không chung chủ"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipSecurity"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Bảo vệ 24/7"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipParking"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Chỗ để xe"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipEvCharging"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Nhận xe điện"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPet"
+                                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checkable="true"
+                                    android:text="Nuôi thú cưng"
+                                    android:textSize="12sp"
+                                    app:chipCornerRadius="10dp" />
+                            </com.google.android.material.chip.ChipGroup>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <!-- 3. THANH FLOATING ACTION NẰM CỐ ĐỊNH Ở ĐÁY MÀN HÌNH -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#FFFFFF"
+                android:elevation="12dp"
                 android:paddingHorizontal="16dp"
-                android:paddingBottom="80dp">
+                android:paddingTop="10dp"
+                android:paddingBottom="14dp">
 
-                <!-- 1. Tỉnh / Thành phố -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Tỉnh/Thành phố"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
-                    app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#38BDF8">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/actvCity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:text="Hà Nội"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- 2. Trường đại học -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Trường đại học"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
-                    app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#38BDF8">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/actvUniversity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:text="Tất cả các trường quanh Hà Nội"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- 3. Quận / huyện -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Quận/huyện"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
-                    app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#38BDF8">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/actvDistrict"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:text="Tất cả quận/huyện"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- 4. Loại phòng -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="Loại phòng"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
-                    app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#38BDF8">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/actvRoomType"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:text="Chọn loại phòng"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- GIÁ -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Giá "
-                        android:textColor="#0F172A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="(chạm để chọn)"
-                        android:textColor="#DC2626"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPriceUnder2"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="&lt;= 2 triệu" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPrice2to3"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="2 - 3 triệu" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPrice3to4"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="3 - 4 triệu" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPrice4to5"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="4 - 5 triệu" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPrice5to6"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="5 - 6 triệu" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPrice6to8"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="6 - 8 triệu" />
-                </com.google.android.material.chip.ChipGroup>
-
-                <!-- TIỆN ÍCH KHÁC (ĐÃ THÊM ĐẦY ĐỦ) -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tiện ích khác "
-                        android:textColor="#0F172A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="(chạm để lọc)"
-                        android:textColor="#DC2626"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupAmenities"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:singleSelection="false">
-
-                    <!-- Các tiện ích cơ bản -->
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipAc"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Có điều hòa" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipHotWater"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Nóng lạnh" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipWashing"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Máy giặt" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipMezzanine"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Có gác xép" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipBalcony"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Có ban công" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipFridge"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Tủ lạnh" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipElevator"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Thang máy" />
-
-                    <!-- Các tiện ích an ninh / quy định -->
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipFreeHours"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Giờ tự do" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipNoOwner"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Không chung chủ" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipSecurity"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Bảo vệ 24/7" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipParking"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Chỗ để xe" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipEvCharging"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Nhận xe điện" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipPet"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checkable="true"
-                        android:text="Nuôi thú cưng" />
-                </com.google.android.material.chip.ChipGroup>
-
-                <!-- NÚT ÁP DỤNG -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnApply"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="#0284C7"
-                    android:text="Áp dụng tìm kiếm"
+                    android:layout_height="50dp"
+                    android:backgroundTint="#2563EB"
+                    android:text="🔍 Tìm Kiếm Phòng Ngay"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp"
+                    android:textSize="14.5sp"
                     android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-
+                    app:cornerRadius="14dp"
+                    app:elevation="4dp" />
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+
+        </FrameLayout>
+
     </LinearLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
