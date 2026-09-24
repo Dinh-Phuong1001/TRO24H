@@ -39,6 +39,11 @@ class HomeFragment : Fragment() {
         setupCampusFilter()
         setupCalculatorDialog()
 
+        binding.cardQuickSearch.setOnClickListener {
+            val bottomNav = requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
+            bottomNav?.selectedItemId = R.id.nav_search
+        }
+
         // Lắng nghe dữ liệu đổ về từ ViewModel
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.rooms.collect { roomList ->

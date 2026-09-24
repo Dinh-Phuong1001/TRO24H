@@ -5,110 +5,147 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
     app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
-    app:strokeWidth="0dp">
+    app:strokeColor="#E2E8F0"
+    app:strokeWidth="1dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!-- Ảnh phòng -->
-        <ImageView
-            android:id="@+id/ivRoomImage"
+        <!-- 1. VÙNG HÌNH ẢNH KÈM CÁC HUY HIỆU NỔI HIỆN ĐẠI -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_gallery"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="145dp">
 
+            <ImageView
+                android:id="@+id/ivRoomImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery" />
 
+            <!-- Lớp phủ bóng mờ nhẹ ở chân ảnh giúp chữ rõ hơn -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_pill_blur"
+                android:alpha="0.2" />
 
-        <!-- Tag Loại phòng (Góc trên bên trái ảnh) -->
-        <TextView
-            android:id="@+id/tvRoomTypeTag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/bg_search_bar"
-            android:backgroundTint="#E0F2FE"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="2dp"
-            android:text="Phòng trọ"
-            android:textColor="#0369A1"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <!-- Tag loại phòng (Góc trên bên trái) -->
+            <TextView
+                android:id="@+id/tvRoomTypeTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_search_bar"
+                android:backgroundTint="#F8FAFC"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:text="Phòng trọ"
+                android:textColor="#0284C7"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
 
+            <!-- Tag Trạng thái chỗ trống (Huy hiệu Pill mờ nổi ở góc dưới bên trái ảnh) -->
+            <TextView
+                android:id="@+id/tvRoomStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|bottom"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_pill_blur"
+                android:paddingHorizontal="9dp"
+                android:paddingVertical="4dp"
+                android:text="🏠 Trống 2/4"
+                android:textColor="#FFFFFF"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </FrameLayout>
 
-        <!-- DẢI XANH THÔNG BÁO TÌNH TRẠNG NGAY DƯỚI ẢNH -->
-        <TextView
-            android:id="@+id/tvRoomStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#38BDF8"
-            android:gravity="center"
-            android:paddingVertical="6dp"
-            android:text="🏠 Trống 2/4"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/ivRoomImage" />
-
+        <!-- 2. NỘI DUNG THÔNG TIN PHÒNG -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp"
-            app:layout_constraintTop_toBottomOf="@id/tvRoomStatus">
+            android:paddingHorizontal="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="12dp">
 
+            <!-- Tiêu đề phòng -->
             <TextView
                 android:id="@+id/tvRoomTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Phòng khép kín đầy đủ nội thất"
-                android:textColor="#1E293B"
-                android:textSize="13sp" />
+                android:minLines="2"
+                android:text="Phòng trọ cao cấp ban công thoáng mát Đống Đa"
+                android:textColor="#0F172A"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvRoomAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Quận Cầu Giấy, Hà Nội"
-                android:textColor="#64748B"
-                android:textSize="11sp" />
-
-            <!-- Chữ Giá nổi bật -->
+            <!-- Địa chỉ rút gọn -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giá: "
-                    android:textColor="#38BDF8"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:text="📍 "
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvRoomAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Ngõ 1194 Đường Láng, Đống Đa"
+                    android:textColor="#64748B"
+                    android:textSize="11.5sp" />
+            </LinearLayout>
+
+            <!-- Hàng Giá tiền hiện đại -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="baseline"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tvRoomPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3.5 triệu"
-                    android:textColor="#38BDF8"
-                    android:textSize="14sp"
+                    android:text="3.2 triệu"
+                    android:textColor="#2563EB"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="/tháng"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp" />
             </LinearLayout>
+
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>
