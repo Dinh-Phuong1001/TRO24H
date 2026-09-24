@@ -69,4 +69,9 @@ class MyRoomsActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadMyRooms()
+    }
 }

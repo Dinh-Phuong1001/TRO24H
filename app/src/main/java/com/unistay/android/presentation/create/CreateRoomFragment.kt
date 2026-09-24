@@ -37,6 +37,8 @@ class CreateRoomFragment : Fragment() {
         return binding.root
     }
 
+    private var isSubmitting = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -44,11 +46,15 @@ class CreateRoomFragment : Fragment() {
 
         // Xử lý chọn ảnh
         binding.cvImagePicker.setOnClickListener {
-            imagePickerLauncher.launch("image/*")
+            if (!isSubmitting) {
+                imagePickerLauncher.launch("image/*")
+            }
         }
 
-        // Xử lý khi bấm nút Đăng phòng
+        // Xử lý khi bấm nút Đăng phòng (Chống bấm nhiều lần + Reset sạch form)
         binding.btnSubmitRoom.setOnClickListener {
+            if (isSubmitting) return@setOnClickListener
+
             val title = binding.edtTitle.text.toString().trim()
             val priceStr = binding.edtPrice.text.toString().trim()
             val phone = binding.edtPhone.text.toString().trim()
@@ -59,17 +65,6 @@ class CreateRoomFragment : Fragment() {
             val maxOccupancyStr = binding.edtMaxOccupancy.text.toString().trim()
             val description = binding.edtDescription.text.toString().trim()
             val roomType = binding.actvRoomType.text.toString().trim().ifEmpty { "Phòng trọ khép kín" }
-            
-            // Lấy danh sách tiện ích từ ChipGroup
-            val checkedChipIds = binding.cgAmenities.checkedChipIds
-            val amenitiesList = mutableListOf<String>()
-            for (id in checkedChipIds) {
-                val chip = binding.root.findViewById<com.google.android.material.chip.Chip>(id)
-                amenitiesList.add(chip.text.toString())
-            }
-            val amenities = amenitiesList.joinToString(", ")
-            
-            val imageFile = selectedImageUri?.let { getFileFromUri(it) }
 
             // Validate sơ bộ
             if (title.isEmpty() || priceStr.isEmpty() || phone.isEmpty() || address.isEmpty() || distanceStr.isEmpty() || maxOccupancyStr.isEmpty() || description.isEmpty()) {
@@ -81,6 +76,22 @@ class CreateRoomFragment : Fragment() {
             val distance = distanceStr.toDoubleOrNull() ?: 0.0
             val maxOccupancy = maxOccupancyStr.toIntOrNull() ?: 1
 
+            // Khóa nút để chống gửi lặp nhiều lần
+            isSubmitting = true
+            binding.btnSubmitRoom.isEnabled = false
+            binding.btnSubmitRoom.text = "⏳ Đang đăng tin phòng..."
+
+            // Lấy danh sách tiện ích từ ChipGroup một cách an toàn
+            val checkedChipIds = binding.cgAmenities.checkedChipIds
+            val amenitiesList = mutableListOf<String>()
+            for (id in checkedChipIds) {
+                val chip = binding.cgAmenities.findViewById<com.google.android.material.chip.Chip>(id)
+                chip?.text?.toString()?.let { amenitiesList.add(it) }
+            }
+            val amenities = amenitiesList.joinToString(", ")
+
+            val imageFile = selectedImageUri?.let { getFileFromUri(it) }
+
             // Gọi ViewModel lưu vào DB
             viewModel.createNewRoom(
                 title = title, price = price, phone = phone, address = address, district = district,
@@ -90,20 +101,35 @@ class CreateRoomFragment : Fragment() {
                 onSuccess = {
                     Toast.makeText(requireContext(), "🎉 Đăng tin thành công!", Toast.LENGTH_LONG).show()
 
-                    // Reset lại form cho trống trải
+                    // Reset hoàn toàn toàn bộ form về trạng thái ban đầu
                     binding.edtTitle.text?.clear()
                     binding.edtPrice.text?.clear()
+                    binding.edtPhone.text?.clear()
                     binding.edtAddress.text?.clear()
-                    binding.actvRoomType.setText("Phòng trọ khép kín", false)
                     binding.edtDistance.text?.clear()
                     binding.edtMaxOccupancy.text?.clear()
                     binding.edtDescription.text?.clear()
+                    binding.actvRoomType.setText("Phòng trọ khép kín", false)
+                    binding.actvUniversity.setText("UTC", false)
+                    binding.actvDistrict.setText("Cầu Giấy", false)
+                    binding.cgAmenities.clearCheck()
                     binding.ivRoomImage.setImageDrawable(null)
                     binding.llImagePlaceholder.visibility = View.VISIBLE
                     selectedImageUri = null
+
+                    // Mở lại nút đăng
+                    binding.btnSubmitRoom.isEnabled = true
+                    binding.btnSubmitRoom.text = "Đăng tin cho thuê ngay"
+                    isSubmitting = false
+
+                    // Cuộn trang lên trên cùng để sẵn sàng đăng tin mới
+                    binding.scrollViewCreateRoom.smoothScrollTo(0, 0)
                 },
                 onError = { errorMessage ->
                     Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
+                    binding.btnSubmitRoom.isEnabled = true
+                    binding.btnSubmitRoom.text = "Đăng tin cho thuê ngay"
+                    isSubmitting = false
                 }
             )
         }

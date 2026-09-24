@@ -61,12 +61,12 @@ class RoomDetailActivity : AppCompatActivity() {
             viewModel.isOwner.collect { isOwner ->
                 if (isOwner) {
                     binding.bottomBar.visibility = View.GONE
+                    binding.bottomBarOwner.visibility = View.VISIBLE
                     binding.btnSaveRoom.visibility = View.GONE
-                    binding.btnDeleteRoom.visibility = View.VISIBLE
                 } else {
                     binding.bottomBar.visibility = View.VISIBLE
+                    binding.bottomBarOwner.visibility = View.GONE
                     binding.btnSaveRoom.visibility = View.VISIBLE
-                    binding.btnDeleteRoom.visibility = View.GONE
                 }
             }
         }
@@ -77,19 +77,19 @@ class RoomDetailActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnDeleteRoom.setOnClickListener {
+        binding.btnDeleteRoomBottom.setOnClickListener {
             android.app.AlertDialog.Builder(this)
                 .setTitle("Xác nhận xóa")
-                .setMessage("Bạn có chắc chắn muốn xóa phòng này không? Hành động này không thể hoàn tác.")
+                .setMessage("Bạn có chắc chắn muốn xóa bài đăng phòng trọ này không? Hành động này không thể hoàn tác.")
                 .setPositiveButton("Xóa") { _, _ ->
                     viewModel.deleteRoom(
                         roomId = roomId,
                         onSuccess = {
-                            Toast.makeText(this@RoomDetailActivity, "Xóa phòng thành công", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RoomDetailActivity, "Đã xóa bài đăng phòng thành công", Toast.LENGTH_SHORT).show()
                             finish()
                         },
                         onError = { error ->
-                            Toast.makeText(this@RoomDetailActivity, error, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RoomDetailActivity, error, Toast.LENGTH_LONG).show()
                         }
                     )
                 }

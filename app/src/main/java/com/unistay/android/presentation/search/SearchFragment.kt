@@ -121,11 +121,13 @@ class SearchFragment : Fragment() {
                 R.id.chipPrice6to8 -> { minPrice = 6000000.0; maxPrice = 8000000.0 }
             }
 
-            // Lấy danh sách tiện ích đã tích chọn
+            // Lấy danh sách tiện ích đã tích chọn một cách an toàn
             val selectedAmenities = ArrayList<String>()
             for (id in binding.chipGroupAmenities.checkedChipIds) {
-                binding.root.findViewById<com.google.android.material.chip.Chip>(id)?.text?.let {
-                    selectedAmenities.add(it.toString())
+                val chip = binding.chipGroupAmenities.findViewById<com.google.android.material.chip.Chip>(id)
+                val chipText = chip?.text?.toString()?.trim()
+                if (!chipText.isNullOrEmpty()) {
+                    selectedAmenities.add(chipText)
                 }
             }
 

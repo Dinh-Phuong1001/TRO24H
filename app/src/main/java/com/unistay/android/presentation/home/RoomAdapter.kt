@@ -24,18 +24,19 @@ class RoomAdapter(
     override fun onBindViewHolder(holder: RoomViewHolder, position: Int) {
         val room = rooms[position]
         with(holder.binding) {
-            // Liên kết các ID mới từ bản thiết kế
-            tvRoomTitle.text = room.title
-            tvRoomAddress.text = room.address
-            tvRoomTypeTag.text = room.roomType
+            // Liên kết các ID mới từ bản thiết kế an toàn
+            tvRoomTitle.text = room.title ?: ""
+            tvRoomAddress.text = room.address ?: ""
+            tvRoomTypeTag.text = room.roomType ?: "Phòng trọ"
 
             // Tính toán và hiển thị giá
             val priceInMillion = room.basePrice / 1_000_000.0
             tvRoomPrice.text = String.format("%.1f triệu", priceInMillion)
 
             // Hiển thị trạng thái chỗ trống (ví dụ: Trống 2/4)
-            val availableSpots = room.maxOccupancy - room.currentOccupancy
-            tvRoomStatus.text = "🏠 Trống $availableSpots/${room.maxOccupancy}"
+            val maxOcc = if (room.maxOccupancy > 0) room.maxOccupancy else 1
+            val availableSpots = (maxOcc - room.currentOccupancy).coerceAtLeast(0)
+            tvRoomStatus.text = "🏠 Trống $availableSpots/$maxOcc"
 
             // Load ảnh bằng thư viện Coil
             ivRoomImage.load(room.imageUrl) {

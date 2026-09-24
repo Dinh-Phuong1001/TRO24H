@@ -153,23 +153,57 @@ namespace UniStay.Api.Controllers
         [HttpDelete("api/rooms/{id}")]
         public async Task<IActionResult> DeleteRoom(string id, [FromQuery] string userId)
         {
-            var room = await _context.Rooms.FindAsync(id);
-            if (room == null) return NotFound();
-
-            if (room.UserId != userId)
+            try
             {
-                return Forbid(); // Trả về 403 Forbidden nếu không phải người đăng
+                var room = await _context.Rooms.FindAsync(id);
+                if (room == null) return NotFound("Phòng không tồn tại");
+
+                // So sánh UserId linh hoạt (không phân biệt chữ hoa thường)
+                if (!string.Equals(room.UserId?.Trim(), userId?.Trim(), StringComparison.OrdinalIgnoreCase))
+                {
+                    return StatusCode(403, "Bạn không có quyền xóa bài đăng phòng này.");
+                }
+
+                // 1. Xóa các saved rooms liên quan đến phòng này để tránh lỗi khóa ngoại
+                var savedRooms = await _context.SavedRooms.Where(s => s.RoomId == id).ToListAsync();
+                if (savedRooms.Any())
+                {
+                    _context.SavedRooms.RemoveRange(savedRooms);
+                }
+
+                // 2. Xóa lịch sử xem phòng liên quan đến phòng này
+                var viewHistories = await _context.ViewHistories.Where(v => v.RoomId == id).ToListAsync();
+                if (viewHistories.Any())
+                {
+                    _context.ViewHistories.RemoveRange(viewHistories);
+                }
+
+                // 3. Xóa các tin nhắn và session chat liên quan đến phòng này (nếu có)
+                var chatSessions = await _context.ChatSessions.Where(c => c.RoomId == id).ToListAsync();
+                foreach (var session in chatSessions)
+                {
+                    var messages = await _context.Messages.Where(m => m.SessionId == session.SessionId).ToListAsync();
+                    if (messages.Any())
+                    {
+                        _context.Messages.RemoveRange(messages);
+                    }
+                }
+                if (chatSessions.Any())
+                {
+                    _context.ChatSessions.RemoveRange(chatSessions);
+                }
+
+                // 4. Xóa phòng
+                _context.Rooms.Remove(room);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { success = true, message = "Đã xóa phòng thành công" });
             }
-
-            // Xóa các saved rooms liên quan đến phòng này để tránh lỗi khóa ngoại
-            var savedRooms = await _context.SavedRooms.Where(s => s.RoomId == id).ToListAsync();
-            _context.SavedRooms.RemoveRange(savedRooms);
-
-            // Xóa phòng
-            _context.Rooms.Remove(room);
-            await _context.SaveChangesAsync();
-
-            return Ok();
+            catch (Exception ex)
+            {
+                var innerMsg = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                return StatusCode(500, $"Lỗi hệ thống khi xóa phòng: {innerMsg}");
+            }
         }
     }
 }

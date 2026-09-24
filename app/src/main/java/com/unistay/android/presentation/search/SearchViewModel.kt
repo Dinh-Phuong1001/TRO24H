@@ -20,54 +20,64 @@ class SearchViewModel @Inject constructor(
 
     fun searchRooms(
         keyword: String = "",
-        targetUni: String,
-        targetDistrict: String,
-        minPrice: Double,
-        maxPrice: Double,
-        selectedAmenities: List<String>,
+        targetUni: String = "",
+        targetDistrict: String = "",
+        minPrice: Double = 0.0,
+        maxPrice: Double = Double.MAX_VALUE,
+        selectedAmenities: List<String> = emptyList(),
         roomType: String = ""
     ) {
         viewModelScope.launch {
-            // Lấy toàn bộ phòng thật từ Database
+            // Lấy toàn bộ phòng từ Database
             val allRooms = repository.getAllRooms()
 
-            // Bắt đầu lọc
+            // Bắt đầu lọc với cơ chế null-safe 100%
             val filteredRooms = allRooms.filter { room ->
+                val title = room.title ?: ""
+                val address = room.address ?: ""
+                val roomUni = room.targetUniversity ?: ""
+                val roomDistrict = room.district ?: ""
+                val roomAmenities = room.amenities ?: ""
+                val roomTypeStr = room.roomType ?: ""
+                val basePrice = room.basePrice
+
                 // 0. Lọc theo từ khóa
-                val matchKeyword = keyword.isEmpty() ||
-                        room.title.contains(keyword, ignoreCase = true) ||
-                        room.address.contains(keyword, ignoreCase = true)
+                val matchKeyword = keyword.isBlank() ||
+                        title.contains(keyword, ignoreCase = true) ||
+                        address.contains(keyword, ignoreCase = true)
 
                 // 1. Lọc theo trường
-                val matchUniversity = targetUni.isEmpty() ||
+                val matchUniversity = targetUni.isBlank() ||
                         targetUni.startsWith("Tất cả") ||
-                        room.targetUniversity.contains(targetUni, ignoreCase = true) ||
-                        targetUni.contains(room.targetUniversity, ignoreCase = true)
+                        roomUni.contains(targetUni, ignoreCase = true) ||
+                        targetUni.contains(roomUni, ignoreCase = true)
 
                 // 2. Lọc theo quận/huyện
-                val matchDistrict = targetDistrict.isEmpty() ||
+                val matchDistrict = targetDistrict.isBlank() ||
                         targetDistrict.startsWith("Tất cả") ||
-                        room.district.contains(targetDistrict, ignoreCase = true) ||
-                        room.address.contains(targetDistrict, ignoreCase = true)
+                        roomDistrict.contains(targetDistrict, ignoreCase = true) ||
+                        address.contains(targetDistrict, ignoreCase = true)
 
                 // 3. Lọc theo giá
-                val matchPrice = room.basePrice in minPrice..maxPrice
+                val matchPrice = basePrice in minPrice..maxPrice
 
-                // 4. Lọc theo tiện ích
+                // 4. Lọc theo tiện ích (hỗ trợ nhiều tiện ích tích chọn cùng lúc, không crash)
                 val matchAmenities = if (selectedAmenities.isEmpty()) {
                     true
                 } else {
-                    selectedAmenities.all { selectedItem ->
-                        room.amenities.contains(selectedItem, ignoreCase = true)
+                    selectedAmenities.all { item ->
+                        val cleanItem = item.trim().removePrefix("Có ").trim()
+                        roomAmenities.contains(item, ignoreCase = true) ||
+                                (cleanItem.isNotEmpty() && roomAmenities.contains(cleanItem, ignoreCase = true))
                     }
                 }
 
                 // 5. Lọc theo loại phòng
-                val matchRoomType = roomType.isEmpty() ||
+                val matchRoomType = roomType.isBlank() ||
                         roomType.startsWith("Chọn") ||
                         roomType.startsWith("Tất cả") ||
-                        room.roomType.contains(roomType, ignoreCase = true) ||
-                        roomType.contains(room.roomType, ignoreCase = true)
+                        roomTypeStr.contains(roomType, ignoreCase = true) ||
+                        roomType.contains(roomTypeStr, ignoreCase = true)
 
                 matchKeyword && matchUniversity && matchDistrict && matchPrice && matchAmenities && matchRoomType
             }

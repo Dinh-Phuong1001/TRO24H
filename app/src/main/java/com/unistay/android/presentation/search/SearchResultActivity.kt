@@ -87,18 +87,18 @@ class SearchResultActivity : AppCompatActivity() {
         adapter = RoomAdapter(emptyList()) { room: Room ->
             val intent = Intent(this, RoomDetailActivity::class.java).apply {
                 putExtra("ROOM_ID", room.roomId)
-                putExtra("TARGET_UNIVERSITY", room.targetUniversity)
+                putExtra("TARGET_UNIVERSITY", room.targetUniversity ?: "")
                 putExtra("DISTANCE", room.distanceToCampusKm)
-                putExtra("ROOM_TITLE", room.title)
-                putExtra("ROOM_ADDRESS", room.address)
+                putExtra("ROOM_TITLE", room.title ?: "")
+                putExtra("ROOM_ADDRESS", room.address ?: "")
                 putExtra("ROOM_PRICE", room.basePrice)
-                putExtra("ROOM_AMENITIES", room.amenities)
-                putExtra("ROOM_IMAGE", room.imageUrl)
-                putExtra("ROOM_PHONE", room.contactPhone)
-                putExtra("ROOM_TYPE", room.roomType)
-                putExtra("OWNER_ID", room.ownerId)
-                putExtra("OWNER_NAME", room.ownerName)
-                putExtra("ROOM_DESCRIPTION", room.description)
+                putExtra("ROOM_AMENITIES", room.amenities ?: "")
+                putExtra("ROOM_IMAGE", room.imageUrl ?: "")
+                putExtra("ROOM_PHONE", room.contactPhone ?: "")
+                putExtra("ROOM_TYPE", room.roomType ?: "Phòng trọ khép kín")
+                putExtra("OWNER_ID", room.ownerId ?: "")
+                putExtra("OWNER_NAME", room.ownerName ?: "")
+                putExtra("ROOM_DESCRIPTION", room.description ?: "")
             }
             startActivity(intent)
         }

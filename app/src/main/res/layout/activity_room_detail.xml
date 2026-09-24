@@ -53,21 +53,6 @@
                     android:background="@drawable/bg_search_bar"
                     android:src="@drawable/ic_save_outline"
                     app:tint="#64748B" />
-
-                <!-- THÊM: Nút Xóa phòng (Chỉ hiển thị cho người đăng) -->
-                <ImageButton
-                    android:id="@+id/btnDeleteRoom"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="72dp"
-                    android:layout_marginTop="16dp"
-                    android:padding="8dp"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="end"
-                    android:background="@drawable/bg_search_bar"
-                    android:src="@drawable/ic_delete"
-                    app:tint="#EF4444"
-                    android:visibility="gone" />
             </FrameLayout>
 
             <LinearLayout
@@ -491,6 +476,33 @@
             android:textSize="13sp"
             android:textStyle="bold"
             app:cornerRadius="22dp" />
+    </LinearLayout>
+
+    <!-- 7. THANH ĐÁY DÀNH CHO CHỦ PHÒNG (NÚT XÓA BÀI ĐĂNG DẠNG THANH NGANG) -->
+    <LinearLayout
+        android:id="@+id/bottomBarOwner"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:elevation="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteRoomBottom"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:backgroundTint="#EF4444"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="🗑️ XÓA BÀI ĐĂNG PHÒNG TRỌ"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:cornerRadius="24dp" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
