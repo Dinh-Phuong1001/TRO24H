@@ -96,6 +96,8 @@ class SearchResultActivity : AppCompatActivity() {
                 putExtra("ROOM_IMAGE", room.imageUrl ?: "")
                 putExtra("ROOM_PHONE", room.contactPhone ?: "")
                 putExtra("ROOM_TYPE", room.roomType ?: "Phòng trọ khép kín")
+                putExtra("MAX_OCCUPANCY", room.maxOccupancy)
+                putExtra("CURRENT_OCCUPANCY", room.currentOccupancy)
                 putExtra("OWNER_ID", room.ownerId ?: "")
                 putExtra("OWNER_NAME", room.ownerName ?: "")
                 putExtra("ROOM_DESCRIPTION", room.description ?: "")

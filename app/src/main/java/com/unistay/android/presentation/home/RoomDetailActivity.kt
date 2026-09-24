@@ -38,6 +38,9 @@ class RoomDetailActivity : AppCompatActivity() {
         val imageUrl = intent.getStringExtra("ROOM_IMAGE") ?: ""
         val phone = intent.getStringExtra("ROOM_PHONE") ?: ""
         val roomType = intent.getStringExtra("ROOM_TYPE") ?: "Phòng trọ khép kín"
+        val maxOcc = intent.getIntExtra("MAX_OCCUPANCY", 2).coerceAtLeast(1)
+        val curOcc = intent.getIntExtra("CURRENT_OCCUPANCY", 0)
+        val availableSpots = (maxOcc - curOcc).coerceAtLeast(0)
         val ownerId = intent.getStringExtra("OWNER_ID") ?: "chu_tro_id_123"
         val description = intent.getStringExtra("ROOM_DESCRIPTION")
 
@@ -103,6 +106,7 @@ class RoomDetailActivity : AppCompatActivity() {
         with(binding) {
             tvUniversityBadge.text = "📍 Gần $targetUniversity (${String.format("%.1f", distance)} km)"
             tvRoomTypeBadge.text = roomType
+            tvOccupancyBadge.text = if (availableSpots > 0) "Còn trống $availableSpots/$maxOcc" else "Đã hết chỗ"
             tvDetailTitle.text = title
             tvDetailOwnerName.text = "Người đăng: $ownerName"
             tvDetailAddress.text = address
@@ -160,10 +164,13 @@ class RoomDetailActivity : AppCompatActivity() {
                                 putExtra("ROOM_PRICE", suggestedRoom.basePrice)
                                 putExtra("ROOM_AMENITIES", suggestedRoom.amenities)
                                 putExtra("ROOM_IMAGE", suggestedRoom.imageUrl)
-                                putExtra("ROOM_PHONE", suggestedRoom.contactPhone)
-                                putExtra("OWNER_ID", suggestedRoom.ownerId)
-                                putExtra("OWNER_NAME", suggestedRoom.ownerName)
-                                putExtra("ROOM_DESCRIPTION", suggestedRoom.description)
+                                putExtra("ROOM_PHONE", suggestedRoom.contactPhone ?: "")
+                                putExtra("ROOM_TYPE", suggestedRoom.roomType ?: "Phòng trọ khép kín")
+                                putExtra("MAX_OCCUPANCY", suggestedRoom.maxOccupancy)
+                                putExtra("CURRENT_OCCUPANCY", suggestedRoom.currentOccupancy)
+                                putExtra("OWNER_ID", suggestedRoom.ownerId ?: "")
+                                putExtra("OWNER_NAME", suggestedRoom.ownerName ?: "")
+                                putExtra("ROOM_DESCRIPTION", suggestedRoom.description ?: "")
                             }
                             startActivity(intent)
                         }
