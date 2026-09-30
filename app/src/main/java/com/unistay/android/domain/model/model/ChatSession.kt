@@ -19,4 +19,10 @@ data class ChatSession(
     val studentAvatarUrl: String? = null,
     val landlordAvatarUrl: String? = null,
     val studentName: String? = null
-)
+) {
+    @androidx.room.Ignore
+    var isPinned: Boolean = false
+
+    @androidx.room.Ignore
+    var isBlocked: Boolean = false
+}

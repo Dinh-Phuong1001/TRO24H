@@ -19,6 +19,7 @@ namespace UniStay.Api.Controllers
         {
             var sessions = await _context.ChatSessions
                 .Where(s => s.StudentId == userId || s.LandlordId == userId)
+                .OrderByDescending(s => s.LastUpdated)
                 .ToListAsync();
                 
             foreach (var session in sessions)
@@ -139,6 +140,20 @@ namespace UniStay.Api.Controllers
             _context.ChatSessions.Update(session);
             await _context.SaveChangesAsync();
             return Ok();
+        }
+
+        [HttpDelete("api/chat/sessions/{sessionId}")]
+        public async Task<IActionResult> DeleteChatSession(string sessionId)
+        {
+            var session = await _context.ChatSessions.FindAsync(sessionId);
+            if (session == null) return NotFound();
+
+            var messages = await _context.Messages.Where(m => m.SessionId == sessionId).ToListAsync();
+            _context.Messages.RemoveRange(messages);
+
+            _context.ChatSessions.Remove(session);
+            await _context.SaveChangesAsync();
+            return Ok(new { success = true, message = "Đã xóa cuộc trò chuyện" });
         }
     }
 }

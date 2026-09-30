@@ -67,6 +67,11 @@ interface UniStayApi {
         @Query("userId") userId: String
     )
 
+    @retrofit2.http.DELETE("api/chat/sessions/{sessionId}")
+    suspend fun deleteChatSession(
+        @retrofit2.http.Path("sessionId") sessionId: String
+    ): retrofit2.Response<Unit>
+
     // API Upload ảnh
     @retrofit2.http.Multipart
     @retrofit2.http.POST("api/upload")

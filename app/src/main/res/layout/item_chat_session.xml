@@ -1,91 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true"
-    android:orientation="horizontal"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="12dp">
-
-    <!-- Avatar người dùng -->
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:cardCornerRadius="28dp"
-        app:cardElevation="0dp"
-        app:strokeColor="#E2E8F0"
-        app:strokeWidth="1dp">
-
-        <ImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_default_avatar" />
-    </com.google.android.material.card.MaterialCardView>
+    android:overScrollMode="never"
+    android:scrollbars="none">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
+        <!-- 1. PHẦN NỘI DUNG CHÍNH (FULL CHIỀU RỘNG MÀN HÌNH) -->
         <LinearLayout
+            android:id="@+id/layoutMainContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
 
-            <TextView
-                android:id="@+id/tvSenderName"
+            <!-- Avatar người dùng -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                app:cardCornerRadius="27dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_default_avatar" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Tên người gửi"
-                android:textColor="#0F172A"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Icon Ghim 📌 -->
+                    <TextView
+                        android:id="@+id/tvPinBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="📌"
+                        android:textSize="13sp"
+                        android:visibility="gone" />
+
+                    <!-- Tên người gửi -->
+                    <TextView
+                        android:id="@+id/tvSenderName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Tên người gửi"
+                        android:textColor="#0F172A"
+                        android:textSize="15.5sp"
+                        android:textStyle="bold" />
+
+                    <!-- Badge Đã chặn 🚫 -->
+                    <TextView
+                        android:id="@+id/tvBlockedBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_search_bar"
+                        android:backgroundTint="#FEE2E2"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="2dp"
+                        android:text="🚫 Đã chặn"
+                        android:textColor="#DC2626"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <!-- Giờ gửi -->
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:00"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLastMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Nội dung tin nhắn cuối cùng hiển thị ở đây..."
+                    android:textColor="#64748B"
+                    android:textSize="13.5sp" />
+            </LinearLayout>
+
+            <!-- Badge đếm số tin nhắn chưa đọc -->
             <TextView
-                android:id="@+id/tvTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10:00"
-                android:textColor="#94A3B8"
-                android:textSize="12sp" />
+                android:id="@+id/tvUnreadCount"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_unread_badge"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvLastMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Nội dung tin nhắn cuối cùng hiển thị ở đây..."
-            android:textColor="#64748B"
-            android:textSize="14sp" />
+        <!-- 2. PHẦN 3 NÚT HÀNH ĐỘNG KHI VUỐT SANG TRÁI (GHIM - CHẶN - XÓA) -->
+        <LinearLayout
+            android:id="@+id/layoutActions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!-- NÚT GHIM (PIN) -->
+            <LinearLayout
+                android:id="@+id/btnPin"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:background="#F59E0B"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPinIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📌"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvPinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Ghim"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- NÚT CHẶN (BLOCK) -->
+            <LinearLayout
+                android:id="@+id/btnBlock"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:background="#64748B"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvBlockIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🚫"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvBlockText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Chặn"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- NÚT XÓA (DELETE) -->
+            <LinearLayout
+                android:id="@+id/btnDelete"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:background="#EF4444"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🗑️"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Xóa"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <!-- Badge đếm số tin nhắn chưa đọc -->
-    <TextView
-        android:id="@+id/tvUnreadCount"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/bg_unread_badge"
-        android:gravity="center"
-        android:text="1"
-        android:textColor="@android:color/white"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-</LinearLayout>
+</HorizontalScrollView>
