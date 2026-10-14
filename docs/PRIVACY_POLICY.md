@@ -26,5 +26,5 @@ Khi sử dụng ứng dụng, chúng tôi có thể thu thập các thông tin s
 
 ### 5. Liên Hệ
 Nếu bạn có bất kỳ câu hỏi nào về chính sách bảo mật này, vui lòng liên hệ:
-- **Email**: support@tro24h.vn
+- **Email**: Tro24h@gmail.com
 - **Dự án**: TRO24H Team - Hệ thống tìm kiếm phòng trọ sinh viên.
