@@ -123,19 +123,19 @@ graph TD
 
 ---
 
-### 🌊 Giai đoạn 5: Triển khai Cloud & Đóng gói APK (Deployment & Release)
+### 🌊 Giai đoạn 5: Triển khai Cloud & Phát hành trên Chợ ứng dụng APKPure (Deployment & Release)
 * **Thời gian thực hiện:** Tuần 8
 * **Đầu vào (Inputs):** Mã nguồn đã vượt qua kiểm thử chất lượng ở Giai đoạn 4.
 * **Nhiệm vụ trọng tâm:**
   - [x] **Triển khai Cơ sở dữ liệu Cloud:** Khởi tạo MS SQL Server trên hạ tầng đám mây MonsterASP (`db69654.databaseasp.net`), chạy script tạo bảng và nạp 20 dữ liệu mẫu chuẩn thực tế.
   - [x] **Triển khai Backend Cloud:** Triển khai ASP.NET Core 8 API lên MonsterASP Cloud (`http://tro24h.runasp.net`), cấu hình CORS và chuỗi kết nối an toàn.
   - [x] **Đồng bộ ứng dụng di động:** Cập nhật `BASE_URL` trong mã nguồn Android sang domain máy chủ Cloud 24/7.
-  - [x] **Đóng gói phát hành (Release Build):** Build bản phát hành APK chính thức `TRO24H-v1.0.0.apk`.
-  - [x] **Xuất bản Release & Mã QR:** Đăng tải bản phát hành lên [GitHub Releases v1.0.0](https://github.com/Dinh-Phuong1001/TRO24H/releases/tag/v1.0.0) và tạo mã QR tải nhanh phục vụ người dùng.
+  - [x] **Đóng gói phát hành (Release Build):** Build bản phát hành APK chính thức `TRO24H-v1.0.0.apk` với mã định danh gói `com.unistay.android`.
+  - [x] **Phát hành lên Chợ ứng dụng APKPure:** Đăng ký đối tác (Partner Developer) và phát hành thành công ứng dụng [TRO24H - Tìm Trọ Sinh Viên trên APKPure](https://apkpure.net/tro24h-t%C3%ACm-tr%E1%BB%8D-sinh-vi%C3%AAn/com.unistay.android).
 * **Sản phẩm bàn giao (Deliverables):**
   - Dịch vụ Web API & Database trực tuyến 24/7 tại `http://tro24h.runasp.net/swagger`.
-  - Bản cài đặt `TRO24H-v1.0.0.apk` và mã QR tải trực tiếp.
-* **Tiêu chí nghiệm thu (Phase Exit Gate):** Người dùng bất kỳ có thể quét mã QR, cài đặt APK và sử dụng đầy đủ tính năng qua mạng 4G/5G/Wifi độc lập.
+  - Trang ứng dụng chính thức trên Chợ ứng dụng APKPure: `https://apkpure.net/tro24h-tìm-trọ-sinh-viên/com.unistay.android`.
+* **Tiêu chí nghiệm thu (Phase Exit Gate):** Người dùng bất kỳ có thể truy cập Chợ ứng dụng APKPure, tải và cài đặt ứng dụng TRO24H và sử dụng đầy đủ tính năng qua mạng 4G/5G/Wifi độc lập.
 
 ---
 
@@ -176,7 +176,7 @@ gantt
     Kiểm thử tích hợp & Fix bug           :done, test2, 2026-09-26, 2026-10-02
     section Giai đoạn 5: Triển khai & Đóng gói
     Deploy Database & API lên Cloud       :done, dep1, 2026-10-03, 2026-10-06
-    Build APK v1.0.0 & Tạo mã QR Release  :done, dep2, 2026-10-06, 2026-10-08
+    Phát hành ứng dụng lên Chợ APKPure    :done, dep2, 2026-10-06, 2026-10-08
     section Giai đoạn 6: Nghiệm thu & Bàn giao
     Tổng kết tài liệu & Đánh giá dự án    :done, han1, 2026-10-09, 2026-10-12
     Chuẩn bị Slide & Bảo vệ BTL           :active, han2, 2026-10-12, 2026-10-18
@@ -197,7 +197,7 @@ Dự án đã được số hóa và đồng bộ 100% lên GitHub theo đúng 6
 | **#2** | Giai đoạn 2: Thiết kế hệ thống & CSDL | 2 Issues (#1, #3) | **100% Hoàn thành** |
 | **#3** | Giai đoạn 3: Hiện thực hóa & Lập trình | 8 Issues (#2, #4, #5, #6, #7, #8, #9, #10) | **100% Hoàn thành** |
 | **#4** | Giai đoạn 4: Kiểm thử phần mềm | 1 Issue (#15) | **100% Hoàn thành** |
-| **#5** | Giai đoạn 5: Triển khai Cloud & Đóng gói APK | 2 Issues (#11, #12) | **100% Hoàn thành** |
+| **#5** | Giai đoạn 5: Triển khai Cloud & Phát hành APKPure | 2 Issues (#11, #12) | **100% Hoàn thành** |
 | **#6** | Giai đoạn 6: Nghiệm thu & Bàn giao dự án | 1 Issue (#13) | **Đang thực hiện (In Progress)** |
 
 ---
@@ -207,4 +207,4 @@ Dự án đã được số hóa và đồng bộ 100% lên GitHub theo đúng 6
 2. **Cơ sở dữ liệu:** Lược đồ quan hệ chuẩn hóa 3NF, 100% bảng có khóa chính và khóa ngoại toàn vẹn dữ liệu.
 3. **Backend API:** Phản hồi chuẩn RESTful JSON, tài liệu hóa với Swagger UI, hỗ trợ xử lý ngoại lệ toàn cục.
 4. **Ứng dụng di động:** Giao diện trực quan phong cách Gen Z, thao tác vuốt thẻ mượt mà 60fps, tương thích Android 7.0 - 14.
-5. **Đám mây & Triển khai:** Hệ thống vận hành online 24/7 trên Cloud công cộng, người dùng tải và cài đặt trực tiếp qua file APK hoặc quét mã QR.
+5. **Đám mây & Triển khai:** Hệ thống vận hành online 24/7 trên Cloud công cộng, ứng dụng được phát hành chính thức và tải trực tiếp từ Chợ ứng dụng APKPure.

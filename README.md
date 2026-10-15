@@ -11,7 +11,7 @@
 
 * 🌐 **Backend & Swagger API Cloud:** [http://tro24h.runasp.net/swagger/index.html](http://tro24h.runasp.net/swagger/index.html)
 * 🗄️ **Database Server:** MS SQL Server Cloud (`db69654.databaseasp.net`)
-* 📦 **Bản phát hành APK v1.0.0:** [GitHub Releases v1.0.0](https://github.com/Dinh-Phuong1001/TRO24H/releases/tag/v1.0.0)
+* 🛒 **Tải ứng dụng trên Chợ APKPure:** [TRO24H - Tìm Trọ Sinh Viên (APKPure)](https://apkpure.net/tro24h-t%C3%ACm-tr%E1%BB%8D-sinh-vi%C3%AAn/com.unistay.android)
 
 ---
 
@@ -34,6 +34,7 @@
 ### ☁️ Cơ sở dữ liệu & Hạ tầng (Cloud & DevOps)
 - **CSDL:** Microsoft SQL Server (6 bảng quan hệ chuẩn hóa: Users, Rooms, SavedRooms, ViewHistories, ChatSessions, Messages).
 - **Cloud Hosting:** MonsterASP Cloud Hosting (.NET Core runtime + MSSQL).
+- **Kênh phân phối ứng dụng:** Chợ ứng dụng **APKPure** (`com.unistay.android`).
 - **Quản lý mã nguồn & Tiến độ:** Git & GitHub (Quản lý 6 Milestones theo Mô hình Thác Nước).
 
 ---
@@ -65,8 +66,8 @@ Dự án được phân rã công việc dựa trên **Ma trận trách nhiệm 
   - Lập trình Backend Web API (.NET 8) và Ứng dụng Android Native (Kotlin): Splash, Auth, Home, Filter, Bảng dự toán chi phí trọ, Google Maps, Chat 1-1 cử chỉ vuốt thông minh.
 - **🌊 Giai đoạn 4: Kiểm thử phần mềm (Testing & Verification)**
   - Kiểm thử 15 API qua Postman/Swagger, kiểm thử tích hợp trên thiết bị thật, kiểm thử xử lý ngoại lệ mất mạng và fix 100% bug.
-- **🌊 Giai đoạn 5: Triển khai Đám mây & Đóng gói phát hành (Deployment & Release)**
-  - Triển khai MSSQL và API lên hạ tầng MonsterASP Cloud 24/7 (`http://tro24h.runasp.net`). Xuất bản Release APK v1.0.0 và tạo mã QR tải nhanh.
+- **🌊 Giai đoạn 5: Triển khai Đám mây & Phát hành APKPure (Deployment & Release)**
+  - Triển khai MSSQL và API lên hạ tầng MonsterASP Cloud 24/7 (`http://tro24h.runasp.net`). Xuất bản và phân phối chính thức ứng dụng lên **Chợ ứng dụng APKPure** ([Link tải APKPure](https://apkpure.net/tro24h-t%C3%ACm-tr%E1%BB%8D-sinh-vi%C3%AAn/com.unistay.android)).
 - **🌊 Giai đoạn 6: Nghiệm thu & Bàn giao dự án (Maintenance & Handover)**
   - Đánh giá chất lượng toàn diện, bàn giao bộ hồ sơ kỹ thuật (PRD, Kiến trúc, Tiến độ Thác Nước, Dự toán ngân sách) và bảo vệ đồ án BTL.
 

@@ -70,7 +70,7 @@ Tính cho giai đoạn chạy thử nghiệm & vận hành 6 tháng đầu tiên
 
 | STT | Khoản mục | Cách tính | Thành tiền (VNĐ) |
 |:---:|:---|:---|:---:|
-| 1 | **Chi phí in ấn & Hồ sơ nghiệm thu** | In màu tài liệu đặc tả SRS, đóng quyển đồ án, Standee mã QR | 500.000 |
+| 1 | **Chi phí in ấn & Hồ sơ nghiệm thu** | In màu tài liệu đặc tả SRS, đóng quyển đồ án, Banner giới thiệu app | 500.000 |
 | 2 | **Chi phí thiết bị kiểm thử thực tế** | Thiết bị di động Android đa cấu hình (Samsung, Xiaomi, Oppo) | Tận dụng sẵn có (0 VNĐ) |
 | 3 | **Dự phòng rủi ro phát sinh (Contingency)** | 5% trên tổng chi phí hạ tầng và công cụ | 200.000 |
 | **TỔNG** | **Tổng chi phí vận hành & dự phòng:** | | **700.000 VNĐ** |
@@ -106,12 +106,12 @@ Trong thực tế thực hiện Bài tập lớn / Đồ án tốt nghiệp tạ
 | STT | Khoản chi tiêu tiền mặt | Mức chi phí | Ghi chú giải trình |
 |:---:|:---|:---:|:---|
 | 1 | **Hạ tầng Cloud MonsterASP (Web API + SQL Server)** | **0 VNĐ** *(hoặc 270.000đ/tháng)* | MonsterASP cấp gói Free Tier thử nghiệm 60 ngày đủ cho toàn bộ chu kỳ học phần. |
-| 2 | **Tài khoản Google Play Console (tùy chọn)** | **630.000 VNĐ** *(hoặc 0 VNĐ)* | Nếu chỉ tải trực tiếp file APK qua link GitHub Releases và quét mã QR thì **hoàn toàn miễn phí (0 VNĐ)**. |
+| 2 | **Phân phối Chợ ứng dụng APKPure** | **0 VNĐ** | Ứng dụng đã được phát hành miễn phí & kiểm duyệt an toàn trực tiếp trên [Chợ ứng dụng APKPure](https://apkpure.net/tro24h-t%C3%ACm-tr%E1%BB%8D-sinh-vi%C3%AAn/com.unistay.android). |
 | 3 | **Tên miền tùy chỉnh (tùy chọn)** | **0 VNĐ** | Sử dụng trực tiếp subdomain miễn phí của MonsterASP (`http://tro24h.runasp.net`). |
 | 4 | **In ấn tài liệu báo cáo & đóng bìa cứng** | **250.000 VNĐ** | In tài liệu đặc tả yêu cầu, báo cáo tiến độ và slide bảo vệ trước hội đồng. |
-| 5 | **In Standee / Poster mã QR demo tại buổi bảo vệ** | **150.000 VNĐ** | Phục vụ thầy cô và các bạn sinh viên quét tải app trải nghiệm trực tiếp. |
+| 5 | **In Poster / Banner giới thiệu link tải APKPure** | **150.000 VNĐ** | Phục vụ thầy cô và các bạn sinh viên xem link tải app trực tiếp trên chợ APKPure. |
 | 6 | **Quỹ dự phòng nước uống, họp nhóm trực tiếp** | **200.000 VNĐ** | Phục vụ các buổi họp chuyển giao giai đoạn (Phase Exit Gate). |
-| **TỔNG** | **TỔNG CHI PHÍ THỰC TẾ NHÓM CHI TRẢ:** | **600.000 - 1.230.000 VNĐ** | **Bình quân ~ 100.000 - 200.000 VNĐ / thành viên** |
+| **TỔNG** | **TỔNG CHI PHÍ THỰC TẾ NHÓM CHI TRẢ:** | **600.000 VNĐ** | **Bình quân chỉ ~ 100.000 VNĐ / thành viên** |
 
 ---
 

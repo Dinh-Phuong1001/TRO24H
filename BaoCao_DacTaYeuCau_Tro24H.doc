@@ -1,4 +1,4 @@
-﻿<html xmlns:o='urn:schemas-microsoft-com:office:office'
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
       xmlns:w='urn:schemas-microsoft-com:office:word'
       xmlns='http://www.w3.org/TR/REC-html40'>
 <head>
@@ -566,7 +566,7 @@
 <p>- <b>Giai Ä‘oáº¡n 2 (Tuáº§n 2): Thiáº¿t káº¿ há»‡ thá»‘ng & CÆ¡ sá»Ÿ dá»¯ liá»‡u (System & UI/UX Design):</b> Thiáº¿t káº¿ kiáº¿n trÃºc Clean Architecture + MVVM trÃªn Android, kiáº¿n trÃºc 3 lá»›p trÃªn ASP.NET Core 8; thiáº¿t káº¿ lÆ°á»£c Ä‘á»“ quan há»‡ CSDL 6 báº£ng chuáº©n 3NF vÃ  há»£p Ä‘á»“ng 15 RESTful API endpoints.</p>
 <p>- <b>Giai Ä‘oáº¡n 3 (Tuáº§n 3 - 6): Hiá»‡n thá»±c hÃ³a & Láº­p trÃ¬nh (Implementation / Coding):</b> Láº­p trÃ¬nh mÃ¡y chá»§ Web API C# vÃ  á»©ng dá»¥ng di Ä‘á»™ng Kotlin (XÃ¡c thá»±c, TÃ¬m kiáº¿m & Bá»™ lá» c, Chi tiáº¿t phÃ²ng, Báº£ng dá»± toÃ¡n chi phÃ­ trá» , Chá»‰ Ä‘Æ°á» ng Google Maps, Chat 1-1 há»— trá»£ cá»­ chá»‰ vuá»‘t Ghim/Cháº·n/XÃ³a).</p>
 <p>- <b>Giai Ä‘oáº¡n 4 (Tuáº§n 7): Kiá»ƒm thá»­ pháº§n má» m (Testing & Verification):</b> Kiá»ƒm thá»­ chá»©c nÄƒng 15 API qua Swagger/Postman; kiá»ƒm thá»­ tÃ­ch há»£p trÃªn thiáº¿t bá»‹ tháº­t; kiá»ƒm thá»­ Ä‘á»™ mÆ°á»£t vÃ  kháº£ nÄƒng chá»‹u lá»—i máº¥t máº¡ng; kháº¯c phá»¥c 100% bug phÃ¡t sinh.</p>
-<p>- <b>Giai Ä‘oáº¡n 5 (Tuáº§n 8): Triá»ƒn khai Cloud & Ä Ã³ng gÃ³i APK (Deployment & Release):</b> Triá»ƒn khai CSDL MSSQL vÃ  Web API lÃªn MonsterASP Cloud 24/7 (<code>http://tro24h.runasp.net</code>); Ä‘Ã³ng gÃ³i báº£n phÃ¡t hÃ nh APK v1.0.0 kÃ¨m mÃ£ QR táº£i trá»±c tiáº¿p trÃªn GitHub Releases.</p>
+<p>- <b>Giai Ä‘oáº¡n 5 (Tuáº§n 8): Triá»ƒn khai Cloud & PhÃ¡t hÃ nh Chá»£ á»©ng dá»¥ng APKPure (Deployment & Release):</b> Triá»ƒn khai CSDL MSSQL vÃ  Web API lÃªn MonsterASP Cloud 24/7 (<code>http://tro24h.runasp.net</code>); phÃ¡t hÃ nh chÃ­nh thá»©c á»©ng dá»¥ng TRO24H lÃªn Chá»£ á»©ng dá»¥ng APKPure (<code>https://apkpure.net/tro24h-tìm-trọ-sinh-viên/com.unistay.android</code>).</p>
 <p>- <b>Giai Ä‘oáº¡n 6 (Tuáº§n 9): Nghiá»‡m thu & BÃ n giao dá»± Ã¡n (Maintenance & Handover):</b> Ä Ã¡nh giÃ¡ cháº¥t lÆ°á»£ng toÃ n diá»‡n, bÃ n giao bá»™ há»“ sÆ¡ ká»¹ thuáº­t (PRD, Kiáº¿n trÃºc, Tiáº¿n Ä‘á»™ ThÃ¡c NÆ°á»›c, Dá»± toÃ¡n ngÃ¢n sÃ¡ch) vÃ  chuáº©n bá»‹ slide báº£o vá»‡ Ä á»“ Ã¡n / BÃ i táº­p lá»›n.</p>
 
 <h3>3. Káº¿ hoáº¡ch nghiá»‡m thu, bÃ n giao vÃ  báº£o trÃ¬ pháº§n má»m</h3>
