@@ -153,7 +153,7 @@
 <div class="toc-item" style="padding-left: 20pt;">5. CÃ¡c yÃªu cáº§u phi chá»©c nÄƒng (Hiá»‡u nÄƒng, CÆ¡ sá»Ÿ dá»¯ liá»‡u, Báº£o máº­t, Giao diá»‡n)</div>
 <div class="toc-item"><b>VI. Káº¾ HOáº CH TRIá»‚N KHAI, BÃ€N GIAO & Váº¬N HÃ€NH Báº¢O TRÃŒ</b></div>
 <div class="toc-item" style="padding-left: 20pt;">1. MÃ´i trÆ°á»ng triá»ƒn khai pháº§n má»m (Dev, Test, Production Cloud)</div>
-<div class="toc-item" style="padding-left: 20pt;">2. Káº¿ hoáº¡ch triá»ƒn khai mÃ£ nguá»“n theo Sprint (Scrum Framework)</div>
+<div class="toc-item" style="padding-left: 20pt;">2. Káº¿ hoáº¡ch triá»ƒn khai mÃ£ nguá»“n theo MÃ´ hÃ¬nh ThÃ¡c NÆ°á»›c (Waterfall Model)</div>
 <div class="toc-item" style="padding-left: 20pt;">3. Káº¿ hoáº¡ch nghiá»‡m thu, bÃ n giao vÃ  báº£o trÃ¬ pháº§n má»m</div>
 <div class="toc-item"><b>VII. BIá»†N PHÃP AN TOÃ€N Váº¬N HÃ€NH & Báº¢O Máº¬T THÃ”NG TIN</b></div>
 
@@ -184,7 +184,7 @@
 <p>- <b>Äá»‹a bÃ n triá»ƒn khai:</b> Táº­p trung vÃ o Ä‘á»‹a bÃ n thÃ nh phá»‘ HÃ  Ná»™i, Ä‘áº·c biá»‡t lÃ  cÃ¡c quáº­n táº­p trung Ä‘Ã´ng trÆ°á»ng Ä‘áº¡i há»c (Äá»‘ng Äa, Cáº§u Giáº¥y, Hai BÃ  TrÆ°ng, Thanh XuÃ¢n) vÃ  cÃ³ thá»ƒ má»Ÿ rá»™ng toÃ n quá»‘c.</p>
 
 <h3>5. Thá»i gian thá»±c hiá»‡n vÃ  lá»™ trÃ¬nh</h3>
-<p>- <b>Tá»•ng thá»i gian thá»±c hiá»‡n:</b> 8 tuáº§n lÃ m viá»‡c (phÃ¢n chia thÃ nh cÃ¡c Sprint theo phÆ°Æ¡ng phÃ¡p luáº­n Scrum/Agile).</p>
+<p>- <b>Tá»•ng thá»i gian thá»±c hiá»‡n:</b> 9 tuáº§n lÃ m viá»‡c (tuÃ¢n thá»§ 6 giai Ä‘oáº¡n tuyáº¿n tÃ­nh tuáº§n tá»± theo MÃ´ hÃ¬nh ThÃ¡c NÆ°á»›c - Waterfall Model).</p>
 <p>- <b>Tráº¡ng thÃ¡i hiá»‡n táº¡i:</b> ÄÃ£ hoÃ n thÃ nh toÃ n bá»™ há»‡ thá»‘ng cÆ¡ sá»Ÿ dá»¯ liá»‡u trÃªn Ä‘Ã¡m mÃ¢y, mÃ¡y chá»§ Web API Ä‘Ã£ triá»ƒn khai online 24/7 vÃ  á»©ng dá»¥ng Android Ä‘Ã£ káº¿t ná»‘i máº¡ng hoÃ n chá»‰nh.</p>
 
 <h2>II. Sá»° Cáº¦N THIáº¾T Äáº¦U TÆ¯ & Má»¤C TIÃŠU</h2>
@@ -561,13 +561,13 @@
     </tr>
 </table>
 
-<h3>2. Káº¿ hoáº¡ch triá»ƒn khai mÃ£ nguá»“n theo Sprint (Scrum Framework)</h3>
-<p>- <b>Sprint 1 (Tuáº§n 1): Thiáº¿t láº­p cÆ¡ sá»Ÿ háº¡ táº§ng & Kiáº¿n trÃºc:</b> Cáº¥u hÃ¬nh dá»± Ã¡n Android vá»›i Clean Architecture + MVVM, tÃ­ch há»£p Retrofit, OkHttp, ViewBinding. Táº¡o cáº¥u trÃºc thÆ° má»¥c chuáº©n.</p>
-<p>- <b>Sprint 2 (Tuáº§n 2 - 3): XÃ¢y dá»±ng CÆ¡ sá»Ÿ dá»¯ liá»‡u & Backend Web API:</b> Thiáº¿t káº¿ CSDL 6 báº£ng, viáº¿t cÃ¡c Controller (Auth, Room, Chat), cáº¥u hÃ¬nh CORS vÃ  triá»ƒn khai Swagger.</p>
-<p>- <b>Sprint 3 (Tuáº§n 4): HoÃ n thiá»‡n Module XÃ¡c thá»±c (Authentication):</b> XÃ¢y dá»±ng giao diá»‡n ÄÄƒng kÃ½, ÄÄƒng nháº­p, lÆ°u trá»¯ phiÃªn ngÆ°á»i dÃ¹ng an toÃ n vÃ o DataStore.</p>
-<p>- <b>Sprint 4 (Tuáº§n 5 - 6): PhÃ¡t triá»ƒn Luá»“ng nghiá»‡p vá»¥ PhÃ²ng trá»:</b> XÃ¢y dá»±ng mÃ n hÃ¬nh Home Feed, bá»™ lá»c Ä‘a tiÃªu chÃ­ theo trÆ°á»ng ÄH vÃ  giÃ¡; phÃ¡t triá»ƒn mÃ n hÃ¬nh Chi tiáº¿t phÃ²ng hiá»ƒn thá»‹ chá»— trá»‘ng.</p>
-<p>- <b>Sprint 5 (Tuáº§n 7): PhÃ¡t triá»ƒn Module Tin nháº¯n 1-1 & Chá»§ trá»:</b> XÃ¢y dá»±ng giao diá»‡n chat hai chiá»u, hiá»ƒn thá»‹ danh sÃ¡ch há»™p thÆ° Ä‘áº¿n; hoÃ n thiá»‡n chá»©c nÄƒng táº¡o vÃ  sá»­a phÃ²ng cá»§a chá»§ trá».</p>
-<p>- <b>Sprint 6 (Tuáº§n 8): Triá»ƒn khai Cloud, Kiá»ƒm thá»­ tá»•ng thá»ƒ & ÄÃ³ng gÃ³i:</b> Triá»ƒn khai Backend vÃ  Database lÃªn Cloud MonsterASP; xuáº¥t báº£n file pp-release.apk vÃ  láº­p tÃ i liá»‡u bÃ n giao.</p>
+<h3>2. Káº¿ hoáº¡ch triá»ƒn khai mÃ£ nguá»“n theo MÃ´ hÃ¬nh ThÃ¡c NÆ°á»›c (Waterfall Model)</h3>
+<p>- <b>Giai Ä‘oáº¡n 1 (Tuáº§n 1): PhÃ¢n tÃ­ch & Ä áº·c táº£ yÃªu cáº§u (Requirements Analysis):</b> Kháº£o sÃ¡t thá»±c táº¿ nhu cáº§u sinh viÃªn vÃ  chá»§ trá» , xÃ¡c Ä‘á»‹nh yÃªu cáº§u chá»©c nÄƒng/phi chá»©c nÄƒng, láº­p mÃ´ hÃ¬nh Use Case vÃ  chá»‘t pháº¡m vi (Scope Freeze) qua tÃ i liá»‡u PRD/SRS.</p>
+<p>- <b>Giai Ä‘oáº¡n 2 (Tuáº§n 2): Thiáº¿t káº¿ há»‡ thá»‘ng & CÆ¡ sá»Ÿ dá»¯ liá»‡u (System & UI/UX Design):</b> Thiáº¿t káº¿ kiáº¿n trÃºc Clean Architecture + MVVM trÃªn Android, kiáº¿n trÃºc 3 lá»›p trÃªn ASP.NET Core 8; thiáº¿t káº¿ lÆ°á»£c Ä‘á»“ quan há»‡ CSDL 6 báº£ng chuáº©n 3NF vÃ  há»£p Ä‘á»“ng 15 RESTful API endpoints.</p>
+<p>- <b>Giai Ä‘oáº¡n 3 (Tuáº§n 3 - 6): Hiá»‡n thá»±c hÃ³a & Láº­p trÃ¬nh (Implementation / Coding):</b> Láº­p trÃ¬nh mÃ¡y chá»§ Web API C# vÃ  á»©ng dá»¥ng di Ä‘á»™ng Kotlin (XÃ¡c thá»±c, TÃ¬m kiáº¿m & Bá»™ lá» c, Chi tiáº¿t phÃ²ng, Báº£ng dá»± toÃ¡n chi phÃ­ trá» , Chá»‰ Ä‘Æ°á» ng Google Maps, Chat 1-1 há»— trá»£ cá»­ chá»‰ vuá»‘t Ghim/Cháº·n/XÃ³a).</p>
+<p>- <b>Giai Ä‘oáº¡n 4 (Tuáº§n 7): Kiá»ƒm thá»­ pháº§n má» m (Testing & Verification):</b> Kiá»ƒm thá»­ chá»©c nÄƒng 15 API qua Swagger/Postman; kiá»ƒm thá»­ tÃ­ch há»£p trÃªn thiáº¿t bá»‹ tháº­t; kiá»ƒm thá»­ Ä‘á»™ mÆ°á»£t vÃ  kháº£ nÄƒng chá»‹u lá»—i máº¥t máº¡ng; kháº¯c phá»¥c 100% bug phÃ¡t sinh.</p>
+<p>- <b>Giai Ä‘oáº¡n 5 (Tuáº§n 8): Triá»ƒn khai Cloud & Ä Ã³ng gÃ³i APK (Deployment & Release):</b> Triá»ƒn khai CSDL MSSQL vÃ  Web API lÃªn MonsterASP Cloud 24/7 (<code>http://tro24h.runasp.net</code>); Ä‘Ã³ng gÃ³i báº£n phÃ¡t hÃ nh APK v1.0.0 kÃ¨m mÃ£ QR táº£i trá»±c tiáº¿p trÃªn GitHub Releases.</p>
+<p>- <b>Giai Ä‘oáº¡n 6 (Tuáº§n 9): Nghiá»‡m thu & BÃ n giao dá»± Ã¡n (Maintenance & Handover):</b> Ä Ã¡nh giÃ¡ cháº¥t lÆ°á»£ng toÃ n diá»‡n, bÃ n giao bá»™ há»“ sÆ¡ ká»¹ thuáº­t (PRD, Kiáº¿n trÃºc, Tiáº¿n Ä‘á»™ ThÃ¡c NÆ°á»›c, Dá»± toÃ¡n ngÃ¢n sÃ¡ch) vÃ  chuáº©n bá»‹ slide báº£o vá»‡ Ä á»“ Ã¡n / BÃ i táº­p lá»›n.</p>
 
 <h3>3. Káº¿ hoáº¡ch nghiá»‡m thu, bÃ n giao vÃ  báº£o trÃ¬ pháº§n má»m</h3>
 <p>- <b>TiÃªu chÃ­ nghiá»‡m thu (Definition of Done - DOD):</b></p>
